@@ -31,7 +31,7 @@ namespace LGEVN.Services
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = StoreName;
                     if (parameters != null)
-                        foreach (IDataParameter param in parameters) command.Parameters.Add(param);
+                        foreach (OracleParameter param in parameters) command.Parameters.Add(param);
                     result = command.ExecuteNonQuery();
                 }
             }
@@ -57,7 +57,7 @@ namespace LGEVN.Services
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = StoreName;
                     if (parameters != null)
-                        foreach (IDataParameter param in parameters) command.Parameters.Add(param);
+                        foreach (OracleParameter param in parameters) command.Parameters.AddWithValue(param.ParameterName, param.Value);
                     result = command.ExecuteNonQuery();
                 }
             }
