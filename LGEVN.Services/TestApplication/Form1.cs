@@ -50,5 +50,12 @@ namespace TestApplication
             };
             ser.SendSelloutData(sellout);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LGServices.Service1 ser = new LGServices.Service1();
+            LGServices.Sellout sellout = ser.GetSelloutData("1", "1");
+            MessageBox.Show(sellout == null ? "" : sellout.CREATE_DATE.ToShortDateString());
+        }
     }
 }

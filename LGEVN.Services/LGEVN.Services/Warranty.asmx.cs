@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data.OracleClient;
 using System.Web;
 using System.Web.Services;
-
+using System.Linq;
 namespace LGEVN.Services
 {
     /// <summary>
@@ -51,12 +51,13 @@ namespace LGEVN.Services
             return id > -1;
         }
 
-
         [WebMethod]
         public Sellout GetSelloutData(string serial_no, string model)
         {
-            Sellout sellout = new Sellout();
-            return sellout;
+            var sellouts = OracleDataHelper.ExecuteProcedure<Sellout>("PKG_WEBSERVICE.ADD_SN_SO_WT_MST", new OracleParameter[]{
+            new OracleParameter("p_serial_no", serial_no), new OracleParameter("p_model", model), new OracleParameter("items_cursor", OracleType.Cursor)});
+            if (sellouts != null && sellouts.Count() > 0) return sellouts.ElementAt(0);
+            else return null;
         }
     }
 }
