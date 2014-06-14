@@ -1,5 +1,4 @@
 ﻿using LGEVN.Services.Implement;
-using LGEVN.Services.Interface;
 using System;
 using System.Collections.Generic;
 using System.Data.OracleClient;
@@ -18,7 +17,7 @@ namespace LGEVN.Services
     {
 
         [WebMethod]
-        public bool SendSelloutData(ISellout sellout)
+        public bool SendSelloutData(Sellout sellout)
         {
             OracleParameterCollection colllection = new OracleParameterCollection();
             colllection.Add(new OracleParameter("p_serial_no", sellout.SERIAL_NO));
@@ -54,9 +53,9 @@ namespace LGEVN.Services
 
 
         [WebMethod]
-        public ISellout GetSelloutData(string serial_no, string model)
+        public Sellout GetSelloutData(string serial_no, string model)
         {
-            ISellout sellout = new Sellout();
+            Sellout sellout = new Sellout();
             return sellout;
         }
     }
