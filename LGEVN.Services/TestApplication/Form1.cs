@@ -26,7 +26,7 @@ namespace TestApplication
                 CLOSE_USER = p_close_user.Text,
                 CREATE_DATE = DateTime.Now,//p_create_date.Text,
                 END_USER_CELL = p_end_user_cell.Text,
-                INCENTIVE_CFM_DATE = p_incentive_cfm_date.Text,
+                INCENTIVE_CFM_DATE =  DateTime.Now,//p_incentive_cfm_date.Text,
                 INCENTIVE_CFM_FLAG = p_incentive_cfm_flag.Text ,
                 INCENTIVE_CFM_PERIOD = p_incentive_cfm_period.Text,
                 INCENTIVE_CFM_USER = p_incentive_cfm_user.Text ,
