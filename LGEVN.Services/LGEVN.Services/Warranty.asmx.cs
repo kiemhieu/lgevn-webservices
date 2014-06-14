@@ -54,8 +54,11 @@ namespace LGEVN.Services
         [WebMethod]
         public Sellout GetSelloutData(string serial_no, string model)
         {
-            var sellouts = OracleDataHelper.ExecuteProcedure<Sellout>("PKG_WEBSERVICE.ADD_SN_SO_WT_MST", new OracleParameter[]{
-            new OracleParameter("p_serial_no", serial_no), new OracleParameter("p_model", model), new OracleParameter("items_cursor", OracleType.Cursor)});
+            var sellouts = OracleDataHelper.ExecuteProcedure<Sellout>("PKG_WEBSERVICE.GET_SN_SO_WT_MST", new OracleParameter[]{
+            new OracleParameter("p_serial_no", serial_no), 
+            new OracleParameter("p_model", model), 
+            new OracleParameter{ ParameterName="items_cursor", Direction= System.Data.ParameterDirection.Output, OracleType = OracleType.Cursor}});
+
             if (sellouts != null && sellouts.Count() > 0) return sellouts.ElementAt(0);
             else return null;
         }
