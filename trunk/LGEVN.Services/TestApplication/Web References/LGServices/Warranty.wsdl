@@ -24,7 +24,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="SELLOUT_RESP_TYPE" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="SELLOUT_TIME" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="INCENTIVE_CFM_FLAG" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="INCENTIVE_CFM_DATE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="INCENTIVE_CFM_DATE" nillable="true" type="s:dateTime" />
           <s:element minOccurs="0" maxOccurs="1" name="MODEL" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="SUFFIX" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="CLOSE_FLAG" type="s:string" />

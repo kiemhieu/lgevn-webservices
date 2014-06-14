@@ -37,7 +37,7 @@ namespace TestApplication.LGServices {
         
         /// <remarks/>
         public Service1() {
-            this.Url = global::TestApplication.Properties.Settings.Default.TestApplication_LGEVN_Services_Service1;
+            this.Url = global::TestApplication.Properties.Settings.Default.TestApplication_LGServices_Service1;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -190,7 +190,7 @@ namespace TestApplication.LGServices {
         
         private string iNCENTIVE_CFM_FLAGField;
         
-        private string iNCENTIVE_CFM_DATEField;
+        private System.Nullable<System.DateTime> iNCENTIVE_CFM_DATEField;
         
         private string mODELField;
         
@@ -353,7 +353,8 @@ namespace TestApplication.LGServices {
         }
         
         /// <remarks/>
-        public string INCENTIVE_CFM_DATE {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> INCENTIVE_CFM_DATE {
             get {
                 return this.iNCENTIVE_CFM_DATEField;
             }

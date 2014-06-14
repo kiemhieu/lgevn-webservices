@@ -5,3 +5,10 @@ D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services.Implement\obj\Deb
 D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services.Implement\obj\Debug\LGEVN.Services.Implement.csprojResolveAssemblyReference.cache
 D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services.Implement\bin\Debug\LGEVN.Services.Interface.dll
 D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services.Implement\bin\Debug\LGEVN.Services.Interface.pdb
+D:\Working\Project\ASP.NET\LGEVN\lgevn-webservices\trunk\LGEVN.Services\LGEVN.Services.Implement\obj\Debug\LGEVN.Services.Implement.csprojResolveAssemblyReference.cache
+D:\Working\Project\ASP.NET\LGEVN\lgevn-webservices\trunk\LGEVN.Services\LGEVN.Services.Implement\bin\Debug\LGEVN.Services.Implement.dll
+D:\Working\Project\ASP.NET\LGEVN\lgevn-webservices\trunk\LGEVN.Services\LGEVN.Services.Implement\bin\Debug\LGEVN.Services.Implement.pdb
+D:\Working\Project\ASP.NET\LGEVN\lgevn-webservices\trunk\LGEVN.Services\LGEVN.Services.Implement\bin\Debug\LGEVN.Services.Interface.dll
+D:\Working\Project\ASP.NET\LGEVN\lgevn-webservices\trunk\LGEVN.Services\LGEVN.Services.Implement\bin\Debug\LGEVN.Services.Interface.pdb
+D:\Working\Project\ASP.NET\LGEVN\lgevn-webservices\trunk\LGEVN.Services\LGEVN.Services.Implement\obj\Debug\LGEVN.Services.Implement.dll
+D:\Working\Project\ASP.NET\LGEVN\lgevn-webservices\trunk\LGEVN.Services\LGEVN.Services.Implement\obj\Debug\LGEVN.Services.Implement.pdb

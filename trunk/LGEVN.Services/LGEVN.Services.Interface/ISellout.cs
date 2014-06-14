@@ -28,7 +28,7 @@ namespace LGEVN.Services.Interface
         string SELLOUT_RESP_TYPE { get; set; }
         string SELLOUT_TIME { get; set; }
         string INCENTIVE_CFM_FLAG { get; set; }
-        string INCENTIVE_CFM_DATE { get; set; }
+        DateTime? INCENTIVE_CFM_DATE { get; set; }
         string MODEL { get; set; }
         string SUFFIX { get; set; }
         string CLOSE_FLAG { get; set; }
