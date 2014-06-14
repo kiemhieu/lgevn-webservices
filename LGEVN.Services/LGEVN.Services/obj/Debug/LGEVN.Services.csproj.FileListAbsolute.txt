@@ -1,0 +1,12 @@
+D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services\bin\LGEVN.Services.dll
+D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services\bin\LGEVN.Services.pdb
+D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services\obj\Debug\LGEVN.Services.csprojResolveAssemblyReference.cache
+D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services\obj\Debug\LGEVN.Services.dll
+D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services\obj\Debug\LGEVN.Services.pdb
+D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services\bin\LGEVN.Services.Implement.dll
+D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services\bin\LGEVN.Services.Interface.dll
+D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services\bin\LGEVN.Services.Implement.pdb
+D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services\bin\LGEVN.Services.Interface.pdb
+D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services\bin\AutoMapper.Net4.dll
+D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services\bin\AutoMapper.dll
+D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services\bin\AutoMapper.xml

@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="Warranty.asmx.cs" Class="LGEVN.Services.Service1" %>

@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LGEVN.Services", "LGEVN.Services\LGEVN.Services.csproj", "{D80FE783-4847-44E8-89BA-6794F6471AC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LGEVN.Services.Implement", "LGEVN.Services.Implement\LGEVN.Services.Implement.csproj", "{5349C29A-7A9E-4FE1-8131-57D869557ED2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LGEVN.Services.Interface", "LGEVN.Services.Interface\LGEVN.Services.Interface.csproj", "{2C14C952-4C24-48E0-B7E1-E428A60494B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D80FE783-4847-44E8-89BA-6794F6471AC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D80FE783-4847-44E8-89BA-6794F6471AC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D80FE783-4847-44E8-89BA-6794F6471AC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D80FE783-4847-44E8-89BA-6794F6471AC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5349C29A-7A9E-4FE1-8131-57D869557ED2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5349C29A-7A9E-4FE1-8131-57D869557ED2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5349C29A-7A9E-4FE1-8131-57D869557ED2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5349C29A-7A9E-4FE1-8131-57D869557ED2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C14C952-4C24-48E0-B7E1-E428A60494B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C14C952-4C24-48E0-B7E1-E428A60494B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C14C952-4C24-48E0-B7E1-E428A60494B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C14C952-4C24-48E0-B7E1-E428A60494B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

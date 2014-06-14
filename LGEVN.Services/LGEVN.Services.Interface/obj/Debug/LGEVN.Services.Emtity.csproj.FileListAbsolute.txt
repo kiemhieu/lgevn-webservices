@@ -1,0 +1,4 @@
+D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services.Emtity\bin\Debug\LGEVN.Services.Emtity.dll
+D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services.Emtity\bin\Debug\LGEVN.Services.Emtity.pdb
+D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services.Emtity\obj\Debug\LGEVN.Services.Emtity.dll
+D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services.Emtity\obj\Debug\LGEVN.Services.Emtity.pdb
