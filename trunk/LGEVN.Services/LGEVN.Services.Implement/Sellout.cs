@@ -30,7 +30,7 @@ namespace LGEVN.Services.Implement
         public string SELLOUT_RESP_TYPE { get; set; }
         public string SELLOUT_TIME { get; set; }
         public string INCENTIVE_CFM_FLAG { get; set; }
-        public string INCENTIVE_CFM_DATE { get; set; }
+        public DateTime? INCENTIVE_CFM_DATE { get; set; }
         public string MODEL { get; set; }
         public string SUFFIX { get; set; }
         public string CLOSE_FLAG { get; set; }

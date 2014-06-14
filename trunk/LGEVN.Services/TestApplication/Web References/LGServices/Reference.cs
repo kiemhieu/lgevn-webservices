@@ -37,7 +37,7 @@ namespace TestApplication.LGServices {
         
         /// <remarks/>
         public Service1() {
-            this.Url = global::TestApplication.Properties.Settings.Default.TestApplication_LGServices_Service1;
+            this.Url = global::TestApplication.Properties.Settings.Default.TestApplication_LGEVN_Services_Service1;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
