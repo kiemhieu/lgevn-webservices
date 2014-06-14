@@ -38,6 +38,33 @@ namespace LGEVN.Services
             return result;
         }
 
+
+        // <summary>
+        /// Exec a procedure in oracle
+        /// </summary>
+        /// <param name="StoreName">Name (with namespace) of Store procedure</param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        public static int ExecuteProcedure(string StoreName, OracleParameterCollection parameters)
+        {
+            int result = -1;
+            using (var conn = new OracleConnection())
+            {
+                conn.ConnectionString = ConnectionString;
+                conn.Open();
+                using (var command = conn.CreateCommand())
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = StoreName;
+                    if (parameters != null)
+                        foreach (IDataParameter param in parameters) command.Parameters.Add(param);
+                    result = command.ExecuteNonQuery();
+                }
+            }
+            return result;
+        }
+
+
         /// <summary>
         /// Exec a storeprocedure with returl db table map value
         /// </summary>
