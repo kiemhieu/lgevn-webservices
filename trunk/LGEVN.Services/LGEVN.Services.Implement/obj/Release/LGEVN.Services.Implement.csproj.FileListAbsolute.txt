@@ -1,0 +1,7 @@
+D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services.Implement\bin\Release\LGEVN.Services.Implement.dll
+D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services.Implement\bin\Release\LGEVN.Services.Implement.pdb
+D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services.Implement\bin\Release\LGEVN.Services.Interface.dll
+D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services.Implement\bin\Release\LGEVN.Services.Interface.pdb
+D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services.Implement\obj\Release\LGEVN.Services.Implement.csprojResolveAssemblyReference.cache
+D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services.Implement\obj\Release\LGEVN.Services.Implement.dll
+D:\Working\Project\ASP.NET\LGEVN\LGEVN.Services\LGEVN.Services.Implement\obj\Release\LGEVN.Services.Implement.pdb
