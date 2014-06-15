@@ -62,9 +62,19 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="LgeService.asmx" />
+    <Content Include="MorderChanel.asmx" />
     <Content Include="Warranty.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LgeService.asmx.cs">
+      <DependentUpon>LgeService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MorderChanel.asmx.cs">
+      <DependentUpon>MorderChanel.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="OracleDataHelper.cs" />
     <Compile Include="Warranty.asmx.cs">
       <DependentUpon>Warranty.asmx</DependentUpon>

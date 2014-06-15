@@ -15,7 +15,6 @@ namespace LGEVN.Services
     [System.ComponentModel.ToolboxItem(false)]
     public class Service1 : System.Web.Services.WebService
     {
-
         [WebMethod]
         public bool SendSelloutData(Sellout sellout)
         {
@@ -52,7 +51,7 @@ namespace LGEVN.Services
         }
 
         [WebMethod]
-        public Sellout GetSelloutData(string serial_no, string model)
+        public Sellout GetSellout(string serial_no, string model)
         {
             var sellouts = OracleDataHelper.ExecuteProcedure<Sellout>("PKG_WEBSERVICE.GET_SN_SO_WT_MST", new OracleParameter[]{
             new OracleParameter("p_serial_no", serial_no), 
@@ -61,6 +60,14 @@ namespace LGEVN.Services
 
             if (sellouts != null && sellouts.Count() > 0) return sellouts.ElementAt(0);
             else return null;
+        }
+
+        [WebMethod]
+        public IEnumerable<Sellout> GetSelloutData()
+        {
+            var sellouts = OracleDataHelper.ExecuteProcedure<Sellout>("PKG_WEBSERVICE.GET_NOTRANS_SN_SO_WT_MST", new OracleParameter[]{
+            new OracleParameter{ ParameterName="items_cursor", Direction= System.Data.ParameterDirection.Output, OracleType = OracleType.Cursor}});
+            return sellouts;
         }
     }
 }
