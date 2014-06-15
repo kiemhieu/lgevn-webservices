@@ -35,6 +35,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\TB_APP_ERROR.cs" />
+    <Compile Include="Base\TB_SN_SO_WT_HIST.cs" />
     <Compile Include="Base\SQLPLUS_PRODUCT_PROFILE.cs" />
     <Compile Include="Base\TB_CM_BILLTO_INF.cs" />
     <Compile Include="Base\TB_CM_MODEL_CAT.cs" />
