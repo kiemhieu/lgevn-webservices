@@ -234,13 +234,183 @@ namespace LGEVN.Services
         }
 
         // ===========================================================TB_CM_BILLTO_INFT==========================================================
-        // ===========================================================TB_CM_MODEL_CATT===========================================================
-        // ===========================================================TB_CM_SHIPTO_INFT==========================================================
-        // ===========================================================TB_CM_SHOP_BILLTOT=========================================================
-        // ===========================================================TB_CM_SHOP_INFT============================================================
-        // ===========================================================TB_EDI_RESULTT=============================================================
-        // ===========================================================TB_MO_HISTT================================================================
-        // ===========================================================TB_MT_HISTT================================================================
-        // ===========================================================TB_MT_SMS_RESP_MSGT======================================================== 
+        public TB_CM_BILLTO_INF GET_TB_CM_BILLTO_INF(string serial_no, string model)
+        {
+            var sellouts = OracleDataHelper.ExecuteProcedure<TB_CM_BILLTO_INF>("PKG_WEBSERVICE.GET_CM_BILLTO_INF", new OracleParameter[]{
+            new OracleParameter("p_serial_no", serial_no), 
+            new OracleParameter("p_model", model), 
+            new OracleParameter{ ParameterName="items_cursor", Direction= System.Data.ParameterDirection.Output, OracleType = OracleType.Cursor}});
+
+            if (sellouts != null && sellouts.Count() > 0) return sellouts.ElementAt(0);
+            else return null;
+        }
+
+        [WebMethod]
+        public IEnumerable<TB_CM_BILLTO_INF> GET_TB_CM_BILLTO_INF_NOTRANS()
+        {
+            var sellouts = OracleDataHelper.ExecuteProcedure<TB_CM_BILLTO_INF>("PKG_WEBSERVICE.GET_NOTRANS_CM_BILLTO_INF", new OracleParameter[]{
+            new OracleParameter{ ParameterName="items_cursor", Direction= System.Data.ParameterDirection.Output, OracleType = OracleType.Cursor}});
+            return sellouts;
+        }
+
+        // ===========================================================TB_CM_MODEL_CAT===========================================================
+        public TB_CM_MODEL_CAT GET_TB_CM_MODEL_CAT(string serial_no, string model)
+        {
+            var sellouts = OracleDataHelper.ExecuteProcedure<TB_CM_MODEL_CAT>("PKG_WEBSERVICE.GET_CM_MODEL_CAT", new OracleParameter[]{
+            new OracleParameter("p_serial_no", serial_no), 
+            new OracleParameter("p_model", model), 
+            new OracleParameter{ ParameterName="items_cursor", Direction= System.Data.ParameterDirection.Output, OracleType = OracleType.Cursor}});
+
+            if (sellouts != null && sellouts.Count() > 0) return sellouts.ElementAt(0);
+            else return null;
+        }
+
+        [WebMethod]
+        public IEnumerable<TB_CM_MODEL_CAT> GET_TB_CM_MODEL_CAT_NOTRANS()
+        {
+            var sellouts = OracleDataHelper.ExecuteProcedure<TB_CM_MODEL_CAT>("PKG_WEBSERVICE.GET_NOTRANS_CM_MODEL_CAT", new OracleParameter[]{
+            new OracleParameter{ ParameterName="items_cursor", Direction= System.Data.ParameterDirection.Output, OracleType = OracleType.Cursor}});
+            return sellouts;
+        }
+
+        // ===========================================================TB_CM_SHIPTO_INF==========================================================
+        public TB_CM_SHIPTO_INF GET_TB_CM_SHIPTO_INF(string serial_no, string model)
+        {
+            var sellouts = OracleDataHelper.ExecuteProcedure<TB_CM_SHIPTO_INF>("PKG_WEBSERVICE.GET_CM_SHIPTO_INF", new OracleParameter[]{
+            new OracleParameter("p_serial_no", serial_no), 
+            new OracleParameter("p_model", model), 
+            new OracleParameter{ ParameterName="items_cursor", Direction= System.Data.ParameterDirection.Output, OracleType = OracleType.Cursor}});
+
+            if (sellouts != null && sellouts.Count() > 0) return sellouts.ElementAt(0);
+            else return null;
+        }
+
+        [WebMethod]
+        public IEnumerable<TB_CM_SHIPTO_INF> GET_TB_CM_SHIPTO_INF_NOTRANS()
+        {
+            var sellouts = OracleDataHelper.ExecuteProcedure<TB_CM_SHIPTO_INF>("PKG_WEBSERVICE.GET_NOTRANS_CM_SHIPTO_INF", new OracleParameter[]{
+            new OracleParameter{ ParameterName="items_cursor", Direction= System.Data.ParameterDirection.Output, OracleType = OracleType.Cursor}});
+            return sellouts;
+        }
+
+        // ===========================================================TB_CM_SHOP_BILLTO=========================================================
+        public TB_CM_SHOP_BILLTO GET_TB_CM_SHOP_BILLTO(string serial_no, string model)
+        {
+            var sellouts = OracleDataHelper.ExecuteProcedure<TB_CM_SHOP_BILLTO>("PKG_WEBSERVICE.GET_CM_SHOP_BILLTO", new OracleParameter[]{
+            new OracleParameter("p_serial_no", serial_no), 
+            new OracleParameter("p_model", model), 
+            new OracleParameter{ ParameterName="items_cursor", Direction= System.Data.ParameterDirection.Output, OracleType = OracleType.Cursor}});
+
+            if (sellouts != null && sellouts.Count() > 0) return sellouts.ElementAt(0);
+            else return null;
+        }
+
+        [WebMethod]
+        public IEnumerable<TB_CM_SHOP_BILLTO> GET_TB_CM_SHOP_BILLTO_NOTRANS()
+        {
+            var sellouts = OracleDataHelper.ExecuteProcedure<TB_CM_SHOP_BILLTO>("PKG_WEBSERVICE.GET_NOTRANS_CM_SHOP_BILLTO", new OracleParameter[]{
+            new OracleParameter{ ParameterName="items_cursor", Direction= System.Data.ParameterDirection.Output, OracleType = OracleType.Cursor}});
+            return sellouts;
+        }
+
+        // ===========================================================TB_CM_SHOP_INF============================================================
+        public TB_CM_SHOP_INF GET_TB_CM_SHOP_INF(string serial_no, string model)
+        {
+            var sellouts = OracleDataHelper.ExecuteProcedure<TB_CM_SHOP_INF>("PKG_WEBSERVICE.GET_CM_SHOP_INF", new OracleParameter[]{
+            new OracleParameter("p_serial_no", serial_no), 
+            new OracleParameter("p_model", model), 
+            new OracleParameter{ ParameterName="items_cursor", Direction= System.Data.ParameterDirection.Output, OracleType = OracleType.Cursor}});
+
+            if (sellouts != null && sellouts.Count() > 0) return sellouts.ElementAt(0);
+            else return null;
+        }
+
+        [WebMethod]
+        public IEnumerable<TB_CM_SHOP_INF> GET_TB_CM_SHOP_INF_NOTRANS()
+        {
+            var sellouts = OracleDataHelper.ExecuteProcedure<TB_CM_SHOP_INF>("PKG_WEBSERVICE.GET_NOTRANS_CM_SHOP_INF", new OracleParameter[]{
+            new OracleParameter{ ParameterName="items_cursor", Direction= System.Data.ParameterDirection.Output, OracleType = OracleType.Cursor}});
+            return sellouts;
+        }
+
+        // ===========================================================TB_EDI_RESULT=============================================================
+        public TB_EDI_RESULT GET_TB_EDI_RESULT(string serial_no, string model)
+        {
+            var sellouts = OracleDataHelper.ExecuteProcedure<TB_EDI_RESULT>("PKG_WEBSERVICE.GET_EDI_RESULT", new OracleParameter[]{
+            new OracleParameter("p_serial_no", serial_no), 
+            new OracleParameter("p_model", model), 
+            new OracleParameter{ ParameterName="items_cursor", Direction= System.Data.ParameterDirection.Output, OracleType = OracleType.Cursor}});
+
+            if (sellouts != null && sellouts.Count() > 0) return sellouts.ElementAt(0);
+            else return null;
+        }
+
+        [WebMethod]
+        public IEnumerable<TB_EDI_RESULT> GET_TB_EDI_RESULT_NOTRANS()
+        {
+            var sellouts = OracleDataHelper.ExecuteProcedure<TB_EDI_RESULT>("PKG_WEBSERVICE.GET_NOTRANS_EDI_RESULT", new OracleParameter[]{
+            new OracleParameter{ ParameterName="items_cursor", Direction= System.Data.ParameterDirection.Output, OracleType = OracleType.Cursor}});
+            return sellouts;
+        }
+
+        // ===========================================================TB_MO_HIST================================================================
+        public TB_MO_HIST GET_TB_MO_HIST(string serial_no, string model)
+        {
+            var sellouts = OracleDataHelper.ExecuteProcedure<TB_MO_HIST>("PKG_WEBSERVICE.GET_MO_HIST", new OracleParameter[]{
+            new OracleParameter("p_serial_no", serial_no), 
+            new OracleParameter("p_model", model), 
+            new OracleParameter{ ParameterName="items_cursor", Direction= System.Data.ParameterDirection.Output, OracleType = OracleType.Cursor}});
+
+            if (sellouts != null && sellouts.Count() > 0) return sellouts.ElementAt(0);
+            else return null;
+        }
+
+        [WebMethod]
+        public IEnumerable<TB_MO_HIST> GET_TB_MO_HIST_NOTRANS()
+        {
+            var sellouts = OracleDataHelper.ExecuteProcedure<TB_MO_HIST>("PKG_WEBSERVICE.GET_NOTRANS_MO_HIST", new OracleParameter[]{
+            new OracleParameter{ ParameterName="items_cursor", Direction= System.Data.ParameterDirection.Output, OracleType = OracleType.Cursor}});
+            return sellouts;
+        }
+
+        // ===========================================================TB_MT_HIST================================================================
+        public TB_MT_HIST GET_TB_MT_HIST(string serial_no, string model)
+        {
+            var sellouts = OracleDataHelper.ExecuteProcedure<TB_MT_HIST>("PKG_WEBSERVICE.GET_MT_HIST", new OracleParameter[]{
+            new OracleParameter("p_serial_no", serial_no), 
+            new OracleParameter("p_model", model), 
+            new OracleParameter{ ParameterName="items_cursor", Direction= System.Data.ParameterDirection.Output, OracleType = OracleType.Cursor}});
+
+            if (sellouts != null && sellouts.Count() > 0) return sellouts.ElementAt(0);
+            else return null;
+        }
+
+        [WebMethod]
+        public IEnumerable<TB_MT_HIST> GET_TB_MT_HIST_NOTRANS()
+        {
+            var sellouts = OracleDataHelper.ExecuteProcedure<TB_MT_HIST>("PKG_WEBSERVICE.GET_NOTRANS_MT_HIST", new OracleParameter[]{
+            new OracleParameter{ ParameterName="items_cursor", Direction= System.Data.ParameterDirection.Output, OracleType = OracleType.Cursor}});
+            return sellouts;
+        }
+
+        // ===========================================================TB_MT_SMS_RESP_MSG======================================================== 
+        public TB_MT_SMS_RESP_MSG GET_TB_MT_SMS_RESP_MSG(string serial_no, string model)
+        {
+            var sellouts = OracleDataHelper.ExecuteProcedure<TB_MT_SMS_RESP_MSG>("PKG_WEBSERVICE.GET_MT_SMS_RESP_MSG", new OracleParameter[]{
+            new OracleParameter("p_serial_no", serial_no), 
+            new OracleParameter("p_model", model), 
+            new OracleParameter{ ParameterName="items_cursor", Direction= System.Data.ParameterDirection.Output, OracleType = OracleType.Cursor}});
+
+            if (sellouts != null && sellouts.Count() > 0) return sellouts.ElementAt(0);
+            else return null;
+        }
+
+        [WebMethod]
+        public IEnumerable<TB_MT_SMS_RESP_MSG> GET_TB_MT_SMS_RESP_MSG_NOTRANS()
+        {
+            var sellouts = OracleDataHelper.ExecuteProcedure<TB_MT_SMS_RESP_MSG>("PKG_WEBSERVICE.GET_NOTRANS_MT_SMS_RESP_MSG", new OracleParameter[]{
+            new OracleParameter{ ParameterName="items_cursor", Direction= System.Data.ParameterDirection.Output, OracleType = OracleType.Cursor}});
+            return sellouts;
+        }
     }
 }
