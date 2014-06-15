@@ -35,6 +35,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\SQLPLUS_PRODUCT_PROFILE.cs" />
+    <Compile Include="Base\TB_CM_BILLTO_INF.cs" />
+    <Compile Include="Base\TB_CM_MODEL_CAT.cs" />
+    <Compile Include="Base\TB_CM_SHIPTO_INF.cs" />
+    <Compile Include="Base\TB_CM_SHOP_BILLTO.cs" />
+    <Compile Include="Base\TB_CM_SHOP_INF.cs" />
+    <Compile Include="Base\TB_MO_HIST.cs" />
+    <Compile Include="Base\TB_MT_HIST.cs" />
+    <Compile Include="Base\TB_MT_SMS_RESP_MSG.cs" />
+    <Compile Include="Base\TB_ORDER_SHIP_HIST.cs" />
+    <Compile Include="Base\TB_SN_CDC_HIST.cs" />
+    <Compile Include="Base\TB_SN_PND_HIST.cs" />
+    <Compile Include="Base\TB_SN_RDC_HIST.cs" />
+    <Compile Include="Base\TB_SN_SO_DEALERS.cs" />
+    <Compile Include="Base\TB_SN_SO_WT_MST.cs" />
+    <Compile Include="Base\TB_SN_SO_WT_MST0.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sellout.cs" />
