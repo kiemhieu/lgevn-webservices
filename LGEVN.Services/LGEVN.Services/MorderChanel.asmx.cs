@@ -20,9 +20,11 @@ namespace LGEVN.Services
     {
 
         [WebMethod]
-        public int GET_WS_EDI(string ws_shop_code, string ws_shop_key, string serial_no, string model, string sell_date, string eucell, string euname, string euadd, string request_time)
+        public object GET_WS_EDI(string ws_shop_code, string ws_shop_key, string serial_no, string model, string sell_date, string eucell, string euname, string euadd, string request_time)
         {
-            var result = OracleDataHelper.ExecuteProcedure("PKG_EDI_MST.FN_RESPONSE_WS_EDI", new OracleParameter[]{
+            var resultparam = new OracleParameter { ParameterName = "p_out", Direction = System.Data.ParameterDirection.Output, OracleType = OracleType.Clob };
+            var result = OracleDataHelper.ExecuteProcedure("PK_EDI_MST.PR_RESPONSE_WS_EDI", new OracleParameter[]{
+                //resultparam,
                 new OracleParameter("p_ws_shop_code", ws_shop_code), 
                 new OracleParameter("p_ws_shop_key", ws_shop_key), 
                 new OracleParameter("p_serial_no", serial_no), 
@@ -31,11 +33,10 @@ namespace LGEVN.Services
                 new OracleParameter("p_eucell", eucell), 
                 new OracleParameter("p_euname", euname), 
                 new OracleParameter("p_euadd", euadd), 
-                new OracleParameter("p_request_time", request_time)
-                //new OracleParameter{ ParameterName="items_cursor", Direction= System.Data.ParameterDirection.Output, OracleType = OracleType.Cursor}
+                new OracleParameter("p_request_time", request_time),
             });
 
-            return result;
+            return resultparam.Value;
         }
 
 
