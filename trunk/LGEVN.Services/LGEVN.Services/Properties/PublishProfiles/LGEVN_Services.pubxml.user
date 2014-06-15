@@ -10,20 +10,35 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <TimeStampOfAssociatedLegacyPublishXmlFile />
   </PropertyGroup>
   <ItemGroup>
+    <File Include="bin/AutoMapper.dll">
+      <publishTime>06/14/2014 14:58:23</publishTime>
+    </File>
+    <File Include="bin/AutoMapper.Net4.dll">
+      <publishTime>06/14/2014 14:58:23</publishTime>
+    </File>
     <File Include="bin/LGEVN.Services.dll">
-      <publishTime>06/14/2014 14:02:54</publishTime>
+      <publishTime>06/15/2014 14:43:53</publishTime>
     </File>
     <File Include="bin/LGEVN.Services.Implement.dll">
-      <publishTime>06/14/2014 14:02:53</publishTime>
+      <publishTime>06/15/2014 14:43:52</publishTime>
     </File>
     <File Include="bin/LGEVN.Services.Interface.dll">
-      <publishTime>06/14/2014 14:02:53</publishTime>
+      <publishTime>06/15/2014 14:43:52</publishTime>
+    </File>
+    <File Include="LgeService.asmx">
+      <publishTime>06/15/2014 08:11:40</publishTime>
+    </File>
+    <File Include="MorderChanel.asmx">
+      <publishTime>06/15/2014 08:08:47</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>06/14/2014 14:58:24</publishTime>
     </File>
     <File Include="Warranty.asmx">
       <publishTime>06/14/2014 12:58:25</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/14/2014 14:02:54</publishTime>
+      <publishTime>06/15/2014 14:43:54</publishTime>
     </File>
   </ItemGroup>
 </Project>
