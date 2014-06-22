@@ -4,7 +4,6 @@ using System.Configuration;
 using System.Data;
 using System.Data.OracleClient;
 using System.Reflection;
-using System.Web;
 
 namespace LGEVN.ClientServices
 {

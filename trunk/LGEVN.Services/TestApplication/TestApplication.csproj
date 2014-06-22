@@ -67,6 +67,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatusChecker.cs" />
     <Compile Include="Web References\LGService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
