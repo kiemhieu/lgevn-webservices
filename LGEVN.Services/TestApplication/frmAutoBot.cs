@@ -30,17 +30,15 @@ namespace TestApplication
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LGService.HIEUNK_TEST test = new LGService.HIEUNK_TEST
+            LGService.TB_CM_MRP test = new LGService.TB_CM_MRP
             {
-                ID = "3",
-                NAME = "HopDT",
-                DESCRIPTION = "DANG THAI HOP",
-                BIRTH = DateTime.Now,
-                FLAG = "N"
+                MODEL = "LG",
+                MRP = "LGE", 
+                CREATE_DATE = DateTime.Now
             };
 
             LGService.LgeService service = new LGService.LgeService();
-            service.INSERT_HIEUNK_TEST(test);
+            service.INSERT_TB_CM_MRP(test);
         }
     } 
 }
