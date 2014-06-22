@@ -9,6 +9,7 @@ namespace LGEVN.Services.Implement
         public string ID { get; set; }
         public string NAME { get; set; }
         public string DESCRIPTION { get; set; }
+        public DateTime BIRTH { get; set; }
         public string FLAG { get; set; }
     }
 }
