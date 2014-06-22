@@ -17,8 +17,8 @@ namespace TestApplication
 
         private void btnAddSellOut_Click(object sender, EventArgs e)
         {
-            LGServices.Service1 ser = new LGServices.Service1();
-            LGServices.Sellout sellout = new LGServices.Sellout
+            LGService.LgeService ser = new LGService.LgeService();
+            LGService.TB_SN_SO_WT_MST sellout = new LGService.TB_SN_SO_WT_MST
             {
                 AMT = p_amt.Text,
                 CLOSE_FLAG = p_close_flag.Text,
@@ -53,9 +53,9 @@ namespace TestApplication
 
         private void button2_Click(object sender, EventArgs e)
         {
-            LGServices.Service1 ser = new LGServices.Service1();
-            LGServices.Sellout sellout = ser.GetSelloutData("1", "1");
-            MessageBox.Show(sellout == null ? "" : sellout.CREATE_DATE.ToShortDateString());
+            LGService.TB_SN_SO_WT_MST ser = new LGService.TB_SN_SO_WT_MST();
+            //LGService.TB_SN_SO_WT_MST sellout = ser.GetSelloutData("1", "1");
+            //MessageBox.Show(sellout == null ? "" : sellout.CREATE_DATE.ToShortDateString());
         }
     }
 }
