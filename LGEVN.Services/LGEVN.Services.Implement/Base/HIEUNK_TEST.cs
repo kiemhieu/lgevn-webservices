@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LGEVN.Services.Implement.Base
+namespace LGEVN.Services.Implement
 {
     public class HIEUNK_TEST
     {
