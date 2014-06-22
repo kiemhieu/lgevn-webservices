@@ -1,4 +1,4 @@
-﻿using LGEVN.Services.Implement.Base;
+﻿using LGEVN.Services.Implement;
 using System;
 using System.Data.OracleClient;
 using System.Linq;

@@ -112,26 +112,30 @@ namespace LGEVN.Services
             //Get property infor of key field
             Type myType = typeof(TEntity);
             var props = myType.GetProperties();
-            foreach (var inf in props)
-            {
-                string proname = inf.Name;
-
-                if (sInto != string.Empty)
-                {
-                    sInto += ", ";
-                    sValue += ", ";
-                }
-                sInto += proname;
-                sValue += inf.GetValue(entity, null).ToString();
-            } 
-
-            string query = "INSERT INTO " + table_name + "(" + sInto + ") VALUES (" + sValue + ")";
             using (var conn = new OracleConnection())
             {
                 conn.ConnectionString = ConnectionString;
                 conn.Open();
+
                 using (var command = conn.CreateCommand())
                 {
+                    foreach (var inf in props)
+                    {
+                        object value = inf.GetValue(entity, null);
+
+                        string proname = inf.Name;
+                        if (sInto != string.Empty)
+                        {
+                            sInto += ", ";
+                            sValue += ", ";
+                        }
+
+                        sValue += ":p_" + proname;
+                        sInto += proname;
+                        var param = new OracleParameter("p_" + proname, value);
+                        command.Parameters.Add(param);
+                    }
+                    string query = "INSERT INTO " + table_name + "(" + sInto + ") VALUES (" + sValue + ")";
                     command.CommandType = CommandType.Text;
                     command.CommandText = query;
                     result = command.ExecuteNonQuery();

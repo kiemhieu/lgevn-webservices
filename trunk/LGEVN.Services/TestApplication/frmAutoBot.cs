@@ -27,5 +27,20 @@ namespace TestApplication
             autoEvent.WaitOne((int)(minute * 60000), false);
             stateTimer.Change(0, (int)(minute * 60000)); // (X) *  1 Minute  
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LGService.HIEUNK_TEST test = new LGService.HIEUNK_TEST
+            {
+                ID = "3",
+                NAME = "HopDT",
+                DESCRIPTION = "DANG THAI HOP",
+                BIRTH = DateTime.Now,
+                FLAG = "N"
+            };
+
+            LGService.LgeService service = new LGService.LgeService();
+            service.INSERT_HIEUNK_TEST(test);
+        }
     } 
 }
