@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.OracleClient;
+using System.Reflection;
 using System.Web;
 
 namespace LGEVN.Services
@@ -10,7 +12,10 @@ namespace LGEVN.Services
     {
         public static string ConnectionString
         {
-            get { return "Data Source=123.30.208.199:1521/KTNET2E;User Id=TEST_NET2E;Password=vdcnet2e_123;"; }
+            get
+            {
+                return ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString; //"Data Source=123.30.208.199:1521/KTNET2E;User Id=TEST_NET2E;Password=vdcnet2e_123;"; 
+            }
         }
 
         /// <summary>
@@ -113,6 +118,7 @@ namespace LGEVN.Services
         /// <returns></returns>
         public static IEnumerable<TEntity> GetNoTransfer<TEntity>(string table_name, string flag) //where TEntity : class
         {
+            string a = ConnectionString;
             IEnumerable<TEntity> result = null;
             using (var conn = new OracleConnection())
             {
@@ -137,6 +143,53 @@ namespace LGEVN.Services
                         }
                         if (lst.Count != 0) result = lst;
                     }
+                }
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Exec a procedure in oracle
+        /// </summary>
+        /// <param name="StoreName">Name (with namespace) of Store procedure</param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        public static int ExecuteFlag<TEntity>(TEntity entity, string table_name, string flag, params string[] keysfield)
+        {
+            int result = -1;
+            string query = "UPDATE " + table_name + " SET " + flag + "='Y' WHERE ";
+
+            Dictionary<string, string> dictkey = new Dictionary<string, string>();
+            //Get dict of params
+            foreach (var key in keysfield)
+            {
+                dictkey.Add(key.ToUpper(), key.ToUpper());
+            }
+            string swhere = "";
+            //Get property infor of key field
+            Type myType = typeof(TEntity);
+            var props = myType.GetProperties();
+            PropertyInfo keysInfo = null;
+            foreach (var inf in props)
+            {
+                string proname = inf.Name;
+                if (dictkey.ContainsKey(proname.ToUpper()))
+                {
+                    if (swhere != string.Empty) swhere += " AND ";
+                    swhere = proname + "=" + inf.GetValue(entity, null).ToString() ;
+                }
+            }
+            query += swhere;
+
+            using (var conn = new OracleConnection())
+            {
+                conn.ConnectionString = ConnectionString;
+                conn.Open();
+                using (var command = conn.CreateCommand())
+                {
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = query;
+                    result = command.ExecuteNonQuery();
                 }
             }
             return result;
