@@ -34,7 +34,9 @@ namespace TestApplication
             {
                 MODEL = "LG",
                 MRP = "LGE", 
-                CREATE_DATE = DateTime.Now
+                CREATE_DATE = DateTime.Now,
+                SO_TRANSFER_FLAG = "N",
+                SO_TRANSFER_DATE = DateTime.Now
             };
 
             LGService.LgeService service = new LGService.LgeService();

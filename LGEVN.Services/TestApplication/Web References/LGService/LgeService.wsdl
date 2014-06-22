@@ -14,6 +14,8 @@
           <s:element minOccurs="0" maxOccurs="1" name="MODEL" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="MRP" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="CREATE_DATE" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="SO_TRANSFER_FLAG" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SO_TRANSFER_DATE" nillable="true" type="s:dateTime" />
         </s:sequence>
       </s:complexType>
       <s:element name="INSERT_TB_CM_MRPResponse">
