@@ -167,8 +167,7 @@ namespace LGEVN.ClientServices
             string swhere = "";
             //Get property infor of key field
             Type myType = typeof(TEntity);
-            var props = myType.GetProperties();
-            PropertyInfo keysInfo = null;
+            var props = myType.GetProperties(); 
             foreach (var inf in props)
             {
                 string proname = inf.Name;
