@@ -18,10 +18,10 @@ namespace LGEVN.Client.Console
             //1. Get All uncheck Client
             var cm_mrp_list = OracleDataHelper.GetNoTransfer<TB_CM_MRP>("TB_CM_MRP", "SO_TRANSFER_FLAG");
             //1. Synchronize to server
-            Synchronize(cm_mrp_list);
+            Synchronize<TB_CM_MRP, LGService.TB_CM_MRP>(cm_mrp_list);
         }
 
-        private void Synchronize(IEnumerable<TB_CM_MRP> cm_mrp_list)
+        private void Synchronize<TSource, TDest>(IEnumerable<TB_CM_MRP> cm_mrp_list)
         {
             ////---------GET LIST FROM STOREPROCEDURED ----------------------------------------
             //OracleDataHelper.ExecuteProcedure<HIEUNK_TEST>("PKG_WEBSERVICE.GET_SN_SO_WT_MST",
@@ -49,15 +49,38 @@ namespace LGEVN.Client.Console
 
                     //3. Update flag to Client
                     //OracleDataHelper.ExecuteFlag<TB_CM_MRP>(item, "TB_CM_MRP", "SO_TRANSFER_FLAG", "MODEL");
-                    System.Console.WriteLine("Synchronized an item of TB_CM_MRP(" + index.ToString() + ")");
+                    System.Console.WriteLine("Synchronized (" + index.ToString() + ")");
                     System.Console.WriteLine("MRP   =" + entity.MRP);
                     System.Console.WriteLine("MODEL =" + item.MODEL);
                     System.Console.WriteLine("--------------");
+                    System.Console.Write("\r{0}", getkey(index));
+                    System.Console.Write("\r{0}", "");
                     index++;
                     Thread.Sleep(20);
                 }
                 catch { }
             }
+            System.Console.WriteLine("\r{0}", 
+                                     "---------------------------------------------------------------------------");
+            System.Console.WriteLine("------------------------------ END TB_CM_MRP ------------------------------");
+            System.Console.WriteLine("---------------------------------------------------------------------------");
+        }
+
+        private char getkey(int index)
+        {
+            int tm = index % 4;
+            switch (tm)
+            {
+                case 0:
+                    return '|';
+                case 1:
+                    return '\\';
+                case 2:
+                    return '–';
+                case 3:
+                    return '/';
+            }
+            return '–';
         }
     }
 }
