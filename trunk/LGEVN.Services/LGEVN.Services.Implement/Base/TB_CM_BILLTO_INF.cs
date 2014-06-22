@@ -11,8 +11,8 @@ namespace LGEVN.Services.Implement
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class TB_CM_BILLTO_INF
+
+    public sealed class TB_CM_BILLTO_INF
     {
         public string BILLTO_CODE { get; set; }
         public string PROFILE { get; set; }

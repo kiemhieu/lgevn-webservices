@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LGEVN.Services.Implement
 {
-    public class HIEUNK_TEST
+    public sealed class HIEUNK_TEST
     {
         public string ID { get; set; }
         public string NAME { get; set; }

@@ -11,8 +11,8 @@ namespace LGEVN.Services.Implement
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class TB_ORDER_SHIP_HIST
+
+    public sealed class TB_ORDER_SHIP_HIST
     {
         public string INV_ORG { get; set; }
         public string SHIPTO_CODE { get; set; }

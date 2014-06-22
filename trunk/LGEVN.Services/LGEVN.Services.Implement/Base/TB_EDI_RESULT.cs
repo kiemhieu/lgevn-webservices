@@ -12,7 +12,7 @@ namespace LGEVN.Services.Implement
     using System;
     using System.Collections.Generic;
 
-    public partial class TB_EDI_RESULT
+    public sealed class TB_EDI_RESULT
     {
         public string DUP_CNT { get; set; }
         public string DONE_CNT { get; set; }

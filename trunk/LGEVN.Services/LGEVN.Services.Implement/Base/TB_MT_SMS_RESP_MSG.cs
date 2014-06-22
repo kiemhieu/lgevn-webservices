@@ -11,8 +11,8 @@ namespace LGEVN.Services.Implement
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class TB_MT_SMS_RESP_MSG
+
+    public sealed class TB_MT_SMS_RESP_MSG
     {
         public string RESP_TYPE { get; set; }
         public string RESP_MSG_1 { get; set; }
