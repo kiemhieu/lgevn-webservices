@@ -9,12 +9,13 @@ namespace LGEVN.Client.Console
     {
         static void Main(string[] args)
         {
-            System.Console.WriteLine("********************************************************************************");
-            System.Console.WriteLine("*********************** BEGIN SYNCHRONIZE APPLICATION **************************");
-            System.Console.WriteLine("\n\n\n\n\n\n");
-            System.Console.WriteLine("********************************************************************************");
-            System.Console.WriteLine("***********************  BEGIN SYNCHRONIZE TB_CM_MRP  **************************");
-
+            System.Console.WriteLine("---------------------------------------------------------------------------");
+            System.Console.WriteLine("---------------------- BEGIN SYNCHRONIZE APPLICATION ----------------------");
+            System.Console.WriteLine("---------------------------------------------------------------------------");
+            System.Console.WriteLine("\n\n");
+            System.Console.WriteLine("---------------------------------------------------------------------------");
+            System.Console.WriteLine("----------------------- BEGIN SYNCHRONIZE TB_CM_MRP -----------------------");
+            System.Console.WriteLine("---------------------------------------------------------------------------");
 
             StatusChecker statusChecker = new StatusChecker();
             AutoResetEvent autoEvent = new AutoResetEvent(false);
