@@ -6,7 +6,7 @@ using System.Data.OracleClient;
 using System.Reflection;
 using System.Web;
 
-namespace LGEVN.Services
+namespace LGEVN.ClientServices
 {
     public class OracleDataHelper
     {
