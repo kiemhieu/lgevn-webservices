@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.OracleClient;
+using System.Reflection;
 
 namespace LGEVN.Services
 {
@@ -9,7 +11,7 @@ namespace LGEVN.Services
     {
         public static string ConnectionString
         {
-            get { return ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString; } 
+            get { return ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString; }
         }
 
         /// <summary>
@@ -83,7 +85,7 @@ namespace LGEVN.Services
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = StoreName;
                     if (parameters != null)
-                        foreach (OracleParameter param in parameters) command.Parameters.Add(param); 
+                        foreach (OracleParameter param in parameters) command.Parameters.Add(param);
                     var reader = command.ExecuteReader();
                     if (typeof(TEntity).IsClass)
                         result = AutoMapper.Mapper.DynamicMap<IDataReader, IEnumerable<TEntity>>(reader);
@@ -98,6 +100,41 @@ namespace LGEVN.Services
                         }
                         if (lst.Count != 0) result = lst;
                     }
+                }
+            }
+            return result;
+        }
+
+        public static int InsertEntity<TEntity>(TEntity entity, string table_name)
+        {
+            int result = -1;
+            string sInto = "", sValue = "";
+            //Get property infor of key field
+            Type myType = typeof(TEntity);
+            var props = myType.GetProperties();
+            foreach (var inf in props)
+            {
+                string proname = inf.Name;
+
+                if (sInto != string.Empty)
+                {
+                    sInto += ", ";
+                    sValue += ", ";
+                }
+                sInto += proname;
+                sValue += inf.GetValue(entity, null).ToString();
+            } 
+
+            string query = "INSERT INTO " + table_name + "(" + sInto + ") VALUES (" + sValue + ")";
+            using (var conn = new OracleConnection())
+            {
+                conn.ConnectionString = ConnectionString;
+                conn.Open();
+                using (var command = conn.CreateCommand())
+                {
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = query;
+                    result = command.ExecuteNonQuery();
                 }
             }
             return result;
