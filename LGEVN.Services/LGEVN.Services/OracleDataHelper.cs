@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.OracleClient;
-using System.Web;
 
 namespace LGEVN.Services
 {
@@ -10,7 +9,7 @@ namespace LGEVN.Services
     {
         public static string ConnectionString
         {
-            get { return "Data Source=42.112.29.8:1521/lg;User Id=System;Password=1QAZxsw2;";  }
+            get { return ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString; } 
         }
 
         /// <summary>

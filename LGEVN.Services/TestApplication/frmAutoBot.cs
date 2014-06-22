@@ -12,7 +12,7 @@ namespace TestApplication
         {
             InitializeComponent();
         }
-        private string constr = "Data Source=123.30.208.199:1521/KTNET2E;User Id=TEST_NET2E;Password=vdcnet2e_123;";
+
         //"Data Source=42.112.29.8:1521/lg;User Id=System;Password=1QAZxsw2;";
         private float minute = 0.1f;
         private void btnStart_Click(object sender, EventArgs e)
@@ -25,7 +25,7 @@ namespace TestApplication
 
             System.Threading.Timer stateTimer = new System.Threading.Timer(tcb, autoEvent, 1000, 0);
             autoEvent.WaitOne((int)(minute * 60000), false);
-            stateTimer.Change(0, (int)(minute * 60000)); //1 Minute  
+            stateTimer.Change(0, (int)(minute * 60000)); // (X) *  1 Minute  
         }
     } 
 }

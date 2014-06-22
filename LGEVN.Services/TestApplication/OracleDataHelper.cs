@@ -13,7 +13,7 @@ namespace LGEVN.ClientServices
         {
             get
             {
-                return ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString; //"Data Source=123.30.208.199:1521/KTNET2E;User Id=TEST_NET2E;Password=vdcnet2e_123;"; 
+                return ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString; 
             }
         }
 
