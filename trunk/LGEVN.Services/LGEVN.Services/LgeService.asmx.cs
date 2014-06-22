@@ -15,6 +15,13 @@ namespace LGEVN.Services
     public class LgeService : System.Web.Services.WebService
     {
         [WebMethod]
+        public bool INSERT_HIEUNK_TEST(HIEUNK_TEST entity)
+        {
+            int id = OracleDataHelper.InsertEntity<HIEUNK_TEST>(entity, "HIEUNK_TEST");
+            return id > -1;
+        }
+
+        [WebMethod]
         public bool SendSelloutData(TB_SN_SO_WT_MST entity)
         {
             OracleParameterCollection colllection = new OracleParameterCollection();
