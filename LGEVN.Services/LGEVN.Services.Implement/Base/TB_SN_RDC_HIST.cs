@@ -11,8 +11,8 @@ namespace LGEVN.Services.Implement
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class TB_SN_RDC_HIST
+
+    public sealed class TB_SN_RDC_HIST
     {
         public string INV_ORG { get; set; }
         public string EDI_NO { get; set; }

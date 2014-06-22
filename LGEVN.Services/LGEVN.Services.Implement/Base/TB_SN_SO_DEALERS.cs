@@ -11,8 +11,8 @@ namespace LGEVN.Services.Implement
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class TB_SN_SO_DEALERS
+
+    public sealed class TB_SN_SO_DEALERS
     {
         public string SHOP_CODE { get; set; }
         public string SERIAL_NO { get; set; }

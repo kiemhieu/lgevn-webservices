@@ -11,8 +11,8 @@ namespace LGEVN.Services.Implement
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class TB_MT_HIST
+
+    public sealed class TB_MT_HIST
     {
         public string MOSEQ { get; set; }
         public string SHORTCODE { get; set; }

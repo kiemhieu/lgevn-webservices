@@ -11,8 +11,8 @@ namespace LGEVN.Services.Implement
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class TB_SN_SO_WT_MST0
+
+    public sealed class TB_SN_SO_WT_MST0
     {
         public string MODEL { get; set; }
         public string SUFFIX { get; set; }

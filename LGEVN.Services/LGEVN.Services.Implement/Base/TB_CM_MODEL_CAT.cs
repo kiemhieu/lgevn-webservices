@@ -11,8 +11,8 @@ namespace LGEVN.Services.Implement
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class TB_CM_MODEL_CAT
+
+    public sealed class TB_CM_MODEL_CAT
     {
         public string PROD_L1 { get; set; }
         public string MODEL { get; set; }

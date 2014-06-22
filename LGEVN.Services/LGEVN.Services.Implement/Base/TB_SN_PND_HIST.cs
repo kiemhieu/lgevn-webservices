@@ -11,8 +11,8 @@ namespace LGEVN.Services.Implement
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class TB_SN_PND_HIST
+
+    public sealed class TB_SN_PND_HIST
     {
         public string SERIAL_NO { get; set; }
         public string MOSEQ { get; set; }

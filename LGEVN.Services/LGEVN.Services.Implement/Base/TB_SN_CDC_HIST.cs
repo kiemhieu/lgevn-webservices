@@ -11,8 +11,8 @@ namespace LGEVN.Services.Implement
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class TB_SN_CDC_HIST
+
+    public sealed class TB_SN_CDC_HIST
     {
         public string INV_ORG { get; set; }
         public string LOADPLAN_NO { get; set; }

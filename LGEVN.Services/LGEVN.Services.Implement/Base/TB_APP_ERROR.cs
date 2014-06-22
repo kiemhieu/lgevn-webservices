@@ -12,7 +12,7 @@ namespace LGEVN.Services.Implement
     using System;
     using System.Collections.Generic;
 
-    public partial class TB_APP_ERROR
+    public sealed class TB_APP_ERROR
     {
         public string NAME { get; set; }
         public string MSG { get; set; }

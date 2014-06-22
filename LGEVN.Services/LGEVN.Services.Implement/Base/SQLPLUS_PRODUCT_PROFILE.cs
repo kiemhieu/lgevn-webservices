@@ -11,8 +11,8 @@ namespace LGEVN.Services.Implement
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class SQLPLUS_PRODUCT_PROFILE
+
+    public sealed class SQLPLUS_PRODUCT_PROFILE
     {
         public string PRODUCT { get; set; }
         public string USERID { get; set; }
