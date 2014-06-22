@@ -119,26 +119,30 @@ namespace LGEVN.Services
 
                 using (var command = conn.CreateCommand())
                 {
-                    foreach (var inf in props)
+                    try
                     {
-                        object value = inf.GetValue(entity, null);
-
-                        string proname = inf.Name;
-                        if (sInto != string.Empty)
+                        foreach (var inf in props)
                         {
-                            sInto += ", ";
-                            sValue += ", ";
-                        }
+                            object value = inf.GetValue(entity, null);
 
-                        sValue += ":p_" + proname;
-                        sInto += proname;
-                        var param = new OracleParameter("p_" + proname, value);
-                        command.Parameters.Add(param);
+                            string proname = inf.Name;
+                            if (sInto != string.Empty)
+                            {
+                                sInto += ", ";
+                                sValue += ", ";
+                            }
+
+                            sValue += ":p_" + proname;
+                            sInto += proname;
+                            var param = new OracleParameter("p_" + proname, value);
+                            command.Parameters.Add(param);
+                        }
+                        string query = "INSERT INTO " + table_name + "(" + sInto + ") VALUES (" + sValue + ")";
+                        command.CommandType = CommandType.Text;
+                        command.CommandText = query;
+                        result = command.ExecuteNonQuery();
                     }
-                    string query = "INSERT INTO " + table_name + "(" + sInto + ") VALUES (" + sValue + ")";
-                    command.CommandType = CommandType.Text;
-                    command.CommandText = query;
-                    result = command.ExecuteNonQuery();
+                    catch { }
                 }
             }
             return result;

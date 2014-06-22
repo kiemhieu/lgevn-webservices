@@ -175,7 +175,7 @@ namespace LGEVN.ClientServices
                 if (dictkey.ContainsKey(proname.ToUpper()))
                 {
                     if (swhere != string.Empty) swhere += " AND ";
-                    swhere = proname + "=" + inf.GetValue(entity, null).ToString() ;
+                    swhere = proname + "='" + inf.GetValue(entity, null).ToString() + "'" ;
                 }
             }
             query += swhere;

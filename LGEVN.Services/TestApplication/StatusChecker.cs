@@ -14,24 +14,34 @@ namespace LGEVN.ClientServices
         public void CheckStatus(Object stateInfo)
         {
             //1. Get All uncheck Client
-            var tests = OracleDataHelper.GetNoTransfer<HIEUNK_TEST>("HIEUNK_TEST", "FLAG");
+            var cm_mrp_list = OracleDataHelper.GetNoTransfer<TB_CM_MRP>("TB_CM_MRP", "SO_TRANSFER_FLAG");
+            ////---------GET LIST FROM STOREPROCEDURED ----------------------------------------
             //OracleDataHelper.ExecuteProcedure<HIEUNK_TEST>("PKG_WEBSERVICE.GET_SN_SO_WT_MST",
             //new OracleParameter{ ParameterName="items_cursor", Direction= System.Data.ParameterDirection.Output, OracleType = OracleType.Cursor});
-            if (tests == null && tests.Count() <= 0) return;
+            if (cm_mrp_list == null && cm_mrp_list.Count() <= 0) return;
 
-            foreach (var item in tests)
+            foreach (var item in cm_mrp_list)
             {
-                //2. Insert to server (with checked existing)
-                OracleParameterCollection colllection = new OracleParameterCollection();
-                colllection.Add(new OracleParameter("p_serial_no", item.ID));
-                colllection.Add(new OracleParameter("p_sellin_date", item.NAME));
-                colllection.Add(new OracleParameter("p_sellout_date", item.DESCRIPTION));
-                colllection.Add(new OracleParameter("p_wt_start_date", item.FLAG));
-                //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_HIEUNK_TEST", colllection);
+                //var item = cm_mrp_list.ElementAt(0);
+                try
+                {
+                    //2. Insert to server (with checked existing)
+                    var entity = new TestApplication.LGService.TB_CM_MRP
+                    {
+                        MRP = item.MRP,
+                        MODEL = item.MODEL,
+                        CREATE_DATE = item.CREATE_DATE,
+                        SO_TRANSFER_FLAG = "Y",
+                        SO_TRANSFER_DATE = DateTime.Now
+                    };
+                    TestApplication.LGService.LgeService service = new TestApplication.LGService.LgeService();
+                    service.INSERT_TB_CM_MRP(entity);
+                    //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_HIEUNK_TEST", colllection);
 
-
-                //3. Update flag to Client
-                OracleDataHelper.ExecuteFlag<HIEUNK_TEST>(item, "HIEUNK_TEST", "FLAG", "ID");
+                    //3. Update flag to Client
+                    OracleDataHelper.ExecuteFlag<TB_CM_MRP>(item, "TB_CM_MRP", "SO_TRANSFER_FLAG", "MODEL");
+                }
+                catch { }
             }
         }
     }
