@@ -19,10 +19,10 @@ namespace LGEVN.Client.Console
             //1. Get All uncheck Client
             var cm_mrp_list = OracleDataHelper.GetNoTransfer<TB_CM_MRP>("TB_CM_MRP", "SO_TRANSFER_FLAG");
             //1. Synchronize to server
-            Synchronize<TB_CM_MRP, LGService.TB_CM_MRP>(cm_mrp_list);
+            Synchronize<TB_CM_MRP, LGService.TB_CM_MRP>(cm_mrp_list, "SO_TRANSFER_FLAG", "MODEL");
         }
 
-        private void Synchronize<TSource, TDest>(IEnumerable<TSource> cm_mrp_list)
+        private void Synchronize<TSource, TDest>(IEnumerable<TSource> cm_mrp_list, string flag, params string[] keys)
         {
             Dictionary<string, string> dictkey = new Dictionary<string, string>();
             //Get dict of params
@@ -59,11 +59,12 @@ namespace LGEVN.Client.Console
                         linesPrint.Add(infD.Name.PadRight(20) + " = " + valueS.ToString());
                     }
 
-                    CallWebservice<TDest>(entity);
-                    //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_HIEUNK_TEST", colllection);
+                    //CallWebservice<TDest>(entity);
+                    ////int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_HIEUNK_TEST", colllection);
 
-                    //3. Update flag to Client
-                    //OracleDataHelper.ExecuteFlag<TB_CM_MRP>(item, "TB_CM_MRP", "SO_TRANSFER_FLAG", "MODEL");
+                    ////3. Update flag to Client
+                    //OracleDataHelper.ExecuteFlag<TSource>(item, myTypeS.Name , flag, keys); 
+                    ////OracleDataHelper.ExecuteFlag<TB_CM_MRP>(item, "TB_CM_MRP", "SO_TRANSFER_FLAG", "MODEL");
                     System.Console.WriteLine("Synchronized (" + index.ToString() + ")");
                     foreach (var line in linesPrint)
                         System.Console.WriteLine(line);
@@ -73,7 +74,7 @@ namespace LGEVN.Client.Console
                     System.Console.Write("\r{0}", getkey(index));
                     System.Console.Write("\r{0}", "");
                     index++;
-                    Thread.Sleep(20);
+                    //Thread.Sleep(20);
                 }
                 catch { }
             }
@@ -83,6 +84,8 @@ namespace LGEVN.Client.Console
             System.Console.WriteLine("---------------------------------------------------------------------------");
         }
 
+
+        #region Private functions
         private void CallWebservice<TEntity>(object entity)
         {
             Type myTypeS = typeof(TEntity);
@@ -103,10 +106,10 @@ namespace LGEVN.Client.Console
                     service.INSERT_TB_CM_MRP((LGService.TB_CM_MRP)entity);
                     break;
                 case "TB_CM_PROVINCE":
-                    //service.INSERT_SCM_PROVINCEP((LGService.TB_CM_PROVINCE)entity);
+                    service.INSERT_TB_CM_PROVINCE((LGService.TB_CM_PROVINCE)entity);
                     break;
                 case "TB_CM_REGION":
-                    //service.INSERT_TB_CM_REGION((LGService.TB_CM_REGION)entity);
+                    service.INSERT_TB_CM_REGION((LGService.TB_CM_REGION)entity);
                     break;
                 case "TB_CM_SHIPTO_INF":
                     service.INSERT_SCM_SHIPTO_INF((LGService.TB_CM_SHIPTO_INF)entity);
@@ -115,7 +118,7 @@ namespace LGEVN.Client.Console
                     service.INSERT_SCM_SHOP_BILLTO((LGService.TB_CM_SHOP_BILLTO)entity);
                     break;
                 case "TB_CM_SHOP_CELL":
-                    //service.INSERT_CM_SHOP_CELL((LGService.TB_CM_SHOP_CELL)entity);
+                    service.INSERT_TB_CM_SHOP_CELL((LGService.TB_CM_SHOP_CELL)entity);
                     break;
                 case "TB_CM_SHOP_INF":
                     service.INSERT_SCM_SHOP_INF((LGService.TB_CM_SHOP_INF)entity);
@@ -159,7 +162,6 @@ namespace LGEVN.Client.Console
             }
         }
 
-
         private char getkey(int index)
         {
             int tm = index % 4;
@@ -175,6 +177,7 @@ namespace LGEVN.Client.Console
                     return '/';
             }
             return '–';
-        }
+        } 
+        #endregion
     }
 }
