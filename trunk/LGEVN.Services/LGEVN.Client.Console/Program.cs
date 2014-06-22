@@ -10,9 +10,7 @@ namespace LGEVN.Client.Console
         {
             System.Console.WriteLine("********************************************************************************");
             System.Console.WriteLine("*********************** BEGIN SYNCHRONIZE APPLICATION **************************");
-            System.Console.WriteLine();
-            System.Console.WriteLine();
-            System.Console.WriteLine();
+            System.Console.WriteLine("\n\n\n\n\n\n");
             System.Console.WriteLine("********************************************************************************");
             System.Console.WriteLine("***********************  BEGIN SYNCHRONIZE TB_CM_MRP  **************************");
             System.Console.ReadKey();
