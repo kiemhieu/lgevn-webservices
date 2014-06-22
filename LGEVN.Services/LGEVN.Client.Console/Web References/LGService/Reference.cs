@@ -31,6 +31,12 @@ namespace LGEVN.Client.Console.LGService {
         
         private System.Threading.SendOrPostCallback INSERT_TB_CM_MRPOperationCompleted;
         
+        private System.Threading.SendOrPostCallback INSERT_TB_CM_PROVINCEOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback INSERT_TB_CM_SHOP_CELLOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback INSERT_TB_CM_REGIONOperationCompleted;
+        
         private System.Threading.SendOrPostCallback SendSelloutDataOperationCompleted;
         
         private System.Threading.SendOrPostCallback INSERT_SAPP_ERROROperationCompleted;
@@ -109,6 +115,15 @@ namespace LGEVN.Client.Console.LGService {
         
         /// <remarks/>
         public event INSERT_TB_CM_MRPCompletedEventHandler INSERT_TB_CM_MRPCompleted;
+        
+        /// <remarks/>
+        public event INSERT_TB_CM_PROVINCECompletedEventHandler INSERT_TB_CM_PROVINCECompleted;
+        
+        /// <remarks/>
+        public event INSERT_TB_CM_SHOP_CELLCompletedEventHandler INSERT_TB_CM_SHOP_CELLCompleted;
+        
+        /// <remarks/>
+        public event INSERT_TB_CM_REGIONCompletedEventHandler INSERT_TB_CM_REGIONCompleted;
         
         /// <remarks/>
         public event SendSelloutDataCompletedEventHandler SendSelloutDataCompleted;
@@ -193,6 +208,93 @@ namespace LGEVN.Client.Console.LGService {
             if ((this.INSERT_TB_CM_MRPCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.INSERT_TB_CM_MRPCompleted(this, new INSERT_TB_CM_MRPCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/INSERT_TB_CM_PROVINCE", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool INSERT_TB_CM_PROVINCE(TB_CM_PROVINCE entity) {
+            object[] results = this.Invoke("INSERT_TB_CM_PROVINCE", new object[] {
+                        entity});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void INSERT_TB_CM_PROVINCEAsync(TB_CM_PROVINCE entity) {
+            this.INSERT_TB_CM_PROVINCEAsync(entity, null);
+        }
+        
+        /// <remarks/>
+        public void INSERT_TB_CM_PROVINCEAsync(TB_CM_PROVINCE entity, object userState) {
+            if ((this.INSERT_TB_CM_PROVINCEOperationCompleted == null)) {
+                this.INSERT_TB_CM_PROVINCEOperationCompleted = new System.Threading.SendOrPostCallback(this.OnINSERT_TB_CM_PROVINCEOperationCompleted);
+            }
+            this.InvokeAsync("INSERT_TB_CM_PROVINCE", new object[] {
+                        entity}, this.INSERT_TB_CM_PROVINCEOperationCompleted, userState);
+        }
+        
+        private void OnINSERT_TB_CM_PROVINCEOperationCompleted(object arg) {
+            if ((this.INSERT_TB_CM_PROVINCECompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.INSERT_TB_CM_PROVINCECompleted(this, new INSERT_TB_CM_PROVINCECompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/INSERT_TB_CM_SHOP_CELL", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool INSERT_TB_CM_SHOP_CELL(TB_CM_SHOP_CELL entity) {
+            object[] results = this.Invoke("INSERT_TB_CM_SHOP_CELL", new object[] {
+                        entity});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void INSERT_TB_CM_SHOP_CELLAsync(TB_CM_SHOP_CELL entity) {
+            this.INSERT_TB_CM_SHOP_CELLAsync(entity, null);
+        }
+        
+        /// <remarks/>
+        public void INSERT_TB_CM_SHOP_CELLAsync(TB_CM_SHOP_CELL entity, object userState) {
+            if ((this.INSERT_TB_CM_SHOP_CELLOperationCompleted == null)) {
+                this.INSERT_TB_CM_SHOP_CELLOperationCompleted = new System.Threading.SendOrPostCallback(this.OnINSERT_TB_CM_SHOP_CELLOperationCompleted);
+            }
+            this.InvokeAsync("INSERT_TB_CM_SHOP_CELL", new object[] {
+                        entity}, this.INSERT_TB_CM_SHOP_CELLOperationCompleted, userState);
+        }
+        
+        private void OnINSERT_TB_CM_SHOP_CELLOperationCompleted(object arg) {
+            if ((this.INSERT_TB_CM_SHOP_CELLCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.INSERT_TB_CM_SHOP_CELLCompleted(this, new INSERT_TB_CM_SHOP_CELLCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/INSERT_TB_CM_REGION", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool INSERT_TB_CM_REGION(TB_CM_REGION entity) {
+            object[] results = this.Invoke("INSERT_TB_CM_REGION", new object[] {
+                        entity});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void INSERT_TB_CM_REGIONAsync(TB_CM_REGION entity) {
+            this.INSERT_TB_CM_REGIONAsync(entity, null);
+        }
+        
+        /// <remarks/>
+        public void INSERT_TB_CM_REGIONAsync(TB_CM_REGION entity, object userState) {
+            if ((this.INSERT_TB_CM_REGIONOperationCompleted == null)) {
+                this.INSERT_TB_CM_REGIONOperationCompleted = new System.Threading.SendOrPostCallback(this.OnINSERT_TB_CM_REGIONOperationCompleted);
+            }
+            this.InvokeAsync("INSERT_TB_CM_REGION", new object[] {
+                        entity}, this.INSERT_TB_CM_REGIONOperationCompleted, userState);
+        }
+        
+        private void OnINSERT_TB_CM_REGIONOperationCompleted(object arg) {
+            if ((this.INSERT_TB_CM_REGIONCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.INSERT_TB_CM_REGIONCompleted(this, new INSERT_TB_CM_REGIONCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -4986,6 +5088,356 @@ namespace LGEVN.Client.Console.LGService {
     }
     
     /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class TB_CM_REGION {
+        
+        private string idField;
+        
+        private string nAMEField;
+        
+        private string sO_TRANSFER_FLAGField;
+        
+        private System.Nullable<System.DateTime> sO_TRANSFER_DATEField;
+        
+        /// <remarks/>
+        public string ID {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string NAME {
+            get {
+                return this.nAMEField;
+            }
+            set {
+                this.nAMEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SO_TRANSFER_FLAG {
+            get {
+                return this.sO_TRANSFER_FLAGField;
+            }
+            set {
+                this.sO_TRANSFER_FLAGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> SO_TRANSFER_DATE {
+            get {
+                return this.sO_TRANSFER_DATEField;
+            }
+            set {
+                this.sO_TRANSFER_DATEField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class TB_CM_SHOP_CELL {
+        
+        private string sHOP_IDField;
+        
+        private string sHOP_CELLField;
+        
+        private System.Nullable<System.DateTime> cREATE_DATEField;
+        
+        private System.Nullable<System.DateTime> mODIFY_DATEField;
+        
+        private string cREATE_USERField;
+        
+        private string uSE_FLAGField;
+        
+        private string mODIFY_USERField;
+        
+        private string sO_TRANSFER_FLAGField;
+        
+        private System.Nullable<System.DateTime> sO_TRANSFER_DATEField;
+        
+        /// <remarks/>
+        public string SHOP_ID {
+            get {
+                return this.sHOP_IDField;
+            }
+            set {
+                this.sHOP_IDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SHOP_CELL {
+            get {
+                return this.sHOP_CELLField;
+            }
+            set {
+                this.sHOP_CELLField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> CREATE_DATE {
+            get {
+                return this.cREATE_DATEField;
+            }
+            set {
+                this.cREATE_DATEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> MODIFY_DATE {
+            get {
+                return this.mODIFY_DATEField;
+            }
+            set {
+                this.mODIFY_DATEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string CREATE_USER {
+            get {
+                return this.cREATE_USERField;
+            }
+            set {
+                this.cREATE_USERField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string USE_FLAG {
+            get {
+                return this.uSE_FLAGField;
+            }
+            set {
+                this.uSE_FLAGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string MODIFY_USER {
+            get {
+                return this.mODIFY_USERField;
+            }
+            set {
+                this.mODIFY_USERField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SO_TRANSFER_FLAG {
+            get {
+                return this.sO_TRANSFER_FLAGField;
+            }
+            set {
+                this.sO_TRANSFER_FLAGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> SO_TRANSFER_DATE {
+            get {
+                return this.sO_TRANSFER_DATEField;
+            }
+            set {
+                this.sO_TRANSFER_DATEField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class TB_CM_PROVINCE {
+        
+        private decimal idField;
+        
+        private string rEGION_IDField;
+        
+        private string nAMEField;
+        
+        private System.Nullable<decimal> lNGField;
+        
+        private System.Nullable<decimal> lATField;
+        
+        private System.Nullable<decimal> eNTRY_USER_IDField;
+        
+        private string eNTRY_USER_NAMEField;
+        
+        private System.Nullable<System.DateTime> eNTRY_DATE_TIMEField;
+        
+        private System.Nullable<decimal> uPDATE_USER_IDField;
+        
+        private string uPDATE_USER_NAMEField;
+        
+        private System.Nullable<System.DateTime> uPDATE_DATE_TIMEField;
+        
+        private string sO_TRANSFER_FLAGField;
+        
+        private System.Nullable<System.DateTime> sO_TRANSFER_DATEField;
+        
+        /// <remarks/>
+        public decimal ID {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string REGION_ID {
+            get {
+                return this.rEGION_IDField;
+            }
+            set {
+                this.rEGION_IDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string NAME {
+            get {
+                return this.nAMEField;
+            }
+            set {
+                this.nAMEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<decimal> LNG {
+            get {
+                return this.lNGField;
+            }
+            set {
+                this.lNGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<decimal> LAT {
+            get {
+                return this.lATField;
+            }
+            set {
+                this.lATField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<decimal> ENTRY_USER_ID {
+            get {
+                return this.eNTRY_USER_IDField;
+            }
+            set {
+                this.eNTRY_USER_IDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ENTRY_USER_NAME {
+            get {
+                return this.eNTRY_USER_NAMEField;
+            }
+            set {
+                this.eNTRY_USER_NAMEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> ENTRY_DATE_TIME {
+            get {
+                return this.eNTRY_DATE_TIMEField;
+            }
+            set {
+                this.eNTRY_DATE_TIMEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<decimal> UPDATE_USER_ID {
+            get {
+                return this.uPDATE_USER_IDField;
+            }
+            set {
+                this.uPDATE_USER_IDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string UPDATE_USER_NAME {
+            get {
+                return this.uPDATE_USER_NAMEField;
+            }
+            set {
+                this.uPDATE_USER_NAMEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> UPDATE_DATE_TIME {
+            get {
+                return this.uPDATE_DATE_TIMEField;
+            }
+            set {
+                this.uPDATE_DATE_TIMEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SO_TRANSFER_FLAG {
+            get {
+                return this.sO_TRANSFER_FLAGField;
+            }
+            set {
+                this.sO_TRANSFER_FLAGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> SO_TRANSFER_DATE {
+            get {
+                return this.sO_TRANSFER_DATEField;
+            }
+            set {
+                this.sO_TRANSFER_DATEField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
     public delegate void INSERT_TB_CM_MRPCompletedEventHandler(object sender, INSERT_TB_CM_MRPCompletedEventArgs e);
     
@@ -4998,6 +5450,84 @@ namespace LGEVN.Client.Console.LGService {
         private object[] results;
         
         internal INSERT_TB_CM_MRPCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
+    public delegate void INSERT_TB_CM_PROVINCECompletedEventHandler(object sender, INSERT_TB_CM_PROVINCECompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class INSERT_TB_CM_PROVINCECompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal INSERT_TB_CM_PROVINCECompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
+    public delegate void INSERT_TB_CM_SHOP_CELLCompletedEventHandler(object sender, INSERT_TB_CM_SHOP_CELLCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class INSERT_TB_CM_SHOP_CELLCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal INSERT_TB_CM_SHOP_CELLCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
+    public delegate void INSERT_TB_CM_REGIONCompletedEventHandler(object sender, INSERT_TB_CM_REGIONCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class INSERT_TB_CM_REGIONCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal INSERT_TB_CM_REGIONCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

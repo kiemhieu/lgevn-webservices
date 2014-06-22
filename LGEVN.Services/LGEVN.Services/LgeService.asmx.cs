@@ -35,6 +35,12 @@ namespace LGEVN.Services
             return id > -1;
         }
 
+        [WebMethod]
+        public bool INSERT_TB_CM_REGION(TB_CM_REGION entity)
+        {
+            int id = OracleDataHelper.InsertEntity<TB_CM_REGION>(entity, "TB_CM_REGION");
+            return id > -1;
+        }
 
         [WebMethod]
         public bool SendSelloutData(TB_SN_SO_WT_MST entity)
