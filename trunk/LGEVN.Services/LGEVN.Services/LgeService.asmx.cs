@@ -15,9 +15,9 @@ namespace LGEVN.Services
     public class LgeService : System.Web.Services.WebService
     {
         [WebMethod]
-        public bool INSERT_HIEUNK_TEST(HIEUNK_TEST entity)
+        public bool INSERT_TB_CM_MRP(TB_CM_MRP entity)
         {
-            int id = OracleDataHelper.InsertEntity<HIEUNK_TEST>(entity, "HIEUNK_TEST");
+            int id = OracleDataHelper.InsertEntity<TB_CM_MRP>(entity, "TB_CM_MRP");
             return id > -1;
         }
 

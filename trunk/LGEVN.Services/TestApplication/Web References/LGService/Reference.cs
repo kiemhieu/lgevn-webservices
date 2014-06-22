@@ -29,7 +29,7 @@ namespace TestApplication.LGService {
     [System.Web.Services.WebServiceBindingAttribute(Name="LgeServiceSoap", Namespace="http://tempuri.org/")]
     public partial class LgeService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
-        private System.Threading.SendOrPostCallback INSERT_HIEUNK_TESTOperationCompleted;
+        private System.Threading.SendOrPostCallback INSERT_TB_CM_MRPOperationCompleted;
         
         private System.Threading.SendOrPostCallback SendSelloutDataOperationCompleted;
         
@@ -108,7 +108,7 @@ namespace TestApplication.LGService {
         }
         
         /// <remarks/>
-        public event INSERT_HIEUNK_TESTCompletedEventHandler INSERT_HIEUNK_TESTCompleted;
+        public event INSERT_TB_CM_MRPCompletedEventHandler INSERT_TB_CM_MRPCompleted;
         
         /// <remarks/>
         public event SendSelloutDataCompletedEventHandler SendSelloutDataCompleted;
@@ -168,31 +168,31 @@ namespace TestApplication.LGService {
         public event INSERT_SSN_SO_WT_MST0CompletedEventHandler INSERT_SSN_SO_WT_MST0Completed;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/INSERT_HIEUNK_TEST", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public bool INSERT_HIEUNK_TEST(HIEUNK_TEST entity) {
-            object[] results = this.Invoke("INSERT_HIEUNK_TEST", new object[] {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/INSERT_TB_CM_MRP", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool INSERT_TB_CM_MRP(TB_CM_MRP entity) {
+            object[] results = this.Invoke("INSERT_TB_CM_MRP", new object[] {
                         entity});
             return ((bool)(results[0]));
         }
         
         /// <remarks/>
-        public void INSERT_HIEUNK_TESTAsync(HIEUNK_TEST entity) {
-            this.INSERT_HIEUNK_TESTAsync(entity, null);
+        public void INSERT_TB_CM_MRPAsync(TB_CM_MRP entity) {
+            this.INSERT_TB_CM_MRPAsync(entity, null);
         }
         
         /// <remarks/>
-        public void INSERT_HIEUNK_TESTAsync(HIEUNK_TEST entity, object userState) {
-            if ((this.INSERT_HIEUNK_TESTOperationCompleted == null)) {
-                this.INSERT_HIEUNK_TESTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnINSERT_HIEUNK_TESTOperationCompleted);
+        public void INSERT_TB_CM_MRPAsync(TB_CM_MRP entity, object userState) {
+            if ((this.INSERT_TB_CM_MRPOperationCompleted == null)) {
+                this.INSERT_TB_CM_MRPOperationCompleted = new System.Threading.SendOrPostCallback(this.OnINSERT_TB_CM_MRPOperationCompleted);
             }
-            this.InvokeAsync("INSERT_HIEUNK_TEST", new object[] {
-                        entity}, this.INSERT_HIEUNK_TESTOperationCompleted, userState);
+            this.InvokeAsync("INSERT_TB_CM_MRP", new object[] {
+                        entity}, this.INSERT_TB_CM_MRPOperationCompleted, userState);
         }
         
-        private void OnINSERT_HIEUNK_TESTOperationCompleted(object arg) {
-            if ((this.INSERT_HIEUNK_TESTCompleted != null)) {
+        private void OnINSERT_TB_CM_MRPOperationCompleted(object arg) {
+            if ((this.INSERT_TB_CM_MRPCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.INSERT_HIEUNK_TESTCompleted(this, new INSERT_HIEUNK_TESTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.INSERT_TB_CM_MRPCompleted(this, new INSERT_TB_CM_MRPCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -772,65 +772,42 @@ namespace TestApplication.LGService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class HIEUNK_TEST {
+    public partial class TB_CM_MRP {
         
-        private string idField;
+        private string mODELField;
         
-        private string nAMEField;
+        private string mRPField;
         
-        private string dESCRIPTIONField;
-        
-        private System.DateTime bIRTHField;
-        
-        private string fLAGField;
+        private System.Nullable<System.DateTime> cREATE_DATEField;
         
         /// <remarks/>
-        public string ID {
+        public string MODEL {
             get {
-                return this.idField;
+                return this.mODELField;
             }
             set {
-                this.idField = value;
+                this.mODELField = value;
             }
         }
         
         /// <remarks/>
-        public string NAME {
+        public string MRP {
             get {
-                return this.nAMEField;
+                return this.mRPField;
             }
             set {
-                this.nAMEField = value;
+                this.mRPField = value;
             }
         }
         
         /// <remarks/>
-        public string DESCRIPTION {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> CREATE_DATE {
             get {
-                return this.dESCRIPTIONField;
+                return this.cREATE_DATEField;
             }
             set {
-                this.dESCRIPTIONField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime BIRTH {
-            get {
-                return this.bIRTHField;
-            }
-            set {
-                this.bIRTHField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string FLAG {
-            get {
-                return this.fLAGField;
-            }
-            set {
-                this.fLAGField = value;
+                this.cREATE_DATEField = value;
             }
         }
     }
@@ -4985,17 +4962,17 @@ namespace TestApplication.LGService {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
-    public delegate void INSERT_HIEUNK_TESTCompletedEventHandler(object sender, INSERT_HIEUNK_TESTCompletedEventArgs e);
+    public delegate void INSERT_TB_CM_MRPCompletedEventHandler(object sender, INSERT_TB_CM_MRPCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class INSERT_HIEUNK_TESTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class INSERT_TB_CM_MRPCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal INSERT_HIEUNK_TESTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal INSERT_TB_CM_MRPCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

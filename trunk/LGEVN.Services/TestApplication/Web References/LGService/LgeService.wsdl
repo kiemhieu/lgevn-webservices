@@ -2,26 +2,24 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
-      <s:element name="INSERT_HIEUNK_TEST">
+      <s:element name="INSERT_TB_CM_MRP">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="entity" type="tns:HIEUNK_TEST" />
+            <s:element minOccurs="0" maxOccurs="1" name="entity" type="tns:TB_CM_MRP" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="HIEUNK_TEST">
+      <s:complexType name="TB_CM_MRP">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="NAME" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="DESCRIPTION" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="BIRTH" type="s:dateTime" />
-          <s:element minOccurs="0" maxOccurs="1" name="FLAG" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MODEL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MRP" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CREATE_DATE" nillable="true" type="s:dateTime" />
         </s:sequence>
       </s:complexType>
-      <s:element name="INSERT_HIEUNK_TESTResponse">
+      <s:element name="INSERT_TB_CM_MRPResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="INSERT_HIEUNK_TESTResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="INSERT_TB_CM_MRPResult" type="s:boolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -693,11 +691,11 @@
       </s:element>
     </s:schema>
   </wsdl:types>
-  <wsdl:message name="INSERT_HIEUNK_TESTSoapIn">
-    <wsdl:part name="parameters" element="tns:INSERT_HIEUNK_TEST" />
+  <wsdl:message name="INSERT_TB_CM_MRPSoapIn">
+    <wsdl:part name="parameters" element="tns:INSERT_TB_CM_MRP" />
   </wsdl:message>
-  <wsdl:message name="INSERT_HIEUNK_TESTSoapOut">
-    <wsdl:part name="parameters" element="tns:INSERT_HIEUNK_TESTResponse" />
+  <wsdl:message name="INSERT_TB_CM_MRPSoapOut">
+    <wsdl:part name="parameters" element="tns:INSERT_TB_CM_MRPResponse" />
   </wsdl:message>
   <wsdl:message name="SendSelloutDataSoapIn">
     <wsdl:part name="parameters" element="tns:SendSelloutData" />
@@ -814,9 +812,9 @@
     <wsdl:part name="parameters" element="tns:INSERT_SSN_SO_WT_MST0Response" />
   </wsdl:message>
   <wsdl:portType name="LgeServiceSoap">
-    <wsdl:operation name="INSERT_HIEUNK_TEST">
-      <wsdl:input message="tns:INSERT_HIEUNK_TESTSoapIn" />
-      <wsdl:output message="tns:INSERT_HIEUNK_TESTSoapOut" />
+    <wsdl:operation name="INSERT_TB_CM_MRP">
+      <wsdl:input message="tns:INSERT_TB_CM_MRPSoapIn" />
+      <wsdl:output message="tns:INSERT_TB_CM_MRPSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="SendSelloutData">
       <wsdl:input message="tns:SendSelloutDataSoapIn" />
@@ -897,8 +895,8 @@
   </wsdl:portType>
   <wsdl:binding name="LgeServiceSoap" type="tns:LgeServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="INSERT_HIEUNK_TEST">
-      <soap:operation soapAction="http://tempuri.org/INSERT_HIEUNK_TEST" style="document" />
+    <wsdl:operation name="INSERT_TB_CM_MRP">
+      <soap:operation soapAction="http://tempuri.org/INSERT_TB_CM_MRP" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1080,8 +1078,8 @@
   </wsdl:binding>
   <wsdl:binding name="LgeServiceSoap12" type="tns:LgeServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="INSERT_HIEUNK_TEST">
-      <soap12:operation soapAction="http://tempuri.org/INSERT_HIEUNK_TEST" style="document" />
+    <wsdl:operation name="INSERT_TB_CM_MRP">
+      <soap12:operation soapAction="http://tempuri.org/INSERT_TB_CM_MRP" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

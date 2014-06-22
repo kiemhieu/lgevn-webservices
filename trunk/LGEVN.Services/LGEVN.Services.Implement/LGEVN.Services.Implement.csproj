@@ -36,6 +36,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\HIEUNK_TEST.cs" />
+    <Compile Include="Base\TB_CM_MRP.cs" />
+    <Compile Include="Base\TB_CM_REGION.cs" />
     <Compile Include="Base\TB_EDI_RESULT.cs" />
     <Compile Include="Base\TB_APP_ERROR.cs" />
     <Compile Include="Base\TB_SN_SO_WT_HIST.cs" />
