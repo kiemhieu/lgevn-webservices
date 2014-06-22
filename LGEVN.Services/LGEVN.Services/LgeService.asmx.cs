@@ -22,6 +22,21 @@ namespace LGEVN.Services
         }
 
         [WebMethod]
+        public bool INSERT_TB_CM_PROVINCE(TB_CM_PROVINCE entity)
+        {
+            int id = OracleDataHelper.InsertEntity<TB_CM_PROVINCE>(entity, "TB_CM_PROVINCE");
+            return id > -1;
+        }
+
+        [WebMethod]
+        public bool INSERT_TB_CM_SHOP_CELL(TB_CM_SHOP_CELL entity)
+        {
+            int id = OracleDataHelper.InsertEntity<TB_CM_SHOP_CELL>(entity, "TB_CM_SHOP_CELL");
+            return id > -1;
+        }
+
+
+        [WebMethod]
         public bool SendSelloutData(TB_SN_SO_WT_MST entity)
         {
             int id = OracleDataHelper.InsertEntity<TB_SN_SO_WT_MST>(entity, "TB_SN_SO_WT_MST");

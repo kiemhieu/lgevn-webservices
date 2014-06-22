@@ -35,6 +35,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\TB_CM_SHOP_CELL.cs" />
+    <Compile Include="Base\TB_CM_PROVINCE.cs" />
     <Compile Include="Base\HIEUNK_TEST.cs" />
     <Compile Include="Base\TB_CM_MRP.cs" />
     <Compile Include="Base\TB_CM_REGION.cs" />
