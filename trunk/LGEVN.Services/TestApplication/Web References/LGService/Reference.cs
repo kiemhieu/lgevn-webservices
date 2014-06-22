@@ -780,6 +780,10 @@ namespace TestApplication.LGService {
         
         private System.Nullable<System.DateTime> cREATE_DATEField;
         
+        private string sO_TRANSFER_FLAGField;
+        
+        private System.Nullable<System.DateTime> sO_TRANSFER_DATEField;
+        
         /// <remarks/>
         public string MODEL {
             get {
@@ -808,6 +812,27 @@ namespace TestApplication.LGService {
             }
             set {
                 this.cREATE_DATEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SO_TRANSFER_FLAG {
+            get {
+                return this.sO_TRANSFER_FLAGField;
+            }
+            set {
+                this.sO_TRANSFER_FLAGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> SO_TRANSFER_DATE {
+            get {
+                return this.sO_TRANSFER_DATEField;
+            }
+            set {
+                this.sO_TRANSFER_DATEField = value;
             }
         }
     }
