@@ -1,6 +1,7 @@
 ﻿using LGEVN.Services.Implement;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.OracleClient;
 using System.Linq;
 using System.Reflection;
@@ -16,20 +17,73 @@ namespace LGEVN.Client.Console
         /// <param name="stateInfo"></param>
         public void CheckStatus(Object stateInfo)
         {
-            //1. Get All uncheck Client
-            var cm_mrp_list = OracleDataHelper.GetNoTransfer<TB_CM_MRP>("TB_CM_MRP", "SO_TRANSFER_FLAG");
-            //1. Synchronize to server
-            Synchronize<TB_CM_MRP, LGService.TB_CM_MRP>(cm_mrp_list, "SO_TRANSFER_FLAG", "MODEL");
+            try
+            {
+
+                //1. TB_APP_ERROR
+                //var cm_mrp_list = OracleDataHelper.GetNoTransfer<TB_CM_MRP>("TB_CM_MRP", "SO_TRANSFER_FLAG");
+                //Synchronize<TB_APP_ERROR, LGService.TB_APP_ERROR>(cm_mrp_list, "SO_TRANSFER_FLAG", "MODEL");
+
+                //2. TB_CM_BILLTO_INF
+                //3. TB_CM_MODEL_CAT
+                //4. Get All uncheck Client
+                var cm_mrp_list = OracleDataHelper.GetNoTransfer<TB_CM_MRP>("TB_CM_MRP", "SO_TRANSFER_FLAG");
+                Synchronize<TB_CM_MRP, LGService.TB_CM_MRP>(cm_mrp_list, "SO_TRANSFER_FLAG", "MODEL");
+                //5. TB_CM_PROVINCE
+                //6. TB_CM_REGION
+                //7. TB_CM_SHOP_BILLTO
+                //8. TB_CM_SHOP_CELL
+                //9. TB_CM_SHOP_INF
+                //10. TB_MO_HIST
+                //11. TB_MT_HIST
+                //12. TB_MT_SMS_RESP_MSG
+                //13. TB_ORDER_SHIP_HIST
+
+                //14. TB_SN_CDC_HIST
+                var list14 = OracleDataHelper.GetNoTransfer<TB_SN_CDC_HIST>("TB_SN_CDC_HIST", "SO_TRANSFER_FLAG");
+                Synchronize<TB_SN_CDC_HIST, LGService.TB_SN_CDC_HIST>(list14, "SO_TRANSFER_FLAG", new string[] { "INV_ORG", "ORDER_NO", "SHIPTO_CODE", "MODEL", "SERIAL_NO", "SUFFIX" });
+
+                //15. TB_SN_PND_HIST
+                var list15 = OracleDataHelper.GetNoTransfer<TB_SN_PND_HIST>("TB_SN_PND_HIST", "SO_TRANSFER_FLAG");
+                Synchronize<TB_SN_PND_HIST, LGService.TB_SN_PND_HIST>(list15, "SO_TRANSFER_FLAG", new string[] { "SERIAL_NO","OUT_DATE", "EDI_NO", "INV_ORG","MODEL","SUFFIX" });
+
+                //16. TB_SN_RDC_HIST
+                var list16 = OracleDataHelper.GetNoTransfer<TB_SN_RDC_HIST>("TB_SN_SO_WT_HIST", "SUCCESS_FLAG");
+                Synchronize<TB_SN_RDC_HIST, LGService.TB_SN_RDC_HIST>(list16, "SUCCESS_FLAG", new string[] { "SERIAL_NO", "MODEL" });
+
+                //17. TB_SN_SO_WT_HIST
+                var list17 = OracleDataHelper.GetNoTransfer<TB_SN_SO_WT_HIST>("TB_SN_SO_WT_HIST", "TRANSFER_FLAG");
+                Synchronize<TB_SN_SO_WT_HIST, LGService.TB_SN_SO_WT_HIST>(list17, "TRANSFER_FLAG", new string[] { "SERIAL_NO", "MODEL" });
+
+                //18. TB_SN_SO_WT_MST
+                var list18 = OracleDataHelper.GetNoTransfer<TB_SN_SO_WT_MST>("TB_SN_SO_WT_MST", "TRANSFER_FLAG");
+                Synchronize<TB_SN_SO_WT_MST, LGService.TB_SN_SO_WT_MST>(list18, "TRANSFER_FLAG", new string[] { "SERIAL_NO", "MODEL" });
+
+                //19. TB_SN_SO_WT_MST0
+                var list19 = OracleDataHelper.GetNoTransfer<TB_SN_SO_WT_MST0>("TB_SN_SO_WT_MST0", "TRANSFER_FLAG");
+                Synchronize<TB_SN_SO_WT_MST0, LGService.TB_SN_SO_WT_MST0>(list19, "TRANSFER_FLAG", new string[] { "SERIAL_NO", "MODEL" });
+
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine("\n\n");
+                System.Console.WriteLine(ex.Message);
+            }
         }
 
         private void Synchronize<TSource, TDest>(IEnumerable<TSource> cm_mrp_list, string flag, params string[] keys)
-        {
-            Dictionary<string, string> dictkey = new Dictionary<string, string>();
-            //Get dict of params
-
+        { 
             //Get property infor of key field
             Type myTypeS = typeof(TSource);
             Type myTypeD = typeof(TDest);
+
+            System.Console.WriteLine("---------------------------------------------------------------------------");
+            System.Console.WriteLine("                         BEGIN SYNCHRONIZE TB_CM_MRP " + myTypeS.Name);
+            System.Console.WriteLine("---------------------------------------------------------------------------");
+            Dictionary<string, string> dictkey = new Dictionary<string, string>();
+            //Get dict of params
+
+           
             var dictS = new Dictionary<string, PropertyInfo>();
             var dictD = new Dictionary<string, PropertyInfo>();
 
@@ -59,12 +113,11 @@ namespace LGEVN.Client.Console
                         linesPrint.Add(infD.Name.PadRight(20) + " = " + valueS.ToString());
                     }
 
-                    //CallWebservice<TDest>(entity);
-                    ////int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_HIEUNK_TEST", colllection);
-
-                    ////3. Update flag to Client
-                    //OracleDataHelper.ExecuteFlag<TSource>(item, myTypeS.Name , flag, keys); 
-                    ////OracleDataHelper.ExecuteFlag<TB_CM_MRP>(item, "TB_CM_MRP", "SO_TRANSFER_FLAG", "MODEL");
+                    CallWebservice<TDest>(entity);
+                    //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_HIEUNK_TEST", colllection);
+                    //3. Update flag to Client
+                    OracleDataHelper.ExecuteFlag<TSource>(item, myTypeS.Name, flag, keys);
+                    //OracleDataHelper.ExecuteFlag<TB_CM_MRP>(item, "TB_CM_MRP", "SO_TRANSFER_FLAG", "MODEL");
                     System.Console.WriteLine("Synchronized (" + index.ToString() + ")");
                     foreach (var line in linesPrint)
                         System.Console.WriteLine(line);
@@ -80,7 +133,7 @@ namespace LGEVN.Client.Console
             }
             System.Console.WriteLine("\r{0}",
                                      "---------------------------------------------------------------------------");
-            System.Console.WriteLine("------------------------------ END TB_CM_MRP ------------------------------");
+            System.Console.WriteLine("                            END " + myTypeS.Name);
             System.Console.WriteLine("---------------------------------------------------------------------------");
         }
 
@@ -91,6 +144,7 @@ namespace LGEVN.Client.Console
             Type myTypeS = typeof(TEntity);
             string name = myTypeS.Name.ToUpper();
             LGService.LgeService service = new LGService.LgeService();
+            service.Url = ConfigurationManager.AppSettings["ServiceURL"];
             switch (name)
             {
                 case "TB_APP_ERROR":
@@ -177,7 +231,7 @@ namespace LGEVN.Client.Console
                     return '/';
             }
             return '–';
-        } 
+        }
         #endregion
     }
 }
