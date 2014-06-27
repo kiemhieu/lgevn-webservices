@@ -129,7 +129,10 @@ namespace LGEVN.Client.Console
                     index++;
                     //Thread.Sleep(20);
                 }
-                catch { }
+                catch(Exception ex)
+                {
+                    System.Console.WriteLine("\r{0}", ex.ToString());
+                }
             }
             System.Console.WriteLine("\r{0}",
                                      "---------------------------------------------------------------------------");
