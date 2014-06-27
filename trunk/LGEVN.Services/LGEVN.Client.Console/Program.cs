@@ -22,8 +22,8 @@ namespace LGEVN.Client.Console
             TimerCallback tcb = statusChecker.CheckStatus;
 
             System.Threading.Timer stateTimer = new System.Threading.Timer(tcb, autoEvent, 1000, 0);
-            autoEvent.WaitOne((int)(1 * 60000), false);
-            stateTimer.Change(0, (int)(1 * 60000)); // (X) *  1 Minute  
+            autoEvent.WaitOne((int)(5 * 60000), false);
+            stateTimer.Change(0, (int)(5 * 60000)); // (X) *  1 Minute  
             System.Console.ReadKey();
         }
     }

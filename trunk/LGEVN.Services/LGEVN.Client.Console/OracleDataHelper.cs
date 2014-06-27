@@ -126,7 +126,7 @@ namespace LGEVN.Client.Console
                 using (var command = conn.CreateCommand())
                 {
                     command.CommandType = CommandType.Text;
-                    command.CommandText = "SELECT * FROM " + table_name + " WHERE " + flag + " = 'N'";
+                    command.CommandText = "SELECT * FROM " + table_name + " WHERE " + flag + " = 'N'  AND ROWNUM <=100";
 
                     var reader = command.ExecuteReader();
                     if (typeof(TEntity).IsClass)
