@@ -40,8 +40,8 @@ namespace LGEVN.Client.Console
                 //13. TB_ORDER_SHIP_HIST
 
                 //14. TB_SN_CDC_HIST
-                var list14 = OracleDataHelper.GetNoTransfer<TB_SN_CDC_HIST>("TB_SN_CDC_HIST", "SO_TRANSFER_FLAG");
-                Synchronize<TB_SN_CDC_HIST, LGService.TB_SN_CDC_HIST>(list14, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "INV_ORG", "ORDER_NO", "SHIPTO_CODE", "MODEL", "SERIAL_NO", "SUFFIX" });
+                //var list14 = OracleDataHelper.GetNoTransfer<TB_SN_CDC_HIST>("TB_SN_CDC_HIST", "SO_TRANSFER_FLAG");
+                //Synchronize<TB_SN_CDC_HIST, LGService.TB_SN_CDC_HIST>(list14, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "INV_ORG", "ORDER_NO", "SHIPTO_CODE", "MODEL", "SERIAL_NO", "SUFFIX" });
                 return;
                 //15. TB_SN_PND_HIST
                 var list15 = OracleDataHelper.GetNoTransfer<TB_SN_PND_HIST>("TB_SN_PND_HIST", "SO_TRANSFER_FLAG");
@@ -201,17 +201,7 @@ namespace LGEVN.Client.Console
                     break;
                 case "TB_SN_CDC_HIST":
                     var obj2 = (LGService.TB_SN_CDC_HIST)entity;
-                    if (obj2.INVOICE_DATE == null) obj2.INVOICE_DATE = DateTime.Now;
-
-                    //if (obj2.SO_TRANSFER_DATE == null) obj2.SO_TRANSFER_DATE = DateTime.Now;
-                    //if (obj2.SO_TRANSFER_FLAG == null) obj2.SO_TRANSFER_FLAG = DateTime.Now;
-                    if (obj2.WARRANTY_IF_FLAG == null) obj2.WARRANTY_IF_FLAG = DateTime.Now.ToString();
-                    //if (obj2.INCENTIVE_FLAG == null) obj2.INCENTIVE_FLAG = DateTime.Now;
-                    if (obj2.SELLOUT_DATE == null) obj2.SELLOUT_DATE = DateTime.Now;
-                    //if (obj2.SELLOUT_FLAG == null) obj2.SELLOUT_FLAG = DateTime.Now;
-                    if (obj2.INVOICE_DATE == null) obj2.INVOICE_DATE = DateTime.Now;
-                    if (obj2.CLOSED_DATE == null) obj2.CLOSED_DATE = DateTime.Now;
-                    if (obj2.UNIQUE_ID == null) obj2.UNIQUE_ID = DateTime.Now;
+                    if (obj2.SO_TRANSFER_DATE == null) obj2.SO_TRANSFER_DATE = DateTime.Now;
                     result = service.INSERT_SSN_CDC_HIST(obj2);
                     break;
                 case "TB_SN_PND_HIST":

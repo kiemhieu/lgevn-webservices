@@ -23,5 +23,7 @@ namespace LGEVN.Services.Implement
         public string GABIT_ID { get; set; }
         public string TEMPLATE { get; set; }
         public string PURPOSE { get; set; }
+        public string SO_TRANSFER_FLAG { get; set; }
+        public DateTime? SO_TRANSFER_DATE { get; set; }
     }
 }

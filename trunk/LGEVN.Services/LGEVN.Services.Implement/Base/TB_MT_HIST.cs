@@ -32,5 +32,7 @@ namespace LGEVN.Services.Implement
         public string RESP_TYPE { get; set; }
         public DateTime? MO_RECEIVE_TIME { get; set; }
         public DateTime? CREATE_DATE { get; set; }
+        public string SO_TRANSFER_FLAG { get; set; }
+        public DateTime? SO_TRANSFER_DATE { get; set; }
     }
 }

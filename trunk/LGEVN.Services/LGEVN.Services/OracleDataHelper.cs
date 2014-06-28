@@ -123,7 +123,7 @@ namespace LGEVN.Services
                         foreach (var inf in props)
                         {
                             object value = inf.GetValue(entity, null);
-
+                            if (value == null) continue;
                             string proname = inf.Name;
                             if (sInto != string.Empty)
                             {
@@ -141,7 +141,7 @@ namespace LGEVN.Services
                         command.CommandText = query;
                         command.ExecuteNonQuery();
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         if (ex.Message.Contains("ORA-00001")) return true;
                         return false;

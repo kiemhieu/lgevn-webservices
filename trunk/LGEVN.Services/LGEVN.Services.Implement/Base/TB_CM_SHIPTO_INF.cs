@@ -33,5 +33,7 @@ namespace LGEVN.Services.Implement
         public string MARKET_TYPE { get; set; }
         public string SALES_CHANNEL { get; set; }
         public string ACTIVE_FLAG { get; set; }
+        public string SO_TRANSFER_FLAG { get; set; }
+        public DateTime? SO_TRANSFER_DATE { get; set; }
     }
 }
