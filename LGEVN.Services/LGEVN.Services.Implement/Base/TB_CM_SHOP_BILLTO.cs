@@ -21,5 +21,7 @@ namespace LGEVN.Services.Implement
         public string CREATE_USER { get; set; }
         public string MODIFY_USER { get; set; }
         public string USE_FLAG { get; set; }
+        public string SO_TRANSFER_FLAG { get; set; }
+        public DateTime? SO_TRANSFER_DATE { get; set; }
     }
 }

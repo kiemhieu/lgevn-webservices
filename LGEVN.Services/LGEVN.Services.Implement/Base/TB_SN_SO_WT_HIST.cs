@@ -30,5 +30,7 @@ namespace LGEVN.Services.Implement
         public string SUCCESS_FLAG { get; set; }
         public string EDI_FILE { get; set; }
         public string EDI_HEAD { get; set; }
+        public string SO_TRANSFER_FLAG { get; set; }
+        public DateTime? SO_TRANSFER_DATE { get; set; }
     }
 }

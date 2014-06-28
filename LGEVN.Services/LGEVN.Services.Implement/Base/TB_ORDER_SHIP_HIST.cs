@@ -55,5 +55,7 @@ namespace LGEVN.Services.Implement
         public string CARRIER { get; set; }
         public string ORDER_TYPE_NAME { get; set; }
         public string CANCEL_FLAG { get; set; }
+        public string SO_TRANSFER_FLAG { get; set; }
+        public DateTime? SO_TRANSFER_DATE { get; set; }
     }
 }

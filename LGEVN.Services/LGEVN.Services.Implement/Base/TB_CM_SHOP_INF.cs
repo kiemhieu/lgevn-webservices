@@ -35,5 +35,7 @@ namespace LGEVN.Services.Implement
         public string CREATE_USER { get; set; }
         public string UPDATE_USER { get; set; }
         public string SHOP_TYPE { get; set; }
+        public string SO_TRANSFER_FLAG { get; set; }
+        public DateTime? SO_TRANSFER_DATE { get; set; }
     }
 }

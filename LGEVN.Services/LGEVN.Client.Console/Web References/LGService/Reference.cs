@@ -1198,6 +1198,10 @@ namespace LGEVN.Client.Console.LGService {
         
         private string eDI_HEADField;
         
+        private string sO_TRANSFER_FLAGField;
+        
+        private System.Nullable<System.DateTime> sO_TRANSFER_DATEField;
+        
         /// <remarks/>
         public string SERIAL_NO {
             get {
@@ -1358,6 +1362,27 @@ namespace LGEVN.Client.Console.LGService {
                 this.eDI_HEADField = value;
             }
         }
+        
+        /// <remarks/>
+        public string SO_TRANSFER_FLAG {
+            get {
+                return this.sO_TRANSFER_FLAGField;
+            }
+            set {
+                this.sO_TRANSFER_FLAGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> SO_TRANSFER_DATE {
+            get {
+                return this.sO_TRANSFER_DATEField;
+            }
+            set {
+                this.sO_TRANSFER_DATEField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -1409,6 +1434,10 @@ namespace LGEVN.Client.Console.LGService {
         private string eDI_DATEField;
         
         private string eDI_FILEField;
+        
+        private string sO_TRANSFER_FLAGField;
+        
+        private System.Nullable<System.DateTime> sO_TRANSFER_DATEField;
         
         /// <remarks/>
         public string SHOP_CODE {
@@ -1622,6 +1651,27 @@ namespace LGEVN.Client.Console.LGService {
                 this.eDI_FILEField = value;
             }
         }
+        
+        /// <remarks/>
+        public string SO_TRANSFER_FLAG {
+            get {
+                return this.sO_TRANSFER_FLAGField;
+            }
+            set {
+                this.sO_TRANSFER_FLAGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> SO_TRANSFER_DATE {
+            get {
+                return this.sO_TRANSFER_DATEField;
+            }
+            set {
+                this.sO_TRANSFER_DATEField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -1667,6 +1717,10 @@ namespace LGEVN.Client.Console.LGService {
         private string iNCENTIVE_FLAGField;
         
         private string sMS_YNField;
+        
+        private string sO_TRANSFER_FLAGField;
+        
+        private System.Nullable<System.DateTime> sO_TRANSFER_DATEField;
         
         /// <remarks/>
         public string INV_ORG {
@@ -1850,6 +1904,27 @@ namespace LGEVN.Client.Console.LGService {
                 this.sMS_YNField = value;
             }
         }
+        
+        /// <remarks/>
+        public string SO_TRANSFER_FLAG {
+            get {
+                return this.sO_TRANSFER_FLAGField;
+            }
+            set {
+                this.sO_TRANSFER_FLAGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> SO_TRANSFER_DATE {
+            get {
+                return this.sO_TRANSFER_DATEField;
+            }
+            set {
+                this.sO_TRANSFER_DATEField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -1901,6 +1976,10 @@ namespace LGEVN.Client.Console.LGService {
         private System.Nullable<System.DateTime> rEJECT_DATEField;
         
         private string rEJECT_USERField;
+        
+        private string sO_TRANSFER_FLAGField;
+        
+        private System.Nullable<System.DateTime> sO_TRANSFER_DATEField;
         
         /// <remarks/>
         public string SERIAL_NO {
@@ -2113,6 +2192,27 @@ namespace LGEVN.Client.Console.LGService {
             }
             set {
                 this.rEJECT_USERField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SO_TRANSFER_FLAG {
+            get {
+                return this.sO_TRANSFER_FLAGField;
+            }
+            set {
+                this.sO_TRANSFER_FLAGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> SO_TRANSFER_DATE {
+            get {
+                return this.sO_TRANSFER_DATEField;
+            }
+            set {
+                this.sO_TRANSFER_DATEField = value;
             }
         }
     }
@@ -2521,6 +2621,10 @@ namespace LGEVN.Client.Console.LGService {
         private string oRDER_TYPE_NAMEField;
         
         private string cANCEL_FLAGField;
+        
+        private string sO_TRANSFER_FLAGField;
+        
+        private System.Nullable<System.DateTime> sO_TRANSFER_DATEField;
         
         /// <remarks/>
         public string INV_ORG {
@@ -2936,6 +3040,27 @@ namespace LGEVN.Client.Console.LGService {
                 this.cANCEL_FLAGField = value;
             }
         }
+        
+        /// <remarks/>
+        public string SO_TRANSFER_FLAG {
+            get {
+                return this.sO_TRANSFER_FLAGField;
+            }
+            set {
+                this.sO_TRANSFER_FLAGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> SO_TRANSFER_DATE {
+            get {
+                return this.sO_TRANSFER_DATEField;
+            }
+            set {
+                this.sO_TRANSFER_DATEField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -2963,6 +3088,10 @@ namespace LGEVN.Client.Console.LGService {
         private string tEMPLATEField;
         
         private string pURPOSEField;
+        
+        private string sO_TRANSFER_FLAGField;
+        
+        private System.Nullable<System.DateTime> sO_TRANSFER_DATEField;
         
         /// <remarks/>
         public string RESP_TYPE {
@@ -3053,6 +3182,27 @@ namespace LGEVN.Client.Console.LGService {
                 this.pURPOSEField = value;
             }
         }
+        
+        /// <remarks/>
+        public string SO_TRANSFER_FLAG {
+            get {
+                return this.sO_TRANSFER_FLAGField;
+            }
+            set {
+                this.sO_TRANSFER_FLAGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> SO_TRANSFER_DATE {
+            get {
+                return this.sO_TRANSFER_DATEField;
+            }
+            set {
+                this.sO_TRANSFER_DATEField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -3098,6 +3248,10 @@ namespace LGEVN.Client.Console.LGService {
         private System.Nullable<System.DateTime> mO_RECEIVE_TIMEField;
         
         private System.Nullable<System.DateTime> cREATE_DATEField;
+        
+        private string sO_TRANSFER_FLAGField;
+        
+        private System.Nullable<System.DateTime> sO_TRANSFER_DATEField;
         
         /// <remarks/>
         public string MOSEQ {
@@ -3281,6 +3435,27 @@ namespace LGEVN.Client.Console.LGService {
                 this.cREATE_DATEField = value;
             }
         }
+        
+        /// <remarks/>
+        public string SO_TRANSFER_FLAG {
+            get {
+                return this.sO_TRANSFER_FLAGField;
+            }
+            set {
+                this.sO_TRANSFER_FLAGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> SO_TRANSFER_DATE {
+            get {
+                return this.sO_TRANSFER_DATEField;
+            }
+            set {
+                this.sO_TRANSFER_DATEField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -3447,6 +3622,10 @@ namespace LGEVN.Client.Console.LGService {
         
         private string rESPONSEField;
         
+        private string sO_TRANSFER_FLAGField;
+        
+        private System.Nullable<System.DateTime> sO_TRANSFER_DATEField;
+        
         /// <remarks/>
         public string DUP_CNT {
             get {
@@ -3580,6 +3759,27 @@ namespace LGEVN.Client.Console.LGService {
                 this.rESPONSEField = value;
             }
         }
+        
+        /// <remarks/>
+        public string SO_TRANSFER_FLAG {
+            get {
+                return this.sO_TRANSFER_FLAGField;
+            }
+            set {
+                this.sO_TRANSFER_FLAGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> SO_TRANSFER_DATE {
+            get {
+                return this.sO_TRANSFER_DATEField;
+            }
+            set {
+                this.sO_TRANSFER_DATEField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -3631,6 +3831,10 @@ namespace LGEVN.Client.Console.LGService {
         private string uPDATE_USERField;
         
         private string sHOP_TYPEField;
+        
+        private string sO_TRANSFER_FLAGField;
+        
+        private System.Nullable<System.DateTime> sO_TRANSFER_DATEField;
         
         /// <remarks/>
         public string BILLTO_CODE {
@@ -3843,6 +4047,27 @@ namespace LGEVN.Client.Console.LGService {
                 this.sHOP_TYPEField = value;
             }
         }
+        
+        /// <remarks/>
+        public string SO_TRANSFER_FLAG {
+            get {
+                return this.sO_TRANSFER_FLAGField;
+            }
+            set {
+                this.sO_TRANSFER_FLAGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> SO_TRANSFER_DATE {
+            get {
+                return this.sO_TRANSFER_DATEField;
+            }
+            set {
+                this.sO_TRANSFER_DATEField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -3866,6 +4091,10 @@ namespace LGEVN.Client.Console.LGService {
         private string mODIFY_USERField;
         
         private string uSE_FLAGField;
+        
+        private string sO_TRANSFER_FLAGField;
+        
+        private System.Nullable<System.DateTime> sO_TRANSFER_DATEField;
         
         /// <remarks/>
         public string BILLTO_CODE {
@@ -3938,6 +4167,27 @@ namespace LGEVN.Client.Console.LGService {
                 this.uSE_FLAGField = value;
             }
         }
+        
+        /// <remarks/>
+        public string SO_TRANSFER_FLAG {
+            get {
+                return this.sO_TRANSFER_FLAGField;
+            }
+            set {
+                this.sO_TRANSFER_FLAGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> SO_TRANSFER_DATE {
+            get {
+                return this.sO_TRANSFER_DATEField;
+            }
+            set {
+                this.sO_TRANSFER_DATEField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -3985,6 +4235,10 @@ namespace LGEVN.Client.Console.LGService {
         private string sALES_CHANNELField;
         
         private string aCTIVE_FLAGField;
+        
+        private string sO_TRANSFER_FLAGField;
+        
+        private System.Nullable<System.DateTime> sO_TRANSFER_DATEField;
         
         /// <remarks/>
         public string BILLTO_CODE {
@@ -4175,6 +4429,27 @@ namespace LGEVN.Client.Console.LGService {
                 this.aCTIVE_FLAGField = value;
             }
         }
+        
+        /// <remarks/>
+        public string SO_TRANSFER_FLAG {
+            get {
+                return this.sO_TRANSFER_FLAGField;
+            }
+            set {
+                this.sO_TRANSFER_FLAGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> SO_TRANSFER_DATE {
+            get {
+                return this.sO_TRANSFER_DATEField;
+            }
+            set {
+                this.sO_TRANSFER_DATEField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -4230,6 +4505,10 @@ namespace LGEVN.Client.Console.LGService {
         private string mKTField;
         
         private System.Nullable<System.DateTime> iF_DATEField;
+        
+        private string sO_TRANSFER_FLAGField;
+        
+        private System.Nullable<System.DateTime> sO_TRANSFER_DATEField;
         
         /// <remarks/>
         public string PROD_L1 {
@@ -4463,6 +4742,27 @@ namespace LGEVN.Client.Console.LGService {
                 this.iF_DATEField = value;
             }
         }
+        
+        /// <remarks/>
+        public string SO_TRANSFER_FLAG {
+            get {
+                return this.sO_TRANSFER_FLAGField;
+            }
+            set {
+                this.sO_TRANSFER_FLAGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> SO_TRANSFER_DATE {
+            get {
+                return this.sO_TRANSFER_DATEField;
+            }
+            set {
+                this.sO_TRANSFER_DATEField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -4510,6 +4810,10 @@ namespace LGEVN.Client.Console.LGService {
         private string lOW_SALE_CHANNELField;
         
         private string bUYING_GROUPField;
+        
+        private string sO_TRANSFER_FLAGField;
+        
+        private System.Nullable<System.DateTime> sO_TRANSFER_DATEField;
         
         /// <remarks/>
         public string BILLTO_CODE {
@@ -4700,6 +5004,27 @@ namespace LGEVN.Client.Console.LGService {
                 this.bUYING_GROUPField = value;
             }
         }
+        
+        /// <remarks/>
+        public string SO_TRANSFER_FLAG {
+            get {
+                return this.sO_TRANSFER_FLAGField;
+            }
+            set {
+                this.sO_TRANSFER_FLAGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> SO_TRANSFER_DATE {
+            get {
+                return this.sO_TRANSFER_DATEField;
+            }
+            set {
+                this.sO_TRANSFER_DATEField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -4719,6 +5044,10 @@ namespace LGEVN.Client.Console.LGService {
         private string cDATEField;
         
         private System.Nullable<System.DateTime> cTIMEField;
+        
+        private string sO_TRANSFER_FLAGField;
+        
+        private System.Nullable<System.DateTime> sO_TRANSFER_DATEField;
         
         /// <remarks/>
         public string NAME {
@@ -4768,6 +5097,27 @@ namespace LGEVN.Client.Console.LGService {
             }
             set {
                 this.cTIMEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SO_TRANSFER_FLAG {
+            get {
+                return this.sO_TRANSFER_FLAGField;
+            }
+            set {
+                this.sO_TRANSFER_FLAGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> SO_TRANSFER_DATE {
+            get {
+                return this.sO_TRANSFER_DATEField;
+            }
+            set {
+                this.sO_TRANSFER_DATEField = value;
             }
         }
     }

@@ -37,5 +37,7 @@ namespace LGEVN.Services.Implement
         public string PROD_TYPE { get; set; }
         public string MKT { get; set; }
         public DateTime? IF_DATE { get; set; }
+        public string SO_TRANSFER_FLAG { get; set; }
+        public DateTime? SO_TRANSFER_DATE { get; set; }
     }
 }

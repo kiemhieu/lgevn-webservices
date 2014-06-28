@@ -27,5 +27,7 @@ namespace LGEVN.Services.Implement
         public string NEW_CNT { get; set; }
         public byte[] DONE_ITEM { get; set; }
         public string RESPONSE { get; set; }
+        public string SO_TRANSFER_FLAG { get; set; }
+        public DateTime? SO_TRANSFER_DATE { get; set; }
     }
 }
