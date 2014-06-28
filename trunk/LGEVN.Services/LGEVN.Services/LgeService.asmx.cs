@@ -17,35 +17,35 @@ namespace LGEVN.Services
         [WebMethod]
         public bool INSERT_TB_CM_MRP(TB_CM_MRP entity)
         {
-            int id = OracleDataHelper.InsertEntity<TB_CM_MRP>(entity, "TB_CM_MRP");
-            return id > -1;
+            bool id = OracleDataHelper.InsertEntity<TB_CM_MRP>(entity, "TB_CM_MRP");
+            return id;
         }
 
         [WebMethod]
         public bool INSERT_TB_CM_PROVINCE(TB_CM_PROVINCE entity)
         {
-            int id = OracleDataHelper.InsertEntity<TB_CM_PROVINCE>(entity, "TB_CM_PROVINCE");
-            return id > -1;
+            bool id = OracleDataHelper.InsertEntity<TB_CM_PROVINCE>(entity, "TB_CM_PROVINCE");
+            return id;
         }
 
         [WebMethod]
         public bool INSERT_TB_CM_SHOP_CELL(TB_CM_SHOP_CELL entity)
         {
-            int id = OracleDataHelper.InsertEntity<TB_CM_SHOP_CELL>(entity, "TB_CM_SHOP_CELL");
-            return id > -1;
+            bool id = OracleDataHelper.InsertEntity<TB_CM_SHOP_CELL>(entity, "TB_CM_SHOP_CELL");
+            return id;
         }
 
         [WebMethod]
         public bool INSERT_TB_CM_REGION(TB_CM_REGION entity)
         {
-            int id = OracleDataHelper.InsertEntity<TB_CM_REGION>(entity, "TB_CM_REGION");
-            return id > -1;
+            bool id = OracleDataHelper.InsertEntity<TB_CM_REGION>(entity, "TB_CM_REGION");
+            return id;
         }
 
         [WebMethod]
         public bool SendSelloutData(TB_SN_SO_WT_MST entity)
         {
-            int id = OracleDataHelper.InsertEntity<TB_SN_SO_WT_MST>(entity, "TB_SN_SO_WT_MST");
+            bool id = OracleDataHelper.InsertEntity<TB_SN_SO_WT_MST>(entity, "TB_SN_SO_WT_MST");
             //OracleParameterCollection colllection = new OracleParameterCollection();
             //colllection.Add(new OracleParameter("p_serial_no", entity.SERIAL_NO));
             //colllection.Add(new OracleParameter("p_sellin_date", entity.SELLIN_DATE));
@@ -75,14 +75,14 @@ namespace LGEVN.Services
             //colllection.Add(new OracleParameter("p_transfer_flag", entity.TRANSFER_FLAG));
             //colllection.Add(new OracleParameter("p_transfer_date", entity.TRANSFER_DATE));
             //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_SN_SO_WT_MST", colllection);
-            return id > -1;
+            return id;
         }
 
         // ===========================================================TB_APP_ERROR=========================================================
         [WebMethod]
         public bool INSERT_SAPP_ERROR(TB_APP_ERROR entity)
         {
-            int id = OracleDataHelper.InsertEntity<TB_APP_ERROR>(entity, "TB_APP_ERROR");
+            bool id = OracleDataHelper.InsertEntity<TB_APP_ERROR>(entity, "TB_APP_ERROR");
             //OracleParameterCollection colllection = new OracleParameterCollection();
             //colllection.Add(new OracleParameter("p_NAME", entity.NAME));
             //colllection.Add(new OracleParameter("p_MSG", entity.MSG));
@@ -90,14 +90,14 @@ namespace LGEVN.Services
             //colllection.Add(new OracleParameter("p_CDATE", entity.CDATE));
             //colllection.Add(new OracleParameter("p_CTIME", entity.CTIME));
             //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_APP_ERROR", colllection);
-            return id > -1;
+            return id;
         }
 
         // ===========================================================TB_CM_BILLTO_INF=====================================================
         [WebMethod]
         public bool INSERT_SCM_BILLTO_INF(TB_CM_BILLTO_INF entity)
         {
-            int id = OracleDataHelper.InsertEntity<TB_CM_BILLTO_INF>(entity, "TB_CM_BILLTO_INF");
+            bool id = OracleDataHelper.InsertEntity<TB_CM_BILLTO_INF>(entity, "TB_CM_BILLTO_INF");
             //OracleParameterCollection colllection = new OracleParameterCollection();
             //colllection.Add(new OracleParameter("p_BILLTO_CODE", entity.BILLTO_CODE));
             //colllection.Add(new OracleParameter("p_PROFILE", entity.PROFILE));
@@ -119,14 +119,14 @@ namespace LGEVN.Services
             //colllection.Add(new OracleParameter("p_LOW_SALE_CHANNEL", entity.LOW_SALE_CHANNEL));
             //colllection.Add(new OracleParameter("p_BUYING_GROUP", entity.BUYING_GROUP));
             //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_CM_BILLTO_INF", colllection);
-            return id > -1;
+            return id;
         }
 
         // ===========================================================TB_CM_MODEL_CAT======================================================
         [WebMethod]
         public bool INSERT_SCM_MODEL_CAT(TB_CM_MODEL_CAT entity)
         {
-            int id = OracleDataHelper.InsertEntity<TB_CM_MODEL_CAT>(entity, "TB_CM_MODEL_CAT");
+            bool id = OracleDataHelper.InsertEntity<TB_CM_MODEL_CAT>(entity, "TB_CM_MODEL_CAT");
             //OracleParameterCollection colllection = new OracleParameterCollection();
             //colllection.Add(new OracleParameter("p_PROD_L1", entity.PROD_L1));
             //colllection.Add(new OracleParameter("p_MODEL", entity.MODEL));
@@ -152,14 +152,14 @@ namespace LGEVN.Services
             //colllection.Add(new OracleParameter("p_MKT", entity.MKT));
             //colllection.Add(new OracleParameter("p_IF_DATE", entity.IF_DATE));
             //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_CM_MODEL_CAT", colllection);
-            return id > -1;
+            return id;
         }
 
         // ===========================================================TB_CM_SHIPTO_INF=====================================================
         [WebMethod]
         public bool INSERT_SCM_SHIPTO_INF(TB_CM_SHIPTO_INF entity)
         {
-            int id = OracleDataHelper.InsertEntity<TB_CM_SHIPTO_INF>(entity, "TB_CM_SHIPTO_INF");
+            bool id = OracleDataHelper.InsertEntity<TB_CM_SHIPTO_INF>(entity, "TB_CM_SHIPTO_INF");
             //OracleParameterCollection colllection = new OracleParameterCollection();
             //colllection.Add(new OracleParameter("p_BILLTO_CODE", entity.BILLTO_CODE));
             //colllection.Add(new OracleParameter("p_BILLTO_NAME", entity.BILLTO_NAME));
@@ -181,14 +181,14 @@ namespace LGEVN.Services
             //colllection.Add(new OracleParameter("p_SALES_CHANNEL", entity.SALES_CHANNEL));
             //colllection.Add(new OracleParameter("p_ACTIVE_FLAG", entity.ACTIVE_FLAG));
             //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_CM_SHIPTO_INF", colllection);
-            return id > -1;
+            return id;
         }
 
         // ===========================================================TB_CM_SHOP_BILLTO====================================================
         [WebMethod]
         public bool INSERT_SCM_SHOP_BILLTO(TB_CM_SHOP_BILLTO entity)
         {
-            int id = OracleDataHelper.InsertEntity<TB_CM_SHOP_BILLTO>(entity, "TB_CM_SHOP_BILLTO");
+            bool id = OracleDataHelper.InsertEntity<TB_CM_SHOP_BILLTO>(entity, "TB_CM_SHOP_BILLTO");
             //OracleParameterCollection colllection = new OracleParameterCollection();
             //colllection.Add(new OracleParameter("p_", entity));
             //colllection.Add(new OracleParameter("p_BILLTO_CODE", entity.BILLTO_CODE));
@@ -199,14 +199,14 @@ namespace LGEVN.Services
             //colllection.Add(new OracleParameter("p_MODIFY_USER", entity.MODIFY_USER));
             //colllection.Add(new OracleParameter("p_USE_FLAG", entity.USE_FLAG));
             //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_CM_SHOP_BILLTO", colllection);
-            return id > -1;
+            return id;
         }
 
         // ===========================================================TB_CM_SHOP_INF=======================================================
         [WebMethod]
         public bool INSERT_SCM_SHOP_INF(TB_CM_SHOP_INF entity)
         {
-            int id = OracleDataHelper.InsertEntity<TB_CM_SHOP_INF>(entity, "TB_CM_SHOP_INF");
+            bool id = OracleDataHelper.InsertEntity<TB_CM_SHOP_INF>(entity, "TB_CM_SHOP_INF");
             //OracleParameterCollection colllection = new OracleParameterCollection();
             //colllection.Add(new OracleParameter("p_", entity));
             //colllection.Add(new OracleParameter("p_BILLTO_CODE", entity.BILLTO_CODE));
@@ -231,14 +231,14 @@ namespace LGEVN.Services
             //colllection.Add(new OracleParameter("p_UPDATE_USER", entity.UPDATE_USER));
             //colllection.Add(new OracleParameter("p_SHOP_TYPE", entity.SHOP_TYPE));
             //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_CM_SHOP_INF", colllection);
-            return id > -1;
+            return id;
         }
 
         // ===========================================================TB_EDI_RESULT========================================================
         [WebMethod]
         public bool INSERT_SEDI_RESULT(TB_EDI_RESULT entity)
         {
-            int id = OracleDataHelper.InsertEntity<TB_EDI_RESULT>(entity, "TB_EDI_RESULT");
+            bool id = OracleDataHelper.InsertEntity<TB_EDI_RESULT>(entity, "TB_EDI_RESULT");
             //OracleParameterCollection colllection = new OracleParameterCollection();
             //colllection.Add(new OracleParameter("p_DUP_CNT", entity.DUP_CNT));
             //colllection.Add(new OracleParameter("p_DONE_CNT", entity.DONE_CNT));
@@ -254,14 +254,14 @@ namespace LGEVN.Services
             //colllection.Add(new OracleParameter("p_DONE_ITEM", entity.DONE_ITEM));
             //colllection.Add(new OracleParameter("p_RESPONSE", entity.RESPONSE));
             //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_EDI_RESULT", colllection);
-            return id > -1;
+            return id;
         }
 
         // ===========================================================TB_MO_HIST===========================================================
         [WebMethod]
         public bool INSERT_SMO_HIST(TB_MO_HIST entity)
         {
-            int id = OracleDataHelper.InsertEntity<TB_MO_HIST>(entity, "TB_MO_HIST");
+            bool id = OracleDataHelper.InsertEntity<TB_MO_HIST>(entity, "TB_MO_HIST");
             //OracleParameterCollection colllection = new OracleParameterCollection();
             //colllection.Add(new OracleParameter("p_CELL_NO", entity.CELL_NO));
             //colllection.Add(new OracleParameter("p_SHORTCODE", entity.SHORTCODE));
@@ -274,14 +274,14 @@ namespace LGEVN.Services
             //colllection.Add(new OracleParameter("p_TRANSFER_FLAG", entity.TRANSFER_FLAG));
             //colllection.Add(new OracleParameter("p_TRANSFER_DATE", entity.TRANSFER_DATE));
             //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_MO_HIST", colllection);
-            return id > -1;
+            return id;
         }
 
         // ===========================================================TB_MT_HIST=========================================================== 
         [WebMethod]
         public bool INSERT_SMT_HIST(TB_MT_HIST entity)
         {
-            int id = OracleDataHelper.InsertEntity<TB_MT_HIST>(entity, "TB_MT_HIST");
+            bool id = OracleDataHelper.InsertEntity<TB_MT_HIST>(entity, "TB_MT_HIST");
             //OracleParameterCollection colllection = new OracleParameterCollection();
             //colllection.Add(new OracleParameter("p_MOSEQ", entity.MOSEQ));
             //colllection.Add(new OracleParameter("p_SHORTCODE", entity.SHORTCODE));
@@ -302,14 +302,14 @@ namespace LGEVN.Services
             //colllection.Add(new OracleParameter("p_MO_RECEIVE_TIME", entity.MO_RECEIVE_TIME));
             //colllection.Add(new OracleParameter("p_CREATE_DATE", entity.CREATE_DATE));
             //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_MT_HIST", colllection);
-            return id > -1;
+            return id;
         }
 
         // ===========================================================TB_MT_SMS_RESP_MSG===================================================
         [WebMethod]
         public bool INSERT_SMT_SMS_RESP_MSG(TB_MT_SMS_RESP_MSG entity)
         {
-            int id = OracleDataHelper.InsertEntity<TB_MT_SMS_RESP_MSG>(entity, "TB_MT_SMS_RESP_MSG");
+            bool id = OracleDataHelper.InsertEntity<TB_MT_SMS_RESP_MSG>(entity, "TB_MT_SMS_RESP_MSG");
             //OracleParameterCollection colllection = new OracleParameterCollection();
             //colllection.Add(new OracleParameter("p_RESP_TYPE", entity.RESP_TYPE));
             //colllection.Add(new OracleParameter("p_RESP_MSG_1", entity.RESP_MSG_1));
@@ -321,14 +321,14 @@ namespace LGEVN.Services
             //colllection.Add(new OracleParameter("p_TEMPLATE", entity.TEMPLATE));
             //colllection.Add(new OracleParameter("p_PURPOSE", entity.PURPOSE));
             //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_MT_SMS_RESP_MSG", colllection);
-            return id > -1;
+            return id;
         }
 
         // ===========================================================TB_ORDER_SHIP_HIST===================================================
         [WebMethod]
         public bool INSERT_SORDER_SHIP_HIST(TB_ORDER_SHIP_HIST entity)
         {
-            int id = OracleDataHelper.InsertEntity<TB_ORDER_SHIP_HIST>(entity, "TB_ORDER_SHIP_HIST");
+            bool id = OracleDataHelper.InsertEntity<TB_ORDER_SHIP_HIST>(entity, "TB_ORDER_SHIP_HIST");
             //OracleParameterCollection colllection = new OracleParameterCollection();
             //colllection.Add(new OracleParameter("p_INV_ORG", entity.INV_ORG));
             //colllection.Add(new OracleParameter("p_SHIPTO_CODE", entity.SHIPTO_CODE));
@@ -369,14 +369,14 @@ namespace LGEVN.Services
             //colllection.Add(new OracleParameter("p_AU_CODE", entity.AU_CODE));
             //colllection.Add(new OracleParameter("p_ACCEPTANCE_CODE", entity.ACCEPTANCE_CODE));
             //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_ORDER_SHIP_HIST", colllection);
-            return id > -1;
+            return id;
         }
 
         // ===========================================================TB_SN_CDC_HIST=======================================================
         [WebMethod]
         public bool INSERT_SSN_CDC_HIST(TB_SN_CDC_HIST entity)
         {
-            int id = OracleDataHelper.InsertEntity<TB_SN_CDC_HIST>(entity, "TB_SN_CDC_HIST");
+            bool id = OracleDataHelper.InsertEntity<TB_SN_CDC_HIST>(entity, "TB_SN_CDC_HIST");
             //OracleParameterCollection colllection = new OracleParameterCollection();
             //colllection.Add(new OracleParameter("p_INV_ORG", entity.INV_ORG));
             //colllection.Add(new OracleParameter("p_LOADPLAN_NO", entity.LOADPLAN_NO));
@@ -402,14 +402,14 @@ namespace LGEVN.Services
             //colllection.Add(new OracleParameter("p_MODEL", entity.MODEL));
             //colllection.Add(new OracleParameter("p_SUFFIX", entity.SUFFIX));
             //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_SN_CDC_HIST", colllection);
-            return id > -1;
+            return id;
         }
 
         // ===========================================================TB_SN_PND_HIST=======================================================
         [WebMethod]
         public bool INSERT_SSN_PND_HIST(TB_SN_PND_HIST entity)
         {
-            int id = OracleDataHelper.InsertEntity<TB_SN_PND_HIST>(entity, "TB_SN_PND_HIST");
+            bool id = OracleDataHelper.InsertEntity<TB_SN_PND_HIST>(entity, "TB_SN_PND_HIST");
             //OracleParameterCollection colllection = new OracleParameterCollection();
             //colllection.Add(new OracleParameter("p_SERIAL_NO", entity.SERIAL_NO));
             //colllection.Add(new OracleParameter("p_MOSEQ", entity.MOSEQ));
@@ -433,14 +433,14 @@ namespace LGEVN.Services
             //colllection.Add(new OracleParameter("p_REJECT_DATE", entity.REJECT_DATE));
             //colllection.Add(new OracleParameter("p_REJECT_USER", entity.REJECT_USER));
             //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_SN_PND_HIST", colllection);
-            return id > -1;
+            return id;
         }
 
         // ===========================================================TB_SN_RDC_HIST=======================================================
         [WebMethod]
         public bool INSERT_SSN_RDC_HIST(TB_SN_RDC_HIST entity)
         {
-            int id = OracleDataHelper.InsertEntity<TB_SN_RDC_HIST>(entity, "TB_SN_RDC_HIST");
+            bool id = OracleDataHelper.InsertEntity<TB_SN_RDC_HIST>(entity, "TB_SN_RDC_HIST");
             //OracleParameterCollection colllection = new OracleParameterCollection();
             //colllection.Add(new OracleParameter("p_INV_ORG", entity.INV_ORG));
             //colllection.Add(new OracleParameter("p_EDI_NO", entity.EDI_NO));
@@ -461,14 +461,14 @@ namespace LGEVN.Services
             //colllection.Add(new OracleParameter("p_INCENTIVE_FLAG", entity.INCENTIVE_FLAG));
             //colllection.Add(new OracleParameter("p_SMS_YN", entity.SMS_YN));
             //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_SN_RDC_HIST", colllection);
-            return id > -1;
+            return id;
         }
 
         // ===========================================================TB_SN_SO_DEALERS=====================================================
         [WebMethod]
         public bool INSERT_SSN_SO_DEALERS(TB_SN_SO_DEALERS entity)
         {
-            int id = OracleDataHelper.InsertEntity<TB_SN_SO_DEALERS>(entity, "TB_SN_SO_DEALERS");
+            bool id = OracleDataHelper.InsertEntity<TB_SN_SO_DEALERS>(entity, "TB_SN_SO_DEALERS");
             //OracleParameterCollection colllection = new OracleParameterCollection();
             //colllection.Add(new OracleParameter("p_SHOP_CODE", entity.SHOP_CODE));
             //colllection.Add(new OracleParameter("p_SERIAL_NO", entity.SERIAL_NO));
@@ -492,14 +492,14 @@ namespace LGEVN.Services
             //colllection.Add(new OracleParameter("p_EDI_DATE", entity.EDI_DATE));
             //colllection.Add(new OracleParameter("p_EDI_FILE", entity.EDI_FILE));
             //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_SN_SO_DEALERS", colllection);
-            return id > -1;
+            return id;
         }
 
         // ===========================================================TB_SN_SO_WT_HIST=====================================================
         [WebMethod]
         public bool INSERT_SSN_SO_WT_HIST(TB_SN_SO_WT_HIST entity)
         {
-            int id = OracleDataHelper.InsertEntity<TB_SN_SO_WT_HIST>(entity, "TB_SN_SO_WT_HIST");
+            bool id = OracleDataHelper.InsertEntity<TB_SN_SO_WT_HIST>(entity, "TB_SN_SO_WT_HIST");
             //OracleParameterCollection colllection = new OracleParameterCollection();
             //colllection.Add(new OracleParameter("p_SERIAL_NO", entity.SERIAL_NO));
             //colllection.Add(new OracleParameter("p_MODEL", entity.MODEL));
@@ -518,14 +518,14 @@ namespace LGEVN.Services
             //colllection.Add(new OracleParameter("p_EDI_FILE", entity.EDI_FILE));
             //colllection.Add(new OracleParameter("p_EDI_HEAD", entity.EDI_HEAD));
             //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_SN_SO_WT_HIST", colllection);
-            return id > -1;
+            return id;
         }
 
         // ===========================================================TB_SN_SO_WT_MST======================================================
         [WebMethod]
         public bool INSERT_SSN_SO_WT_MST(TB_SN_SO_WT_MST entity)
         {
-            int id = OracleDataHelper.InsertEntity<TB_SN_SO_WT_MST>(entity, "TB_SN_SO_WT_MST");
+            bool id = OracleDataHelper.InsertEntity<TB_SN_SO_WT_MST>(entity, "TB_SN_SO_WT_MST");
             //OracleParameterCollection colllection = new OracleParameterCollection();
             //colllection.Add(new OracleParameter("p_serial_no", entity.SERIAL_NO));
             //colllection.Add(new OracleParameter("p_sellin_date", entity.SELLIN_DATE));
@@ -555,14 +555,14 @@ namespace LGEVN.Services
             //colllection.Add(new OracleParameter("p_transfer_flag", entity.TRANSFER_FLAG));
             //colllection.Add(new OracleParameter("p_transfer_date", entity.TRANSFER_DATE));
             //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_SN_SO_WT_MST", colllection);
-            return id > -1;
+            return id;
         }
 
         // ===========================================================TB_SN_SO_WT_MST0=====================================================
         [WebMethod]
         public bool INSERT_SSN_SO_WT_MST0(TB_SN_SO_WT_MST0 entity)
         {
-            int id = OracleDataHelper.InsertEntity<TB_SN_SO_WT_MST0>(entity, "TB_SN_SO_WT_MST0");
+            bool id = OracleDataHelper.InsertEntity<TB_SN_SO_WT_MST0>(entity, "TB_SN_SO_WT_MST0");
             //OracleParameterCollection colllection = new OracleParameterCollection();
             //colllection.Add(new OracleParameter("p_MODEL", entity.MODEL));
             //colllection.Add(new OracleParameter("p_SUFFIX", entity.SUFFIX));
@@ -582,7 +582,7 @@ namespace LGEVN.Services
             //colllection.Add(new OracleParameter("p_TRANSFER_FLAG", entity.TRANSFER_FLAG));
             //colllection.Add(new OracleParameter("p_TRANSFER_DATE", entity.TRANSFER_DATE));
             //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_SN_SO_WT_MST0", colllection);
-            return id > -1;
+            return id;
         }
     }
 }
