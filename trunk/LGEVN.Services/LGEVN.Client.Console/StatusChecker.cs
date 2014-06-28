@@ -27,8 +27,8 @@ namespace LGEVN.Client.Console
                 //2. TB_CM_BILLTO_INF
                 //3. TB_CM_MODEL_CAT
                 //4. Get All uncheck Client
-                var cm_mrp_list = OracleDataHelper.GetNoTransfer<TB_CM_MRP>("TB_CM_MRP", "SO_TRANSFER_FLAG");
-                Synchronize<TB_CM_MRP, LGService.TB_CM_MRP>(cm_mrp_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", "MODEL");
+                //var cm_mrp_list = OracleDataHelper.GetNoTransfer<TB_CM_MRP>("TB_CM_MRP", "SO_TRANSFER_FLAG");
+                //Synchronize<TB_CM_MRP, LGService.TB_CM_MRP>(cm_mrp_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", "MODEL");
                 //5. TB_CM_PROVINCE
                 //6. TB_CM_REGION
                 //7. TB_CM_SHOP_BILLTO
@@ -38,11 +38,11 @@ namespace LGEVN.Client.Console
                 //11. TB_MT_HIST
                 //12. TB_MT_SMS_RESP_MSG
                 //13. TB_ORDER_SHIP_HIST
-                return;
+
                 //14. TB_SN_CDC_HIST
                 var list14 = OracleDataHelper.GetNoTransfer<TB_SN_CDC_HIST>("TB_SN_CDC_HIST", "SO_TRANSFER_FLAG");
                 Synchronize<TB_SN_CDC_HIST, LGService.TB_SN_CDC_HIST>(list14, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "INV_ORG", "ORDER_NO", "SHIPTO_CODE", "MODEL", "SERIAL_NO", "SUFFIX" });
-
+                return;
                 //15. TB_SN_PND_HIST
                 var list15 = OracleDataHelper.GetNoTransfer<TB_SN_PND_HIST>("TB_SN_PND_HIST", "SO_TRANSFER_FLAG");
                 Synchronize<TB_SN_PND_HIST, LGService.TB_SN_PND_HIST>(list15, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SERIAL_NO", "OUT_DATE", "EDI_NO", "INV_ORG", "MODEL", "SUFFIX" });
@@ -200,7 +200,19 @@ namespace LGEVN.Client.Console
                     result = service.INSERT_SORDER_SHIP_HIST((LGService.TB_ORDER_SHIP_HIST)entity);
                     break;
                 case "TB_SN_CDC_HIST":
-                    result = service.INSERT_SSN_CDC_HIST((LGService.TB_SN_CDC_HIST)entity);
+                    var obj2 = (LGService.TB_SN_CDC_HIST)entity;
+                    if (obj2.INVOICE_DATE == null) obj2.INVOICE_DATE = DateTime.Now;
+
+                    //if (obj2.SO_TRANSFER_DATE == null) obj2.SO_TRANSFER_DATE = DateTime.Now;
+                    //if (obj2.SO_TRANSFER_FLAG == null) obj2.SO_TRANSFER_FLAG = DateTime.Now;
+                    if (obj2.WARRANTY_IF_FLAG == null) obj2.WARRANTY_IF_FLAG = DateTime.Now.ToString();
+                    //if (obj2.INCENTIVE_FLAG == null) obj2.INCENTIVE_FLAG = DateTime.Now;
+                    if (obj2.SELLOUT_DATE == null) obj2.SELLOUT_DATE = DateTime.Now;
+                    //if (obj2.SELLOUT_FLAG == null) obj2.SELLOUT_FLAG = DateTime.Now;
+                    if (obj2.INVOICE_DATE == null) obj2.INVOICE_DATE = DateTime.Now;
+                    if (obj2.CLOSED_DATE == null) obj2.CLOSED_DATE = DateTime.Now;
+                    if (obj2.UNIQUE_ID == null) obj2.UNIQUE_ID = DateTime.Now;
+                    result = service.INSERT_SSN_CDC_HIST(obj2);
                     break;
                 case "TB_SN_PND_HIST":
                     result = service.INSERT_SSN_PND_HIST((LGService.TB_SN_PND_HIST)entity);
