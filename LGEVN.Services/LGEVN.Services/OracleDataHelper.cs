@@ -105,9 +105,8 @@ namespace LGEVN.Services
             return result;
         }
 
-        public static int InsertEntity<TEntity>(TEntity entity, string table_name)
+        public static bool InsertEntity<TEntity>(TEntity entity, string table_name)
         {
-            int result = -1;
             string sInto = "", sValue = "";
             //Get property infor of key field
             Type myType = typeof(TEntity);
@@ -133,19 +132,23 @@ namespace LGEVN.Services
                             }
 
                             sValue += ":p_" + proname;
-                            sInto +=  proname ;
+                            sInto += proname;
                             var param = new OracleParameter("p_" + proname, value);
                             command.Parameters.Add(param);
                         }
                         string query = "INSERT INTO " + table_name + "(" + sInto + ") VALUES (" + sValue + ")";
                         command.CommandType = CommandType.Text;
                         command.CommandText = query;
-                        result = command.ExecuteNonQuery();
+                        command.ExecuteNonQuery();
                     }
-                    catch { }
+                    catch(Exception ex)
+                    {
+                        if (ex.Message.Contains("ORA-00001")) return true;
+                        return false;
+                    }
                 }
             }
-            return result;
+            return true;
         }
     }
 }
