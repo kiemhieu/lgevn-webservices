@@ -38,14 +38,14 @@ namespace LGEVN.Client.Console
                 //11. TB_MT_HIST
                 //12. TB_MT_SMS_RESP_MSG
                 //13. TB_ORDER_SHIP_HIST
-
+                return;
                 //14. TB_SN_CDC_HIST
                 var list14 = OracleDataHelper.GetNoTransfer<TB_SN_CDC_HIST>("TB_SN_CDC_HIST", "SO_TRANSFER_FLAG");
                 Synchronize<TB_SN_CDC_HIST, LGService.TB_SN_CDC_HIST>(list14, "SO_TRANSFER_FLAG", new string[] { "INV_ORG", "ORDER_NO", "SHIPTO_CODE", "MODEL", "SERIAL_NO", "SUFFIX" });
 
                 //15. TB_SN_PND_HIST
                 var list15 = OracleDataHelper.GetNoTransfer<TB_SN_PND_HIST>("TB_SN_PND_HIST", "SO_TRANSFER_FLAG");
-                Synchronize<TB_SN_PND_HIST, LGService.TB_SN_PND_HIST>(list15, "SO_TRANSFER_FLAG", new string[] { "SERIAL_NO","OUT_DATE", "EDI_NO", "INV_ORG","MODEL","SUFFIX" });
+                Synchronize<TB_SN_PND_HIST, LGService.TB_SN_PND_HIST>(list15, "SO_TRANSFER_FLAG", new string[] { "SERIAL_NO", "OUT_DATE", "EDI_NO", "INV_ORG", "MODEL", "SUFFIX" });
 
                 //16. TB_SN_RDC_HIST
                 var list16 = OracleDataHelper.GetNoTransfer<TB_SN_RDC_HIST>("TB_SN_SO_WT_HIST", "SUCCESS_FLAG");
@@ -72,7 +72,7 @@ namespace LGEVN.Client.Console
         }
 
         private void Synchronize<TSource, TDest>(IEnumerable<TSource> cm_mrp_list, string flag, params string[] keys)
-        { 
+        {
             //Get property infor of key field
             Type myTypeS = typeof(TSource);
             Type myTypeD = typeof(TDest);
@@ -83,7 +83,7 @@ namespace LGEVN.Client.Console
             Dictionary<string, string> dictkey = new Dictionary<string, string>();
             //Get dict of params
 
-           
+
             var dictS = new Dictionary<string, PropertyInfo>();
             var dictD = new Dictionary<string, PropertyInfo>();
 
@@ -110,7 +110,7 @@ namespace LGEVN.Client.Console
                         object valueS = null;
                         if (dictS.ContainsKey(infD.Name)) valueS = dictS[infD.Name].GetValue(item, null);
                         infD.SetValue(entity, valueS, null);
-                        linesPrint.Add(infD.Name.PadRight(20) + " = " + valueS.ToString());
+                        linesPrint.Add(infD.Name.PadRight(20) + " = " + (valueS == null ? "''" : valueS.ToString()));
                     }
 
                     CallWebservice<TDest>(entity);
@@ -129,7 +129,7 @@ namespace LGEVN.Client.Console
                     index++;
                     //Thread.Sleep(20);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     System.Console.WriteLine("\r{0}", ex.ToString());
                 }
@@ -160,7 +160,10 @@ namespace LGEVN.Client.Console
                     service.INSERT_SCM_MODEL_CAT((LGService.TB_CM_MODEL_CAT)entity);
                     break;
                 case "TB_CM_MRP":
-                    service.INSERT_TB_CM_MRP((LGService.TB_CM_MRP)entity);
+                    var obj = (LGService.TB_CM_MRP)entity;
+                    if (obj.CREATE_DATE == null) obj.CREATE_DATE = DateTime.Now;
+                    if (obj.SO_TRANSFER_DATE == null) obj.SO_TRANSFER_DATE = DateTime.Now;
+                    service.INSERT_TB_CM_MRP(obj);
                     break;
                 case "TB_CM_PROVINCE":
                     service.INSERT_TB_CM_PROVINCE((LGService.TB_CM_PROVINCE)entity);

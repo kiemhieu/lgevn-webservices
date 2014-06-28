@@ -133,7 +133,7 @@ namespace LGEVN.Services
                             }
 
                             sValue += ":p_" + proname;
-                            sInto += proname;
+                            sInto +=  proname ;
                             var param = new OracleParameter("p_" + proname, value);
                             command.Parameters.Add(param);
                         }
