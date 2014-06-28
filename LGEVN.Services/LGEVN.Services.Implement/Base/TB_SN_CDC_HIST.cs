@@ -37,5 +37,7 @@ namespace LGEVN.Services.Implement
         public string MODEL_SUFFIX { get; set; }
         public string MODEL { get; set; }
         public string SUFFIX { get; set; }
+        public string SO_TRANSFER_FLAG { get; set; }
+        public DateTime? SO_TRANSFER_DATE { get; set; }
     }
 }
