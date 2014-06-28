@@ -13,7 +13,7 @@ namespace LGEVN.Client.Console
         {
             get
             {
-                return ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString; 
+                return ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             }
         }
 
@@ -153,10 +153,13 @@ namespace LGEVN.Client.Console
         /// <param name="StoreName">Name (with namespace) of Store procedure</param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        public static int ExecuteFlag<TEntity>(TEntity entity, string table_name, string flag, params string[] keysfield)
+        public static int ExecuteFlag<TEntity>(TEntity entity, string table_name, string flag, string date, params string[] keysfield)
         {
             int result = -1;
-            string query = "UPDATE " + table_name + " SET " + flag + "='Y' WHERE ";
+            string datestruct = string.Empty;
+            if (!string.IsNullOrEmpty(date)) datestruct = "," + date + "=" + ":p_" + date;
+
+            string query = "UPDATE " + table_name + " SET " + flag + "='Y' " + datestruct + " WHERE ";
 
             Dictionary<string, string> dictkey = new Dictionary<string, string>();
             //Get dict of params
@@ -167,14 +170,16 @@ namespace LGEVN.Client.Console
             string swhere = "";
             //Get property infor of key field
             Type myType = typeof(TEntity);
-            var props = myType.GetProperties(); 
+            var props = myType.GetProperties();
+
+           
             foreach (var inf in props)
             {
                 string proname = inf.Name;
                 if (dictkey.ContainsKey(proname.ToUpper()))
                 {
                     if (swhere != string.Empty) swhere += " AND ";
-                    swhere = proname + "='" + inf.GetValue(entity, null).ToString() + "'" ;
+                    swhere = proname + "='" + inf.GetValue(entity, null).ToString() + "'";
                 }
             }
             query += swhere;
@@ -185,6 +190,7 @@ namespace LGEVN.Client.Console
                 conn.Open();
                 using (var command = conn.CreateCommand())
                 {
+                    if (!string.IsNullOrEmpty(date)) command.Parameters.Add("p_" + date, DateTime.Now);
                     command.CommandType = CommandType.Text;
                     command.CommandText = query;
                     result = command.ExecuteNonQuery();
