@@ -159,7 +159,7 @@ namespace LGEVN.Client.Console
             string datestruct = string.Empty;
             if (!string.IsNullOrEmpty(date)) datestruct = "," + date + "=" + ":p_" + date;
 
-            string query = "UPDATE " + table_name + " SET " + flag + "='Y' " + datestruct + " WHERE ";
+            string query = "UPDATE \"" + table_name + "\" SET " + flag + "='Y' " + datestruct + " WHERE ";
 
             Dictionary<string, string> dictkey = new Dictionary<string, string>();
             //Get dict of params
@@ -172,14 +172,15 @@ namespace LGEVN.Client.Console
             Type myType = typeof(TEntity);
             var props = myType.GetProperties();
 
-           
+
             foreach (var inf in props)
             {
                 string proname = inf.Name;
                 if (dictkey.ContainsKey(proname.ToUpper()))
                 {
+                    var val = inf.GetValue(entity, null);
                     if (swhere != string.Empty) swhere += " AND ";
-                    swhere = proname + "='" + inf.GetValue(entity, null).ToString() + "'";
+                    swhere += proname + "='" + (val == null ? string.Empty : val.ToString()) + "'";
                 }
             }
             query += swhere;
