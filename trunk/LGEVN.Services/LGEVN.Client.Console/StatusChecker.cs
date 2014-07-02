@@ -208,7 +208,7 @@ namespace LGEVN.Client.Console
                     result = service.INSERT_SSN_PND_HIST((LGService.TB_SN_PND_HIST)entity);
                     break;
                 case "TB_SN_RDC_HIST":
-                    result = service.INSERT_SSN_RDC_HIST((LGService.TB_SN_RDC_HIST)entity);
+                    result = service.INSERT_SN_RDC_HIST((LGService.TB_SN_RDC_HIST)entity);
                     break;
                 case "TB_SN_SO_DEALERS":
                     result = service.INSERT_SSN_SO_DEALERS((LGService.TB_SN_SO_DEALERS)entity);
