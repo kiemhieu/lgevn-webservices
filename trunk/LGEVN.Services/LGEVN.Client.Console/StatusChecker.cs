@@ -22,13 +22,13 @@ namespace LGEVN.Client.Console
             {
 
                 //1. TB_APP_ERROR
-                //var cm_mrp_list = OracleDataHelper.GetNoTransfer<TB_CM_MRP>(table_pre +"TB_CM_MRP", "SO_TRANSFER_FLAG");
-                //Synchronize<TB_APP_ERROR, LGService.TB_APP_ERROR>(cm_mrp_list, "SO_TRANSFER_FLAG", "MODEL");
+                var cm_mrp_list = OracleDataHelper.GetNoTransfer<TB_APP_ERROR>(table_pre + "TB_APP_ERROR", "SO_TRANSFER_FLAG");
+                Synchronize<TB_APP_ERROR, LGService.TB_APP_ERROR>(cm_mrp_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "NAME", "MSG", "LINE", "CDATE", "CTIME" });
 
                 //2. TB_CM_BILLTO_INF
                 //3. TB_CM_MODEL_CAT
                 //4. Get All uncheck Client
-                //var cm_mrp_list = OracleDataHelper.GetNoTransfer<TB_CM_MRP>(table_pre +"TB_CM_MRP", "SO_TRANSFER_FLAG");
+                //var cm_mrp_list = OracleDataHelper.GetNoTransfer<TB_CM_MRP>(table_pre + "TB_CM_MRP", "SO_TRANSFER_FLAG");
                 //Synchronize<TB_CM_MRP, LGService.TB_CM_MRP>(cm_mrp_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", "MODEL");
                 //5. TB_CM_PROVINCE
                 //6. TB_CM_REGION
@@ -41,8 +41,8 @@ namespace LGEVN.Client.Console
                 //13. TB_ORDER_SHIP_HIST
 
                 //14. TB_SN_CDC_HIST
-                //var list14 = OracleDataHelper.GetNoTransfer<TB_SN_CDC_HIST>(table_pre +"TB_SN_CDC_HIST", "SO_TRANSFER_FLAG");
-                //Synchronize<TB_SN_CDC_HIST, LGService.TB_SN_CDC_HIST>(list14, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "INV_ORG", "ORDER_NO", "SHIPTO_CODE", "MODEL", "SERIAL_NO", "SUFFIX" });
+                var list14 = OracleDataHelper.GetNoTransfer<TB_SN_CDC_HIST>(table_pre + "TB_SN_CDC_HIST", "SO_TRANSFER_FLAG");
+                Synchronize<TB_SN_CDC_HIST, LGService.TB_SN_CDC_HIST>(list14, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "INV_ORG", "ORDER_NO", "SHIPTO_CODE", "MODEL", "SERIAL_NO", "SUFFIX" });
 
                 //15. TB_SN_PND_HIST
                 var list15 = OracleDataHelper.GetNoTransfer<TB_SN_PND_HIST>(table_pre + "TB_SN_PND_HIST", "SO_TRANSFER_FLAG");
