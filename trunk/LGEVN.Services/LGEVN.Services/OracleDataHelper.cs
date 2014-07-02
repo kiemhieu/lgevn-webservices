@@ -75,6 +75,10 @@ namespace LGEVN.Services
         /// <returns></returns>
         public static IEnumerable<TEntity> ExecuteProcedure<TEntity>(string StoreName, params OracleParameter[] parameters) //where TEntity : class
         {
+
+            Type myType = typeof(TEntity);
+            var prop = myType.GetProperties();
+
             IEnumerable<TEntity> result = null;
             using (var conn = new OracleConnection())
             {
@@ -88,7 +92,20 @@ namespace LGEVN.Services
                         foreach (OracleParameter param in parameters) command.Parameters.Add(param);
                     var reader = command.ExecuteReader();
                     if (typeof(TEntity).IsClass)
-                        result = AutoMapper.Mapper.DynamicMap<IDataReader, IEnumerable<TEntity>>(reader);
+                    //result = AutoMapper.Mapper.DynamicMap<IDataReader, IEnumerable<TEntity>>(reader);
+                    {
+                        List<TEntity> lst = new List<TEntity>();
+                        while (reader.Read())
+                        {
+                            var entity = (TEntity) Activator.CreateInstance(myType);
+                            foreach (var inf in prop)
+                            {
+                                object value = reader[inf.Name];
+                                inf.SetValue(entity, value, null);
+                            }
+                            lst.Add(entity);
+                        }
+                    }
                     else
                     {
                         List<TEntity> lst = new List<TEntity>();
