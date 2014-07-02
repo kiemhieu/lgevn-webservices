@@ -438,7 +438,7 @@ namespace LGEVN.Services
 
         // ===========================================================TB_SN_RDC_HIST=======================================================
         [WebMethod]
-        public bool INSERT_SSN_RDC_HIST(TB_SN_RDC_HIST entity)
+        public bool INSERT_SN_RDC_HIST(TB_SN_RDC_HIST entity)
         {
             bool id = OracleDataHelper.InsertEntity<TB_SN_RDC_HIST>(entity, "TB_SN_RDC_HIST");
             //OracleParameterCollection colllection = new OracleParameterCollection();

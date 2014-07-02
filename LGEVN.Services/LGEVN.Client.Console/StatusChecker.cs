@@ -44,7 +44,7 @@ namespace LGEVN.Client.Console
                 //Synchronize<TB_SN_CDC_HIST, LGService.TB_SN_CDC_HIST>(list14, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "INV_ORG", "ORDER_NO", "SHIPTO_CODE", "MODEL", "SERIAL_NO", "SUFFIX" });
 
                 //15. TB_SN_PND_HIST
-                var list15 = OracleDataHelper.GetNoTransfer<TB_SN_PND_HIST>("TB_SN_PND_HIST", "SO_TRANSFER_FLAG");
+                var list15 = OracleDataHelper.GetNoTransfer<TB_SN_PND_HIST>("0_TB_SN_PND_HIST", "SO_TRANSFER_FLAG");
                 Synchronize<TB_SN_PND_HIST, LGService.TB_SN_PND_HIST>(list15, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SERIAL_NO", "OUT_DATE", "EDI_NO", "INV_ORG", "MODEL", "SUFFIX" });
                 return;
                 //16. TB_SN_RDC_HIST
@@ -78,7 +78,7 @@ namespace LGEVN.Client.Console
             Type myTypeD = typeof(TDest);
 
             System.Console.WriteLine("---------------------------------------------------------------------------");
-            System.Console.WriteLine("                         BEGIN SYNCHRONIZE TB_CM_MRP " + myTypeS.Name);
+            System.Console.WriteLine("                         BEGIN SYNCHRONIZE " + myTypeS.Name);
             System.Console.WriteLine("---------------------------------------------------------------------------");
             Dictionary<string, string> dictkey = new Dictionary<string, string>();
             //Get dict of params
