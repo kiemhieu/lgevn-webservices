@@ -11,6 +11,7 @@ namespace LGEVN.Client.Console
 {
     public class StatusChecker
     {
+        private string table_pre = "0_";
         /// <summary>
         /// Do this when timer check & fire
         /// </summary>
@@ -21,13 +22,13 @@ namespace LGEVN.Client.Console
             {
 
                 //1. TB_APP_ERROR
-                //var cm_mrp_list = OracleDataHelper.GetNoTransfer<TB_CM_MRP>("TB_CM_MRP", "SO_TRANSFER_FLAG");
+                //var cm_mrp_list = OracleDataHelper.GetNoTransfer<TB_CM_MRP>(table_pre +"TB_CM_MRP", "SO_TRANSFER_FLAG");
                 //Synchronize<TB_APP_ERROR, LGService.TB_APP_ERROR>(cm_mrp_list, "SO_TRANSFER_FLAG", "MODEL");
 
                 //2. TB_CM_BILLTO_INF
                 //3. TB_CM_MODEL_CAT
                 //4. Get All uncheck Client
-                //var cm_mrp_list = OracleDataHelper.GetNoTransfer<TB_CM_MRP>("TB_CM_MRP", "SO_TRANSFER_FLAG");
+                //var cm_mrp_list = OracleDataHelper.GetNoTransfer<TB_CM_MRP>(table_pre +"TB_CM_MRP", "SO_TRANSFER_FLAG");
                 //Synchronize<TB_CM_MRP, LGService.TB_CM_MRP>(cm_mrp_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", "MODEL");
                 //5. TB_CM_PROVINCE
                 //6. TB_CM_REGION
@@ -40,27 +41,27 @@ namespace LGEVN.Client.Console
                 //13. TB_ORDER_SHIP_HIST
 
                 //14. TB_SN_CDC_HIST
-                //var list14 = OracleDataHelper.GetNoTransfer<TB_SN_CDC_HIST>("TB_SN_CDC_HIST", "SO_TRANSFER_FLAG");
+                //var list14 = OracleDataHelper.GetNoTransfer<TB_SN_CDC_HIST>(table_pre +"TB_SN_CDC_HIST", "SO_TRANSFER_FLAG");
                 //Synchronize<TB_SN_CDC_HIST, LGService.TB_SN_CDC_HIST>(list14, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "INV_ORG", "ORDER_NO", "SHIPTO_CODE", "MODEL", "SERIAL_NO", "SUFFIX" });
 
                 //15. TB_SN_PND_HIST
-                var list15 = OracleDataHelper.GetNoTransfer<TB_SN_PND_HIST>("0_TB_SN_PND_HIST", "SO_TRANSFER_FLAG");
-                Synchronize<TB_SN_PND_HIST, LGService.TB_SN_PND_HIST>(list15, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SERIAL_NO", "OUT_DATE", "EDI_NO", "INV_ORG", "MODEL", "SUFFIX" });
+                var list15 = OracleDataHelper.GetNoTransfer<TB_SN_PND_HIST>(table_pre + "TB_SN_PND_HIST", "SO_TRANSFER_FLAG");
+                Synchronize<TB_SN_PND_HIST, LGService.TB_SN_PND_HIST>(list15, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SERIAL_NO", "PND_TYPE" });
                 return;
                 //16. TB_SN_RDC_HIST
-                var list16 = OracleDataHelper.GetNoTransfer<TB_SN_RDC_HIST>("TB_SN_SO_WT_HIST", "SUCCESS_FLAG");
+                var list16 = OracleDataHelper.GetNoTransfer<TB_SN_RDC_HIST>(table_pre + "TB_SN_SO_WT_HIST", "SUCCESS_FLAG");
                 Synchronize<TB_SN_RDC_HIST, LGService.TB_SN_RDC_HIST>(list16, "SUCCESS_FLAG", "SUCCESS_DATE", new string[] { "SERIAL_NO", "MODEL" });
 
                 //17. TB_SN_SO_WT_HIST
-                var list17 = OracleDataHelper.GetNoTransfer<TB_SN_SO_WT_HIST>("TB_SN_SO_WT_HIST", "TRANSFER_FLAG");
+                var list17 = OracleDataHelper.GetNoTransfer<TB_SN_SO_WT_HIST>(table_pre + "TB_SN_SO_WT_HIST", "TRANSFER_FLAG");
                 Synchronize<TB_SN_SO_WT_HIST, LGService.TB_SN_SO_WT_HIST>(list17, "TRANSFER_FLAG", "TRANSFER_DATE", new string[] { "SERIAL_NO", "MODEL" });
 
                 //18. TB_SN_SO_WT_MST
-                var list18 = OracleDataHelper.GetNoTransfer<TB_SN_SO_WT_MST>("TB_SN_SO_WT_MST", "TRANSFER_FLAG");
+                var list18 = OracleDataHelper.GetNoTransfer<TB_SN_SO_WT_MST>(table_pre + "TB_SN_SO_WT_MST", "TRANSFER_FLAG");
                 Synchronize<TB_SN_SO_WT_MST, LGService.TB_SN_SO_WT_MST>(list18, "TRANSFER_FLAG", "TRANSFER_DATE", new string[] { "SERIAL_NO", "MODEL" });
 
                 //19. TB_SN_SO_WT_MST0
-                var list19 = OracleDataHelper.GetNoTransfer<TB_SN_SO_WT_MST0>("TB_SN_SO_WT_MST0", "TRANSFER_FLAG");
+                var list19 = OracleDataHelper.GetNoTransfer<TB_SN_SO_WT_MST0>(table_pre + "TB_SN_SO_WT_MST0", "TRANSFER_FLAG");
                 Synchronize<TB_SN_SO_WT_MST0, LGService.TB_SN_SO_WT_MST0>(list19, "TRANSFER_FLAG", "TRANSFER_DATE", new string[] { "SERIAL_NO", "MODEL" });
 
             }
@@ -116,7 +117,7 @@ namespace LGEVN.Client.Console
                     CallWebservice<TDest>(entity);
                     //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_HIEUNK_TEST", colllection);
                     //3. Update flag to Client
-                    OracleDataHelper.ExecuteFlag<TSource>(item, myTypeS.Name, flag, date, keys);
+                    OracleDataHelper.ExecuteFlag<TSource>(item, table_pre + myTypeS.Name, flag, date, keys);
                     //OracleDataHelper.ExecuteFlag<TB_CM_MRP>(item, "TB_CM_MRP", "SO_TRANSFER_FLAG", "MODEL");
                     System.Console.WriteLine("Synchronized (" + index.ToString() + ")");
                     foreach (var line in linesPrint)
