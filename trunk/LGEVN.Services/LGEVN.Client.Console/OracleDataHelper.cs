@@ -171,7 +171,7 @@ namespace LGEVN.Client.Console
             //Get property infor of key field
             Type myType = typeof(TEntity);
             var props = myType.GetProperties();
-
+            List<OracleParameter> param_where = new List<OracleParameter>();
 
             foreach (var inf in props)
             {
@@ -179,8 +179,10 @@ namespace LGEVN.Client.Console
                 if (dictkey.ContainsKey(proname.ToUpper()))
                 {
                     var val = inf.GetValue(entity, null);
+                    if (val == null) continue;
                     if (swhere != string.Empty) swhere += " AND ";
-                    swhere += proname + "='" + (val == null ? string.Empty : val.ToString()) + "'";
+                    swhere += proname + "=:p_" + proname; //"='" + val.ToString() + "'";
+                    param_where.Add(new OracleParameter("p_" + proname, val));
                 }
             }
             query += swhere;
@@ -192,6 +194,7 @@ namespace LGEVN.Client.Console
                 using (var command = conn.CreateCommand())
                 {
                     if (!string.IsNullOrEmpty(date)) command.Parameters.Add("p_" + date, DateTime.Now);
+                    foreach (var param in param_where) command.Parameters.Add(param);
                     command.CommandType = CommandType.Text;
                     command.CommandText = query;
                     result = command.ExecuteNonQuery();
