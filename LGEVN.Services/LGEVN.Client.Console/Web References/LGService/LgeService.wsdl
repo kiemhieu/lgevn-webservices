@@ -637,7 +637,7 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="INSERT_SSN_RDC_HIST">
+      <s:element name="INSERT_SN_RDC_HIST">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="entity" type="tns:TB_SN_RDC_HIST" />
@@ -668,10 +668,10 @@
           <s:element minOccurs="1" maxOccurs="1" name="SO_TRANSFER_DATE" nillable="true" type="s:dateTime" />
         </s:sequence>
       </s:complexType>
-      <s:element name="INSERT_SSN_RDC_HISTResponse">
+      <s:element name="INSERT_SN_RDC_HISTResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="INSERT_SSN_RDC_HISTResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="INSERT_SN_RDC_HISTResult" type="s:boolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -911,11 +911,11 @@
   <wsdl:message name="INSERT_SSN_PND_HISTSoapOut">
     <wsdl:part name="parameters" element="tns:INSERT_SSN_PND_HISTResponse" />
   </wsdl:message>
-  <wsdl:message name="INSERT_SSN_RDC_HISTSoapIn">
-    <wsdl:part name="parameters" element="tns:INSERT_SSN_RDC_HIST" />
+  <wsdl:message name="INSERT_SN_RDC_HISTSoapIn">
+    <wsdl:part name="parameters" element="tns:INSERT_SN_RDC_HIST" />
   </wsdl:message>
-  <wsdl:message name="INSERT_SSN_RDC_HISTSoapOut">
-    <wsdl:part name="parameters" element="tns:INSERT_SSN_RDC_HISTResponse" />
+  <wsdl:message name="INSERT_SN_RDC_HISTSoapOut">
+    <wsdl:part name="parameters" element="tns:INSERT_SN_RDC_HISTResponse" />
   </wsdl:message>
   <wsdl:message name="INSERT_SSN_SO_DEALERSSoapIn">
     <wsdl:part name="parameters" element="tns:INSERT_SSN_SO_DEALERS" />
@@ -1014,9 +1014,9 @@
       <wsdl:input message="tns:INSERT_SSN_PND_HISTSoapIn" />
       <wsdl:output message="tns:INSERT_SSN_PND_HISTSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="INSERT_SSN_RDC_HIST">
-      <wsdl:input message="tns:INSERT_SSN_RDC_HISTSoapIn" />
-      <wsdl:output message="tns:INSERT_SSN_RDC_HISTSoapOut" />
+    <wsdl:operation name="INSERT_SN_RDC_HIST">
+      <wsdl:input message="tns:INSERT_SN_RDC_HISTSoapIn" />
+      <wsdl:output message="tns:INSERT_SN_RDC_HISTSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="INSERT_SSN_SO_DEALERS">
       <wsdl:input message="tns:INSERT_SSN_SO_DEALERSSoapIn" />
@@ -1199,8 +1199,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="INSERT_SSN_RDC_HIST">
-      <soap:operation soapAction="http://tempuri.org/INSERT_SSN_RDC_HIST" style="document" />
+    <wsdl:operation name="INSERT_SN_RDC_HIST">
+      <soap:operation soapAction="http://tempuri.org/INSERT_SN_RDC_HIST" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1409,8 +1409,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="INSERT_SSN_RDC_HIST">
-      <soap12:operation soapAction="http://tempuri.org/INSERT_SSN_RDC_HIST" style="document" />
+    <wsdl:operation name="INSERT_SN_RDC_HIST">
+      <soap12:operation soapAction="http://tempuri.org/INSERT_SN_RDC_HIST" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

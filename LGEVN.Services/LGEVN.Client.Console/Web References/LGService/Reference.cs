@@ -65,7 +65,7 @@ namespace LGEVN.Client.Console.LGService {
         
         private System.Threading.SendOrPostCallback INSERT_SSN_PND_HISTOperationCompleted;
         
-        private System.Threading.SendOrPostCallback INSERT_SSN_RDC_HISTOperationCompleted;
+        private System.Threading.SendOrPostCallback INSERT_SN_RDC_HISTOperationCompleted;
         
         private System.Threading.SendOrPostCallback INSERT_SSN_SO_DEALERSOperationCompleted;
         
@@ -168,7 +168,7 @@ namespace LGEVN.Client.Console.LGService {
         public event INSERT_SSN_PND_HISTCompletedEventHandler INSERT_SSN_PND_HISTCompleted;
         
         /// <remarks/>
-        public event INSERT_SSN_RDC_HISTCompletedEventHandler INSERT_SSN_RDC_HISTCompleted;
+        public event INSERT_SN_RDC_HISTCompletedEventHandler INSERT_SN_RDC_HISTCompleted;
         
         /// <remarks/>
         public event INSERT_SSN_SO_DEALERSCompletedEventHandler INSERT_SSN_SO_DEALERSCompleted;
@@ -705,31 +705,31 @@ namespace LGEVN.Client.Console.LGService {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/INSERT_SSN_RDC_HIST", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public bool INSERT_SSN_RDC_HIST(TB_SN_RDC_HIST entity) {
-            object[] results = this.Invoke("INSERT_SSN_RDC_HIST", new object[] {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/INSERT_SN_RDC_HIST", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool INSERT_SN_RDC_HIST(TB_SN_RDC_HIST entity) {
+            object[] results = this.Invoke("INSERT_SN_RDC_HIST", new object[] {
                         entity});
             return ((bool)(results[0]));
         }
         
         /// <remarks/>
-        public void INSERT_SSN_RDC_HISTAsync(TB_SN_RDC_HIST entity) {
-            this.INSERT_SSN_RDC_HISTAsync(entity, null);
+        public void INSERT_SN_RDC_HISTAsync(TB_SN_RDC_HIST entity) {
+            this.INSERT_SN_RDC_HISTAsync(entity, null);
         }
         
         /// <remarks/>
-        public void INSERT_SSN_RDC_HISTAsync(TB_SN_RDC_HIST entity, object userState) {
-            if ((this.INSERT_SSN_RDC_HISTOperationCompleted == null)) {
-                this.INSERT_SSN_RDC_HISTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnINSERT_SSN_RDC_HISTOperationCompleted);
+        public void INSERT_SN_RDC_HISTAsync(TB_SN_RDC_HIST entity, object userState) {
+            if ((this.INSERT_SN_RDC_HISTOperationCompleted == null)) {
+                this.INSERT_SN_RDC_HISTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnINSERT_SN_RDC_HISTOperationCompleted);
             }
-            this.InvokeAsync("INSERT_SSN_RDC_HIST", new object[] {
-                        entity}, this.INSERT_SSN_RDC_HISTOperationCompleted, userState);
+            this.InvokeAsync("INSERT_SN_RDC_HIST", new object[] {
+                        entity}, this.INSERT_SN_RDC_HISTOperationCompleted, userState);
         }
         
-        private void OnINSERT_SSN_RDC_HISTOperationCompleted(object arg) {
-            if ((this.INSERT_SSN_RDC_HISTCompleted != null)) {
+        private void OnINSERT_SN_RDC_HISTOperationCompleted(object arg) {
+            if ((this.INSERT_SN_RDC_HISTCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.INSERT_SSN_RDC_HISTCompleted(this, new INSERT_SSN_RDC_HISTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.INSERT_SN_RDC_HISTCompleted(this, new INSERT_SN_RDC_HISTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -6282,17 +6282,17 @@ namespace LGEVN.Client.Console.LGService {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
-    public delegate void INSERT_SSN_RDC_HISTCompletedEventHandler(object sender, INSERT_SSN_RDC_HISTCompletedEventArgs e);
+    public delegate void INSERT_SN_RDC_HISTCompletedEventHandler(object sender, INSERT_SN_RDC_HISTCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class INSERT_SSN_RDC_HISTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class INSERT_SN_RDC_HISTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal INSERT_SSN_RDC_HISTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal INSERT_SN_RDC_HISTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
