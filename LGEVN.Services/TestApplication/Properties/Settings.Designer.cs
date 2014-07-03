@@ -26,10 +26,10 @@ namespace TestApplication.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1350/LgeService.asmx")]
-        public string TestApplication_LGService_LgeService {
+        [global::System.Configuration.DefaultSettingValueAttribute("http://42.112.29.8:8001/MorderChanel.asmx")]
+        public string TestApplication_LGService_MorderChanel {
             get {
-                return ((string)(this["TestApplication_LGService_LgeService"]));
+                return ((string)(this["TestApplication_LGService_MorderChanel"]));
             }
         }
     }
