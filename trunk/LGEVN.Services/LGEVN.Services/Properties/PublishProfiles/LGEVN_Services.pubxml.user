@@ -8,6 +8,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <LastUsedBuildConfiguration>Release</LastUsedBuildConfiguration>
     <LastUsedPlatform>Any CPU</LastUsedPlatform>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\Working\Project\ASP.NET\LGEVN\Public</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/AutoMapper.dll">
@@ -17,10 +18,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2014 14:58:23</publishTime>
     </File>
     <File Include="bin/LGEVN.Services.dll">
-      <publishTime>06/23/2014 04:08:17</publishTime>
+      <publishTime>07/03/2014 07:57:07</publishTime>
     </File>
     <File Include="bin/LGEVN.Services.Implement.dll">
-      <publishTime>06/23/2014 04:08:16</publishTime>
+      <publishTime>07/03/2014 07:57:07</publishTime>
     </File>
     <File Include="bin/LGEVN.Services.Interface.dll">
       <publishTime>06/15/2014 14:43:52</publishTime>
@@ -38,7 +39,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2014 12:58:25</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/23/2014 04:08:17</publishTime>
+      <publishTime>07/03/2014 07:57:08</publishTime>
     </File>
   </ItemGroup>
 </Project>
