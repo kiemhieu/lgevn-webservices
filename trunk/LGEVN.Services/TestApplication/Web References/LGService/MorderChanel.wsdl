@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GET_WS_EDI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ws_shop_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ws_shop_key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial_no" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="model" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sell_date" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="eucell" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="euname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="euadd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="request_time" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_WS_EDIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GET_WS_EDIResult" type="tns:WS_RESP_PARS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WS_RESP_PARS">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RESP_RESULT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RESP_TIME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RESP_MSG" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CUST_SEND_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SHOP_CODE" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GET_WS_EDISoapIn">
+    <wsdl:part name="parameters" element="tns:GET_WS_EDI" />
+  </wsdl:message>
+  <wsdl:message name="GET_WS_EDISoapOut">
+    <wsdl:part name="parameters" element="tns:GET_WS_EDIResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MorderChanelSoap">
+    <wsdl:operation name="GET_WS_EDI">
+      <wsdl:input message="tns:GET_WS_EDISoapIn" />
+      <wsdl:output message="tns:GET_WS_EDISoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MorderChanelSoap" type="tns:MorderChanelSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GET_WS_EDI">
+      <soap:operation soapAction="http://tempuri.org/GET_WS_EDI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MorderChanelSoap12" type="tns:MorderChanelSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GET_WS_EDI">
+      <soap12:operation soapAction="http://tempuri.org/GET_WS_EDI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MorderChanel">
+    <wsdl:port name="MorderChanelSoap" binding="tns:MorderChanelSoap">
+      <soap:address location="http://42.112.29.8:8001/MorderChanel.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MorderChanelSoap12" binding="tns:MorderChanelSoap12">
+      <soap12:address location="http://42.112.29.8:8001/MorderChanel.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

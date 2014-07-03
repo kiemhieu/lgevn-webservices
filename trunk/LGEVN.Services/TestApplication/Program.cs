@@ -14,7 +14,7 @@ namespace TestApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmAutoBot());
+            Application.Run(new Form1());
         }
     }
 }
