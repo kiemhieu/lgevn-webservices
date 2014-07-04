@@ -20,18 +20,18 @@ namespace LGEVN.Client.Console
         {
             try
             {
-                OracleDataHelper.ExecuteFunction<HIEUNK_TEST>("PK_EDI_MST.FN_RESPONSE_WS_EDI", new OracleParameter[]{
-                     new OracleParameter { ParameterName = "p_ws_shop_code", Value= null},
-                     new OracleParameter { ParameterName = "p_ws_shop_key", Value= null},
-                     new OracleParameter { ParameterName = "p_serial_no", Value= null},
-                     new OracleParameter { ParameterName = "p_model", Value= null},
-                     new OracleParameter { ParameterName = "p_sell_date", Value= null},
-                     new OracleParameter { ParameterName = "p_eucell", Value= null},
-                     new OracleParameter { ParameterName = "p_euname", Value= null},
-                     new OracleParameter { ParameterName = "p_euadd", Value= null},
-                     new OracleParameter { ParameterName = "p_request_time", Value= null}
-                     //new OracleParameter { ParameterName = "p_ReturnValue", Direction = System.Data.ParameterDirection.ReturnValue}
-                }); 
+                //OracleDataHelper.ExecuteFunction<HIEUNK_TEST>("PK_EDI_MST.FN_RESPONSE_WS_EDI", new OracleParameter[]{
+                //     new OracleParameter { ParameterName = "p_ws_shop_code", Value= null},
+                //     new OracleParameter { ParameterName = "p_ws_shop_key", Value= null},
+                //     new OracleParameter { ParameterName = "p_serial_no", Value= null},
+                //     new OracleParameter { ParameterName = "p_model", Value= null},
+                //     new OracleParameter { ParameterName = "p_sell_date", Value= null},
+                //     new OracleParameter { ParameterName = "p_eucell", Value= null},
+                //     new OracleParameter { ParameterName = "p_euname", Value= null},
+                //     new OracleParameter { ParameterName = "p_euadd", Value= null},
+                //     new OracleParameter { ParameterName = "p_request_time", Value= null}
+                //     //new OracleParameter { ParameterName = "p_ReturnValue", Direction = System.Data.ParameterDirection.ReturnValue}
+                //}); 
 
                 //1. TB_APP_ERROR
                 var err_list = OracleDataHelper.GetNoTransfer<TB_APP_ERROR>(table_pre + "TB_APP_ERROR", "SO_TRANSFER_FLAG");
