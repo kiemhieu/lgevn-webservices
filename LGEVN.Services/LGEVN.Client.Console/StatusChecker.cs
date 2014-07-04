@@ -11,7 +11,7 @@ namespace LGEVN.Client.Console
 {
     public class StatusChecker
     {
-        private string table_pre =  "0_";
+        private string table_pre = string.Empty;// "0_";
         /// <summary>
         /// Do this when timer check & fire
         /// </summary>
@@ -23,20 +23,20 @@ namespace LGEVN.Client.Console
 
                 //1. TB_APP_ERROR
                 var err_list = OracleDataHelper.GetNoTransfer<TB_APP_ERROR>(table_pre + "TB_APP_ERROR", "SO_TRANSFER_FLAG");
-                //Synchronize<TB_APP_ERROR, LGService.TB_APP_ERROR>(err_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "NAME", "MSG", "LINE", "CDATE", "CTIME" });
-                
+                Synchronize<TB_APP_ERROR, LGService.TB_APP_ERROR>(err_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "NAME", "MSG", "LINE", "CDATE", "CTIME" });
+
                 //2. TB_CM_BILLTO_INF
                 var blii_inf_list = OracleDataHelper.GetNoTransfer<TB_CM_BILLTO_INF>(table_pre + "TB_CM_BILLTO_INF", "SO_TRANSFER_FLAG");
-                //Synchronize<TB_CM_BILLTO_INF, LGService.TB_CM_BILLTO_INF>(blii_inf_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "BILLTO_CODE", "SHOP_CODE", "SHOP_NAME", "ADDRESS", "DIST_CODE", "PROVINCE_CODE", "CREATE_DATE", "UPDATE_DATE", "ISDN_NO", "CUSTOMER_CODE", "AREA_CODE", "OWNER_NAME", "OWNER_EMAIL", "USE_FLAG", "CHANNEL", "REG_ID", "CREATE_USER", "UPDATE_USER", "SHOP_TYPE" });
+                Synchronize<TB_CM_BILLTO_INF, LGService.TB_CM_BILLTO_INF>(blii_inf_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "BILLTO_CODE", "SHOP_CODE", "SHOP_NAME", "ADDRESS", "DIST_CODE", "PROVINCE_CODE", "CREATE_DATE", "UPDATE_DATE", "ISDN_NO", "CUSTOMER_CODE", "AREA_CODE", "OWNER_NAME", "OWNER_EMAIL", "USE_FLAG", "CHANNEL", "REG_ID", "CREATE_USER", "UPDATE_USER", "SHOP_TYPE" });
 
                 //3. TB_CM_MODEL_CAT
-                //var model_cat_list = OracleDataHelper.GetNoTransfer<TB_CM_MODEL_CAT>(table_pre + "TB_CM_MODEL_CAT", "SO_TRANSFER_FLAG");
-                //Synchronize<TB_CM_MODEL_CAT, LGService.TB_CM_MODEL_CAT>(model_cat_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "PROD_L1", "MODEL", "CREATE_DATE", "SUFFIX", "MP_MODEL", "MP_SUFFIX", "ACTIVE_CODE", "SALE_FLAG", "PROD_L2", "PROD_L3", "PROD_L4", "TENTATIVE_FLAG", "MODEL_SPEC", "PUR_TYPE", "ENABLE_FLAG", "LAST_UPDATE_DATE", "UNIT", "AU_CODE", "AF_CODE", "EOM", "PROD_TYPE", "MKT", "IF_DATE" });
+                var model_cat_list = OracleDataHelper.GetNoTransfer<TB_CM_MODEL_CAT>(table_pre + "TB_CM_MODEL_CAT", "SO_TRANSFER_FLAG");
+                Synchronize<TB_CM_MODEL_CAT, LGService.TB_CM_MODEL_CAT>(model_cat_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "PROD_L1", "MODEL", "CREATE_DATE", "SUFFIX", "MP_MODEL", "MP_SUFFIX", "ACTIVE_CODE", "SALE_FLAG", "PROD_L2", "PROD_L3", "PROD_L4", "TENTATIVE_FLAG", "MODEL_SPEC", "PUR_TYPE", "ENABLE_FLAG", "LAST_UPDATE_DATE", "UNIT", "AU_CODE", "AF_CODE", "EOM", "PROD_TYPE", "MKT", "IF_DATE" });
 
                 //4. Get All uncheck Client
                 var cm_mrp_list = OracleDataHelper.GetNoTransfer<TB_CM_MRP>(table_pre + "TB_CM_MRP", "SO_TRANSFER_FLAG");
                 Synchronize<TB_CM_MRP, LGService.TB_CM_MRP>(cm_mrp_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "MODEL", "MRP", "CREATE_DATE" });
-                return;
+
                 //5. TB_CM_PROVINCE
                 var cm_province_list = OracleDataHelper.GetNoTransfer<TB_CM_PROVINCE>(table_pre + "TB_CM_PROVINCE", "SO_TRANSFER_FLAG");
                 Synchronize<TB_CM_PROVINCE, LGService.TB_CM_PROVINCE>(cm_province_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", "ID");
