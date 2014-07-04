@@ -202,5 +202,27 @@ namespace LGEVN.Client.Console
             }
             return result;
         }
+
+        public static TEntity ExecuteFunction<TEntity>(string FunctionName, params OracleParameter[] parameters)
+        {
+            var returnParam = new OracleParameter { ParameterName = "p_ReturnValue", Size=256, Direction = System.Data.ParameterDirection.ReturnValue };
+            TEntity result = default(TEntity);
+            using (var conn = new OracleConnection())
+            {
+                conn.ConnectionString = ConnectionString;
+                conn.Open();
+                using (var command = conn.CreateCommand())
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = FunctionName;
+                    if (parameters != null)
+                        foreach (OracleParameter param in parameters) command.Parameters.Add(param);
+                    command.Parameters.Add(returnParam);
+                    var reader = command.ExecuteNonQuery();
+                    result = AutoMapper.Mapper.DynamicMap<object, TEntity>(command.Parameters["p_ReturnValue"].Value);
+                }
+            }
+            return result;
+        }
     }
 }
