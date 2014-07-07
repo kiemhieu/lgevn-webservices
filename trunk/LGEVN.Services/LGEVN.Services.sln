@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApplication", "TestAppl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LGEVN.Client.Console", "LGEVN.Client.Console\LGEVN.Client.Console.csproj", "{DEF0656A-EE58-40C7-8FF9-92B979911933}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LGEVN.SMS.Console", "LGEVN.SMS.Console\LGEVN.SMS.Console.csproj", "{F14B153D-26B6-4292-A3DF-E242CE0DF3ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{DEF0656A-EE58-40C7-8FF9-92B979911933}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEF0656A-EE58-40C7-8FF9-92B979911933}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEF0656A-EE58-40C7-8FF9-92B979911933}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F14B153D-26B6-4292-A3DF-E242CE0DF3ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F14B153D-26B6-4292-A3DF-E242CE0DF3ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F14B153D-26B6-4292-A3DF-E242CE0DF3ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F14B153D-26B6-4292-A3DF-E242CE0DF3ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
