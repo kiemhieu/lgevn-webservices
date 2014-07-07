@@ -20,17 +20,17 @@ namespace LGEVN.Client.Console
         {
             try
             {
-                OracleDataHelper.ExecuteProcedure<HIEUNK_TEST>("PK_EDI_MST.PR_RESPONSE_WS_EDI", 
+                OracleDataHelper.ExecuteProcedure<HIEUNK_TEST>("PK_EDI_MST.PR_RESPONSE_WS_EDI",
                 new OracleParameter[]{
-                     new OracleParameter { ParameterName = "P_WS_SHOP_CODE", Value= string.Empty},
-                     new OracleParameter { ParameterName = "P_WS_SHOP_KEY", Value= string.Empty},
-                     new OracleParameter { ParameterName = "P_SERIAL_NO", Value= string.Empty},
-                     new OracleParameter { ParameterName = "P_MODEL", Value= string.Empty},
-                     new OracleParameter { ParameterName = "P_SELL_DATE", Value= string.Empty},
-                     new OracleParameter { ParameterName = "P_EUCELL", Value= string.Empty},
-                     new OracleParameter { ParameterName = "P_EUNAME", Value= string.Empty},
-                     new OracleParameter { ParameterName = "P_EUADD", Value= string.Empty},
-                     new OracleParameter { ParameterName = "P_REQUEST_TIME", Value= string.Empty},
+                     new OracleParameter { ParameterName = "P_WS_SHOP_CODE", Value= null},
+                     new OracleParameter { ParameterName = "P_WS_SHOP_KEY", Value=null},
+                     new OracleParameter { ParameterName = "P_SERIAL_NO", Value= null},
+                     new OracleParameter { ParameterName = "P_MODEL", Value= null},
+                     new OracleParameter { ParameterName = "P_SELL_DATE", Value= null},
+                     new OracleParameter { ParameterName = "P_EUCELL", Value= null},
+                     new OracleParameter { ParameterName = "P_EUNAME", Value= null},
+                     new OracleParameter { ParameterName = "P_EUADD", Value= null},
+                     new OracleParameter { ParameterName = "P_REQUEST_TIME", Value= null},
                      new OracleParameter { ParameterName = "items_cursor", Direction = System.Data.ParameterDirection.Output, OracleType=OracleType.Cursor}
                 });
                 return;

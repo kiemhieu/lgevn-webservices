@@ -22,19 +22,19 @@ namespace LGEVN.Services
         [WebMethod]
         public WS_RESP_PARS GET_WS_EDI(string ws_shop_code, string ws_shop_key, string serial_no, string model, string sell_date, string eucell, string euname, string euadd, string request_time)
         {
-            var resultparam = new OracleParameter { ParameterName = "p_out", Direction = System.Data.ParameterDirection.Output, OracleType = OracleType.Clob };
-            var result = OracleDataHelper.ExecuteProcedure<WS_RESP_PARS>("PK_EDI_MST.PR_RESPONSE_WS_EDI", new OracleParameter[]{
-                //resultparam,
-                new OracleParameter("p_ws_shop_code", ws_shop_code), 
-                new OracleParameter("p_ws_shop_key", ws_shop_key), 
-                new OracleParameter("p_serial_no", serial_no), 
-                new OracleParameter("p_model", model),
-                new OracleParameter("p_sell_date", sell_date), 
-                new OracleParameter("p_eucell", eucell), 
-                new OracleParameter("p_euname", euname), 
-                new OracleParameter("p_euadd", euadd), 
-                new OracleParameter("p_request_time", request_time),
-            });
+            var result = OracleDataHelper.ExecuteProcedure<WS_RESP_PARS>("PK_EDI_MST.PR_RESPONSE_WS_EDI",
+                new OracleParameter[]{
+                     new OracleParameter { ParameterName = "P_WS_SHOP_CODE", Value= null},
+                     new OracleParameter { ParameterName = "P_WS_SHOP_KEY", Value=null},
+                     new OracleParameter { ParameterName = "P_SERIAL_NO", Value= null},
+                     new OracleParameter { ParameterName = "P_MODEL", Value= null},
+                     new OracleParameter { ParameterName = "P_SELL_DATE", Value= null},
+                     new OracleParameter { ParameterName = "P_EUCELL", Value= null},
+                     new OracleParameter { ParameterName = "P_EUNAME", Value= null},
+                     new OracleParameter { ParameterName = "P_EUADD", Value= null},
+                     new OracleParameter { ParameterName = "P_REQUEST_TIME", Value= null},
+                     new OracleParameter { ParameterName = "items_cursor", Direction = System.Data.ParameterDirection.Output, OracleType=OracleType.Cursor}
+                });
 
             return result == null ? null : result.ElementAt(0);
         }

@@ -58,7 +58,13 @@ namespace LGEVN.Services
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = StoreName;
                     if (parameters != null)
-                        foreach (OracleParameter param in parameters) command.Parameters.AddWithValue(param.ParameterName, param.Value);
+                    {
+                        foreach (OracleParameter param in parameters)
+                        {
+                            if (param.Value == null) param.Value = System.DBNull.Value;
+                            command.Parameters.AddWithValue(param.ParameterName, param.Value);
+                        }
+                    }
                     result = command.ExecuteNonQuery();
                 }
             }
@@ -89,7 +95,13 @@ namespace LGEVN.Services
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = StoreName;
                     if (parameters != null)
-                        foreach (OracleParameter param in parameters) command.Parameters.Add(param);
+                    {
+                        foreach (OracleParameter param in parameters)
+                        {
+                            if (param.Value == null) param.Value = System.DBNull.Value;
+                            command.Parameters.Add(param);
+                        }
+                    }
                     var reader = command.ExecuteReader();
                     if (typeof(TEntity).IsClass)
                     //result = AutoMapper.Mapper.DynamicMap<IDataReader, IEnumerable<TEntity>>(reader);
@@ -97,7 +109,7 @@ namespace LGEVN.Services
                         List<TEntity> lst = new List<TEntity>();
                         while (reader.Read())
                         {
-                            var entity = (TEntity) Activator.CreateInstance(myType);
+                            var entity = (TEntity)Activator.CreateInstance(myType);
                             foreach (var inf in prop)
                             {
                                 object value = reader[inf.Name];

@@ -61,7 +61,13 @@ namespace LGEVN.Client.Console
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = StoreName;
                     if (parameters != null)
-                        foreach (OracleParameter param in parameters) command.Parameters.AddWithValue(param.ParameterName, param.Value);
+                    {
+                        foreach (OracleParameter param in parameters)
+                        {
+                            if (param.Value == null) param.Value = System.DBNull.Value;
+                            command.Parameters.AddWithValue(param.ParameterName, param.Value);
+                        }
+                    }
                     result = command.ExecuteNonQuery();
                 }
             }
@@ -88,7 +94,14 @@ namespace LGEVN.Client.Console
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = StoreName;
                     if (parameters != null)
-                        foreach (OracleParameter param in parameters) command.Parameters.Add(param);
+                    {
+                        foreach (OracleParameter param in parameters)
+                        {
+                            if (param.Value == null) param.Value = System.DBNull.Value;
+                            command.Parameters.Add(param);
+                        }
+                    }
+
                     var reader = command.ExecuteReader();
                     if (typeof(TEntity).IsClass)
                         result = AutoMapper.Mapper.DynamicMap<IDataReader, IEnumerable<TEntity>>(reader);
@@ -205,7 +218,7 @@ namespace LGEVN.Client.Console
 
         public static TEntity ExecuteFunction<TEntity>(string FunctionName, params OracleParameter[] parameters)
         {
-            var returnParam = new OracleParameter { ParameterName = "p_out", Direction = System.Data.ParameterDirection.Output, OracleType = OracleType.Clob };
+            var returnParam = new OracleParameter { ParameterName = "p_ReturnValue", Direction = System.Data.ParameterDirection.ReturnValue , OracleType= OracleType.Clob};
             TEntity result = default(TEntity);
             using (var conn = new OracleConnection())
             {
@@ -215,12 +228,17 @@ namespace LGEVN.Client.Console
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = FunctionName;
-                    command.Parameters.Add(returnParam);
                     if (parameters != null)
-                        foreach (OracleParameter param in parameters) command.Parameters.Add(param);
-                    //command.Parameters.Add(returnParam);
-                    OracleString rowid;
-                    var reader = command.ExecuteScalar();
+                    {
+                        foreach (OracleParameter param in parameters)
+                        {
+                            if (param.Value == null) param.Value = System.DBNull.Value;
+                            command.Parameters.Add(param);
+                        }
+                    }
+
+                    command.Parameters.Add(returnParam);
+                    var reader = command.ExecuteNonQuery();
                     result = AutoMapper.Mapper.DynamicMap<object, TEntity>(command.Parameters["p_ReturnValue"].Value);
                 }
             }
