@@ -113,10 +113,12 @@ namespace LGEVN.Services
                             foreach (var inf in prop)
                             {
                                 object value = reader[inf.Name];
+                                if (value == System.DBNull.Value) continue;
                                 inf.SetValue(entity, value, null);
                             }
                             lst.Add(entity);
                         }
+                        if (lst.Count != 0) result = lst;
                     }
                     else
                     {
