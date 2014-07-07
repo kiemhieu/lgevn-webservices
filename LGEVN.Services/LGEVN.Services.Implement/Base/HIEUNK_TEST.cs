@@ -6,10 +6,10 @@ namespace LGEVN.Services.Implement
 {
     public sealed class HIEUNK_TEST
     {
-        public string ID { get; set; }
-        public string NAME { get; set; }
-        public string DESCRIPTION { get; set; }
-        public DateTime BIRTH { get; set; }
-        public string FLAG { get; set; }
+        public string resp_result { get; set; }
+        public string resp_time { get; set; }
+        public string resp_msg { get; set; }
+        public string cust_send_id { get; set; }
+        public string shop_code { get; set; }
     }
 }
