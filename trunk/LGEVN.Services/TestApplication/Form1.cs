@@ -18,7 +18,7 @@ namespace TestApplication
         private void btnPR_RESPONSE_WS_EDI_Click(object sender, EventArgs e)
         {
             LGService.MorderChanel chanel = new LGService.MorderChanel();
-            LGService.WS_RESP_PARS result = chanel.GET_WS_EDI("", "", "", "", "", "", "", "", "");
+            LGService.WS_RESP_PARS result = chanel.GET_WS_EDI("EASV0859", "", "", "", "", "", "", "", "");
 
             if (result != null) MessageBox.Show(result.RESP_MSG);
         }
