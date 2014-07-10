@@ -20,7 +20,7 @@ namespace TestApplication
             LGService.MorderChanel chanel = new LGService.MorderChanel();
             LGService.WS_RESP_PARS result = chanel.GET_WS_EDI("EASV0859", "", "", "", "", "", "", "", "");
 
-            if (result != null) MessageBox.Show(result.RESP_MSG);
+            if (result != null) MessageBox.Show(result.SHOP_CODE);
         }
     }
 }

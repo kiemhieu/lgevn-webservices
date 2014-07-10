@@ -84,6 +84,10 @@ namespace LGEVN.Client.Console
         /// <returns></returns>
         public static IEnumerable<TEntity> ExecuteProcedure<TEntity>(string StoreName, params OracleParameter[] parameters) //where TEntity : class
         {
+
+            Type myType = typeof(TEntity);
+            var prop = myType.GetProperties();
+
             IEnumerable<TEntity> result = null;
             using (var conn = new OracleConnection())
             {
@@ -104,7 +108,22 @@ namespace LGEVN.Client.Console
 
                     var reader = command.ExecuteReader();
                     if (typeof(TEntity).IsClass)
-                        result = AutoMapper.Mapper.DynamicMap<IDataReader, IEnumerable<TEntity>>(reader);
+                    // result = AutoMapper.Mapper.DynamicMap<IDataReader, IEnumerable<TEntity>>(reader);
+                    {
+                        List<TEntity> lst = new List<TEntity>();
+                        while (reader.Read())
+                        {
+                            var entity = (TEntity)Activator.CreateInstance(myType);
+                            foreach (var inf in prop)
+                            {
+                                object value = reader[inf.Name];
+                                if (value == System.DBNull.Value) continue;
+                                inf.SetValue(entity, value, null);
+                            }
+                            lst.Add(entity);
+                        }
+                        if (lst.Count != 0) result = lst;
+                    }
                     else
                     {
                         List<TEntity> lst = new List<TEntity>();
@@ -130,7 +149,10 @@ namespace LGEVN.Client.Console
         /// <returns></returns>
         public static IEnumerable<TEntity> GetNoTransfer<TEntity>(string table_name, string flag) //where TEntity : class
         {
-            string a = ConnectionString;
+            Type myType = typeof(TEntity);
+            var prop = myType.GetProperties();
+
+            // string a = ConnectionString;
             IEnumerable<TEntity> result = null;
             using (var conn = new OracleConnection())
             {
@@ -143,7 +165,25 @@ namespace LGEVN.Client.Console
 
                     var reader = command.ExecuteReader();
                     if (typeof(TEntity).IsClass)
-                        result = AutoMapper.Mapper.DynamicMap<IDataReader, IEnumerable<TEntity>>(reader);
+                    //result = AutoMapper.Mapper.DynamicMap<IDataReader, IEnumerable<TEntity>>(reader);
+                    {
+                        List<TEntity> lst = new List<TEntity>();
+                        while (reader.Read())
+                        {
+                            var entity = (TEntity)Activator.CreateInstance(myType);
+                            foreach (var inf in prop)
+                            {
+                                string table_column = inf.Name;
+                                if (table_column == "CELL_NO_1") table_column = "CELL_NO#1";
+                                else if (table_column == "CELL_NO_2") table_column = "CELL_NO#2";
+                                object value = reader[table_column];
+                                if (value == System.DBNull.Value) continue;
+                                inf.SetValue(entity, value, null);
+                            }
+                            lst.Add(entity);
+                        }
+                        if (lst.Count != 0) result = lst;
+                    }
                     else
                     {
                         List<TEntity> lst = new List<TEntity>();
@@ -211,35 +251,6 @@ namespace LGEVN.Client.Console
                     command.CommandType = CommandType.Text;
                     command.CommandText = query;
                     result = command.ExecuteNonQuery();
-                }
-            }
-            return result;
-        }
-
-        public static TEntity ExecuteFunction<TEntity>(string FunctionName, params OracleParameter[] parameters)
-        {
-            var returnParam = new OracleParameter { ParameterName = "p_ReturnValue", Direction = System.Data.ParameterDirection.ReturnValue , OracleType= OracleType.Clob};
-            TEntity result = default(TEntity);
-            using (var conn = new OracleConnection())
-            {
-                conn.ConnectionString = ConnectionString;
-                conn.Open();
-                using (var command = conn.CreateCommand())
-                {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.CommandText = FunctionName;
-                    if (parameters != null)
-                    {
-                        foreach (OracleParameter param in parameters)
-                        {
-                            if (param.Value == null) param.Value = System.DBNull.Value;
-                            command.Parameters.Add(param);
-                        }
-                    }
-
-                    command.Parameters.Add(returnParam);
-                    var reader = command.ExecuteNonQuery();
-                    result = AutoMapper.Mapper.DynamicMap<object, TEntity>(command.Parameters["p_ReturnValue"].Value);
                 }
             }
             return result;
