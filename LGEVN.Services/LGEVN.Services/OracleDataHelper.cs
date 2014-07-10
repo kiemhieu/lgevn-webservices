@@ -156,6 +156,10 @@ namespace LGEVN.Services
                             object value = inf.GetValue(entity, null);
                             if (value == null) continue;
                             string proname = inf.Name;
+                            string table_column = inf.Name;
+                            if (table_column == "CELL_NO_1") table_column = "CELL_NO#1";
+                            else if (table_column == "CELL_NO_2") table_column = "CELL_NO#2";
+
                             if (sInto != string.Empty)
                             {
                                 sInto += ", ";
@@ -163,7 +167,7 @@ namespace LGEVN.Services
                             }
 
                             sValue += ":p_" + proname;
-                            sInto += proname;
+                            sInto += table_column;
                             var param = new OracleParameter("p_" + proname, value);
                             command.Parameters.Add(param);
                         }
