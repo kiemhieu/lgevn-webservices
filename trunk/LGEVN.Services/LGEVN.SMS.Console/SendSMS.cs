@@ -11,6 +11,7 @@ namespace LGEVN.SMS.Console
 {
     public class SendSMS
     {
+        int  smsindex=1;
         public void CheckSMSStatus(Object stateInfo)
         {
             try
@@ -18,6 +19,7 @@ namespace LGEVN.SMS.Console
                 var _url = ConfigurationManager.AppSettings["ServiceURL"];
                 var _user = ConfigurationManager.AppSettings["wsUser"];
                 var _pass = ConfigurationManager.AppSettings["wsPwd"];
+
                 var connstring = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 var ws = new LG.SMS.Service();
                 ws.Url = _url;
@@ -118,6 +120,16 @@ namespace LGEVN.SMS.Console
                 System.Console.WriteLine("<==========================MT sending errors===============================>");
                 System.Console.WriteLine(ex.Message + ", " + DateTime.Now.ToString("yyyyMMdd HH:mm:ss"));
             }
+            string stt = smsindex.ToString();
+            if (smsindex % 10 == 1) stt += "ST";
+            else if (smsindex % 10 == 2) stt += "ND";
+            else if (smsindex % 10 == 3) stt += "RD";
+            else stt += "TH";
+            System.Console.WriteLine("---------------------------------------------------------------------------");
+            System.Console.WriteLine("---------------------- BEGIN SMS CONSOLE APPLICATION AT " + stt.PadRight(19, '-'));
+            System.Console.WriteLine("---------------------------------------------------------------------------");
+            System.Console.WriteLine("\n\n");
+            smsindex++;
             System.Console.Read();
         }
     }
