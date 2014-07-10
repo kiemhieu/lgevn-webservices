@@ -126,7 +126,7 @@ namespace LGEVN.SMS.Console
             else if (smsindex % 10 == 3) stt += "RD";
             else stt += "TH";
             System.Console.WriteLine("---------------------------------------------------------------------------");
-            System.Console.WriteLine("---------------------- BEGIN SMS CONSOLE APPLICATION AT " + stt.PadRight(19, '-'));
+            System.Console.WriteLine("---------------------- END SMS CONSOLE APPLICATION AT " + stt.PadRight(21, '-'));
             System.Console.WriteLine("---------------------------------------------------------------------------");
             System.Console.WriteLine("\n\n");
             smsindex++;
