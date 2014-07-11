@@ -18,10 +18,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2014 14:58:23</publishTime>
     </File>
     <File Include="bin/LGEVN.Services.dll">
-      <publishTime>07/03/2014 07:57:07</publishTime>
+      <publishTime>07/10/2014 14:26:38</publishTime>
     </File>
     <File Include="bin/LGEVN.Services.Implement.dll">
-      <publishTime>07/03/2014 07:57:07</publishTime>
+      <publishTime>07/07/2014 16:20:42</publishTime>
     </File>
     <File Include="bin/LGEVN.Services.Interface.dll">
       <publishTime>06/15/2014 14:43:52</publishTime>
