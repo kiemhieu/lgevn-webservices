@@ -24,15 +24,15 @@ namespace LGEVN.Services
         {
             var result = OracleDataHelper.ExecuteProcedure<WS_RESP_PARS>("PK_EDI_MST.PR_RESPONSE_WS_EDI",
                 new OracleParameter[]{
-                     new OracleParameter { ParameterName = "P_WS_SHOP_CODE", Value= null},
-                     new OracleParameter { ParameterName = "P_WS_SHOP_KEY", Value=null},
-                     new OracleParameter { ParameterName = "P_SERIAL_NO", Value= null},
-                     new OracleParameter { ParameterName = "P_MODEL", Value= null},
-                     new OracleParameter { ParameterName = "P_SELL_DATE", Value= null},
-                     new OracleParameter { ParameterName = "P_EUCELL", Value= null},
-                     new OracleParameter { ParameterName = "P_EUNAME", Value= null},
-                     new OracleParameter { ParameterName = "P_EUADD", Value= null},
-                     new OracleParameter { ParameterName = "P_REQUEST_TIME", Value= null},
+                     new OracleParameter { ParameterName = "P_WS_SHOP_CODE", Value= ws_shop_code},
+                     new OracleParameter { ParameterName = "P_WS_SHOP_KEY", Value=ws_shop_key},
+                     new OracleParameter { ParameterName = "P_SERIAL_NO", Value= serial_no},
+                     new OracleParameter { ParameterName = "P_MODEL", Value= model},
+                     new OracleParameter { ParameterName = "P_SELL_DATE", Value= sell_date},
+                     new OracleParameter { ParameterName = "P_EUCELL", Value= eucell},
+                     new OracleParameter { ParameterName = "P_EUNAME", Value= euname},
+                     new OracleParameter { ParameterName = "P_EUADD", Value= euadd},
+                     new OracleParameter { ParameterName = "P_REQUEST_TIME", Value= request_time},
                      new OracleParameter { ParameterName = "items_cursor", Direction = System.Data.ParameterDirection.Output, OracleType=OracleType.Cursor}
                 });
 
