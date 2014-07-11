@@ -1,0 +1,6 @@
+D:\Working\Project\ASP.NET\LGEVN\lgevn-webservices\trunk\LGEVN.Services\LGEVN.SMS.Console\obj\Debug\LGEVN.SMS.Console.csprojResolveAssemblyReference.cache
+D:\Working\Project\ASP.NET\LGEVN\lgevn-webservices\trunk\LGEVN.Services\LGEVN.SMS.Console\bin\Debug\LGEVN.SMS.Console.exe.config
+D:\Working\Project\ASP.NET\LGEVN\lgevn-webservices\trunk\LGEVN.Services\LGEVN.SMS.Console\bin\Debug\LGEVN.SMS.Console.exe
+D:\Working\Project\ASP.NET\LGEVN\lgevn-webservices\trunk\LGEVN.Services\LGEVN.SMS.Console\bin\Debug\LGEVN.SMS.Console.pdb
+D:\Working\Project\ASP.NET\LGEVN\lgevn-webservices\trunk\LGEVN.Services\LGEVN.SMS.Console\obj\Debug\LGEVN.SMS.Console.exe
+D:\Working\Project\ASP.NET\LGEVN\lgevn-webservices\trunk\LGEVN.Services\LGEVN.SMS.Console\obj\Debug\LGEVN.SMS.Console.pdb

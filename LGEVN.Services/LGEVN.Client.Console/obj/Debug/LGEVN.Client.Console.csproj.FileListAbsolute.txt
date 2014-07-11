@@ -1,0 +1,10 @@
+D:\Working\Project\ASP.NET\LGEVN\lgevn-webservices\trunk\LGEVN.Services\LGEVN.Client.Console\bin\Debug\LGEVN.Client.Console.exe.config
+D:\Working\Project\ASP.NET\LGEVN\lgevn-webservices\trunk\LGEVN.Services\LGEVN.Client.Console\bin\Debug\LGEVN.Client.Console.exe
+D:\Working\Project\ASP.NET\LGEVN\lgevn-webservices\trunk\LGEVN.Services\LGEVN.Client.Console\bin\Debug\LGEVN.Client.Console.pdb
+D:\Working\Project\ASP.NET\LGEVN\lgevn-webservices\trunk\LGEVN.Services\LGEVN.Client.Console\bin\Debug\LGEVN.Services.Implement.dll
+D:\Working\Project\ASP.NET\LGEVN\lgevn-webservices\trunk\LGEVN.Services\LGEVN.Client.Console\bin\Debug\LGEVN.Services.Interface.dll
+D:\Working\Project\ASP.NET\LGEVN\lgevn-webservices\trunk\LGEVN.Services\LGEVN.Client.Console\bin\Debug\LGEVN.Services.Implement.pdb
+D:\Working\Project\ASP.NET\LGEVN\lgevn-webservices\trunk\LGEVN.Services\LGEVN.Client.Console\bin\Debug\LGEVN.Services.Interface.pdb
+D:\Working\Project\ASP.NET\LGEVN\lgevn-webservices\trunk\LGEVN.Services\LGEVN.Client.Console\obj\Debug\LGEVN.Client.Console.csprojResolveAssemblyReference.cache
+D:\Working\Project\ASP.NET\LGEVN\lgevn-webservices\trunk\LGEVN.Services\LGEVN.Client.Console\obj\Debug\LGEVN.Client.Console.exe
+D:\Working\Project\ASP.NET\LGEVN\lgevn-webservices\trunk\LGEVN.Services\LGEVN.Client.Console\obj\Debug\LGEVN.Client.Console.pdb
