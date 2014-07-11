@@ -39,4 +39,33 @@ namespace LGEVN.SMS.Console
             System.Console.ReadKey();
         }
     }
+
+    //class Program
+    //{
+    //    static Random rand = new Random();
+    //    static void Main(string[] args)
+    //    {
+    //        // Wait for all tasks to complete.
+    //        DateTime time0 = DateTime.Now;
+    //        Task[] tasks = new Task[1000];
+    //        for (int i = 0; i < 1000; i++)
+    //        {
+    //            int x = i;
+    //            tasks[x] = Task.Factory.StartNew(() => DoSomeWork(x));
+    //        }
+    //        Task.WaitAll(tasks);
+    //        DateTime time2 = DateTime.Now;
+    //        var a =  time2 - time0;
+    //        System.Console.WriteLine("Used {0} seconds for the process", a.TotalSeconds);
+    //        System.Console.ReadKey();
+    //    }
+
+
+    //    private static void DoSomeWork(int val)
+    //    {
+    //        // Pretend to do something.
+    //        System.Console.WriteLine(val.ToString());
+    //        Thread.Sleep(1000);
+    //    }
+    //}
 }
