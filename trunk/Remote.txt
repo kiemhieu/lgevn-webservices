@@ -1,4 +1,4 @@
-@Lge123
+@lge123
 (Server local LG)
 
 123456@Lg
