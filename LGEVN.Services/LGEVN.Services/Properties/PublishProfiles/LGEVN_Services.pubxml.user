@@ -18,7 +18,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2014 14:58:23</publishTime>
     </File>
     <File Include="bin/LGEVN.Services.dll">
-      <publishTime>07/10/2014 14:26:38</publishTime>
+      <publishTime>07/11/2014 09:10:37</publishTime>
     </File>
     <File Include="bin/LGEVN.Services.Implement.dll">
       <publishTime>07/07/2014 16:20:42</publishTime>
