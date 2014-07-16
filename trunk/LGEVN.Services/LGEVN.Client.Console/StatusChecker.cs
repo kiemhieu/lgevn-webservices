@@ -56,13 +56,15 @@ namespace LGEVN.Client.Console
                 var cm_inf_list = OracleDataHelper.GetNoTransfer<TB_CM_SHOP_INF>(table_pre + "TB_CM_SHOP_INF", "SO_TRANSFER_FLAG");
                 Synchronize<TB_CM_SHOP_INF, LGService.TB_CM_SHOP_INF>(cm_inf_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", "SHOP_CODE");
 
-                //10. TB_MO_HIST
-                var cm_mo_list = OracleDataHelper.GetNoTransfer<TB_MO_HIST>(table_pre + "TB_MO_HIST", "SO_TRANSFER_FLAG");
-                Synchronize<TB_MO_HIST, LGService.TB_MO_HIST>(cm_mo_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SHORTCODE", "MOSEQ", "CMDCODE", "MSGBODY", "RECEIVE_TIME", "FILENAME", "FILEDATE", "TRANSFER_FLAG", "TRANSFER_DATE" });
+                #region 2014.07.16 - HopDT need comment this lines
+                ////10. TB_MO_HIST
+                //var cm_mo_list = OracleDataHelper.GetNoTransfer<TB_MO_HIST>(table_pre + "TB_MO_HIST", "SO_TRANSFER_FLAG");
+                //Synchronize<TB_MO_HIST, LGService.TB_MO_HIST>(cm_mo_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SHORTCODE", "MOSEQ", "CMDCODE", "MSGBODY", "RECEIVE_TIME", "FILENAME", "FILEDATE", "TRANSFER_FLAG", "TRANSFER_DATE" });
 
-                //11. TB_MT_HIST
-                var cm_mt_list = OracleDataHelper.GetNoTransfer<TB_MT_HIST>(table_pre + "TB_MT_HIST", "SO_TRANSFER_FLAG");
-                Synchronize<TB_MT_HIST, LGService.TB_MT_HIST>(cm_mt_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "MOSEQ", "SHORTCODE", "CELL_NO", "MSGBODY", "MSGTYPE", "SEND_FLAG", "CMDCODE" });
+                ////11. TB_MT_HIST
+                //var cm_mt_list = OracleDataHelper.GetNoTransfer<TB_MT_HIST>(table_pre + "TB_MT_HIST", "SO_TRANSFER_FLAG");
+                //Synchronize<TB_MT_HIST, LGService.TB_MT_HIST>(cm_mt_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "MOSEQ", "SHORTCODE", "CELL_NO", "MSGBODY", "MSGTYPE", "SEND_FLAG", "CMDCODE" });
+                #endregion
 
                 //12. TB_MT_SMS_RESP_MSG
                 var cm_sms_list = OracleDataHelper.GetNoTransfer<TB_MT_SMS_RESP_MSG>(table_pre + "TB_MT_SMS_RESP_MSG", "SO_TRANSFER_FLAG");
