@@ -114,13 +114,15 @@ namespace LGEVN.SMS.Console
 
                         mo_cnt++;
                         System.Console.WriteLine("...done, cnt : " + mo_cnt.ToString());
-                        oradbConnection.Open();
-                        using (var sqlcmdsub = new OracleCommand(sql, oradbConnection))
+                        var oradbConnectionSub = new OracleConnection(connstring);
+                        oradbConnectionSub.Open();
+                        using (var sqlcmdsub = new OracleCommand(sql, oradbConnectionSub))
                         {
                             sqlcmdsub.CommandType = CommandType.Text;
                             sqlcmdsub.ExecuteNonQuery();
                         }
-                        oradbConnection.Close();
+                        oradbConnectionSub.Close();
+                        oradbConnectionSub.Dispose();
                     });
                 }
                 Task.WaitAll(tasks);

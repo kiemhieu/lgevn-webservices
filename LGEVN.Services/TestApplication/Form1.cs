@@ -19,6 +19,9 @@ namespace TestApplication
         {
             LGService.MorderChanel chanel = new LGService.MorderChanel();
             LGService.WS_RESP_PARS result = chanel.GET_WS_EDI("EASV0088", "0921200102", "212VNRG10590", null, "20140724", "0902216369", null, null, DateTime.Now.ToString("yyyyMMddHHmmss"));
+            LGService.WS_RESP_PARS result1 = chanel.GET_WS_EDI("EASV0088", "0921200102", "212VNRG10590", null, "20140724", "0902216369", null, null, DateTime.Now.ToString("yyyyMMddHHmmss"));
+            LGService.WS_RESP_PARS result2 = chanel.GET_WS_EDI("EASV0088", "0921200102", "212VNRG10590", null, "20140724", "0913090880", null, null, DateTime.Now.ToString("yyyyMMddHHmmss"));
+            LGService.WS_RESP_PARS result3 = chanel.GET_WS_EDI("EASV0088", "0921200102", "212VNRG10590", null, "20140724", "0983306145", null, null, DateTime.Now.ToString("yyyyMMddHHmmss"));
 
             if (result != null) MessageBox.Show(result.RESP_MSG);
         }
