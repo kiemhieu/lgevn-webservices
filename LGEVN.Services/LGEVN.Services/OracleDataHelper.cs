@@ -160,6 +160,10 @@ namespace LGEVN.Services
                             if (table_column == "CELL_NO_1") table_column = "CELL_NO#1";
                             else if (table_column == "CELL_NO_2") table_column = "CELL_NO#2";
 
+                            if (table_column == "RESP_MSG_1") table_column = "RESP_MSG#1";
+                            else if (table_column == "RESP_MSG_2") table_column = "RESP_MSG#2"; 
+
+
                             if (sInto != string.Empty)
                             {
                                 sInto += ", ";

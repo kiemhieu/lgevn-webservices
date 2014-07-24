@@ -176,6 +176,8 @@ namespace LGEVN.Client.Console
                                 string table_column = inf.Name;
                                 if (table_column == "CELL_NO_1") table_column = "CELL_NO#1";
                                 else if (table_column == "CELL_NO_2") table_column = "CELL_NO#2";
+                                if (table_column == "RESP_MSG_1") table_column = "RESP_MSG#1";
+                                else if (table_column == "RESP_MSG_2") table_column = "RESP_MSG#2";
                                 object value = reader[table_column];
                                 if (value == System.DBNull.Value) continue;
                                 inf.SetValue(entity, value, null);
