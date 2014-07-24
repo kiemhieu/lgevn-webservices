@@ -47,13 +47,15 @@ namespace LGEVN.SMS.Console
                 Task[] tasks = new Task[] { };
                 if (count > 0) Array.Resize(ref tasks, count);
                 int index = 0;
-                foreach (DataRow _row in _dataTable.Rows)
+                for (index = 0; index < count; index++ )
                 {
                     int idtm = index;
+
                     //Application.DoEvents();
                     //    Dim _mt_send_datetime = Format(Date.Now, "MMddyyyyHHmmss")
                     tasks[idtm] = Task.Factory.StartNew(() =>
                     {
+                        DataRow _row = _dataTable.Rows[idtm];
                         System.Console.WriteLine("<==============================MT sending==============================>");
                         System.Console.WriteLine("MT started : " + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + " to " + (_row["cell_no"] == null ? string.Empty : _row["cell_no"].ToString()));
 
@@ -112,13 +114,12 @@ namespace LGEVN.SMS.Console
 
                         mo_cnt++;
                         System.Console.WriteLine("...done, cnt : " + mo_cnt.ToString());
-                        sqlcmd.Dispose();
-                        sqlcmd.Clone();
-                        sqlcmd = new OracleCommand(sql, oradbConnection);
-                        sqlcmd.CommandType = CommandType.Text;
-                        sqlcmd.ExecuteNonQuery();
+                        using (var sqlcmdsub = new OracleCommand(sql, oradbConnection))
+                        {
+                            sqlcmdsub.CommandType = CommandType.Text;
+                            sqlcmdsub.ExecuteNonQuery();
+                        }
                     });
-                    index++;
                 }
                 Task.WaitAll(tasks);
                 sqlcmd.Dispose();
@@ -140,6 +141,8 @@ namespace LGEVN.SMS.Console
             System.Console.WriteLine("---------------------------------------------------------------------------");
             System.Console.WriteLine("\n\n");
             smsindex++;
+            //reset index
+            if (smsindex > 1000000) smsindex = 0;
             System.Console.Read();
         }
     }
