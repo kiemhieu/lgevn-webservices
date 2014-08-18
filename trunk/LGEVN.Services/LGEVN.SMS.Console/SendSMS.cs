@@ -53,7 +53,7 @@ namespace LGEVN.SMS.Console
 
                     //Application.DoEvents();
                     //    Dim _mt_send_datetime = Format(Date.Now, "MMddyyyyHHmmss")
-                    tasks[idtm] = Task.Factory.StartNew(() =>
+                    //tasks[idtm] = Task.Factory.StartNew(() =>
                     {
                         DataRow _row = _dataTable.Rows[idtm];
                         System.Console.WriteLine("<==============================MT sending==============================>");
@@ -123,9 +123,9 @@ namespace LGEVN.SMS.Console
                         }
                         oradbConnectionSub.Close();
                         oradbConnectionSub.Dispose();
-                    });
+                    }//);
                 }
-                Task.WaitAll(tasks);
+                //Task.WaitAll(tasks);
                 sqlcmd.Dispose();
                 _dataAdapter.Dispose();
                 _dataTable.Dispose();
