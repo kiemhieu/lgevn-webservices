@@ -638,7 +638,7 @@ namespace LGEVN.Services
         public List<TB_SN_SO_WT_HIST> GET_TB_SN_SO_WT_HIST(string username, string pass)
         {
             if (username != "LGEVNA" || pass != "123456@Lg!hieunk") return null;
-            IEnumerable<TB_SN_SO_WT_HIST> result = OracleDataHelper.ExecuteQuery<TB_SN_SO_WT_HIST>("SELECT * FROM TB_SN_SO_WT_HIST WHERE SO_TRANSFER_FLAG = false",
+            IEnumerable<TB_SN_SO_WT_HIST> result = OracleDataHelper.ExecuteQuery<TB_SN_SO_WT_HIST>("SELECT * FROM TB_SN_SO_WT_HIST WHERE SO_TRANSFER_FLAG = false AND rownum <= 100",
                 new OracleParameter[]{
                      //new OracleParameter { ParameterName = "P_WS_SHOP_CODE", Value= ws_shop_code},
                      //new OracleParameter { ParameterName = "P_WS_SHOP_KEY", Value=ws_shop_key},
@@ -659,7 +659,7 @@ namespace LGEVN.Services
         public List<TB_SN_SO_WT_MST> GET_TB_SN_SO_WT_MST(string username, string pass)
         {
             if (username != "LGEVNA" || pass != "123456@Lg!hieunk") return null;
-            IEnumerable<TB_SN_SO_WT_MST> result = OracleDataHelper.ExecuteQuery<TB_SN_SO_WT_MST>("SELECT * FROM TB_SN_SO_WT_MST WHERE SO_TRANSFER_FLAG = false",
+            IEnumerable<TB_SN_SO_WT_MST> result = OracleDataHelper.ExecuteQuery<TB_SN_SO_WT_MST>("SELECT * FROM TB_SN_SO_WT_MST WHERE SO_TRANSFER_FLAG = false AND rownum <= 100",
                 new OracleParameter[]{
                      //new OracleParameter { ParameterName = "P_WS_SHOP_CODE", Value= ws_shop_code},
                      //new OracleParameter { ParameterName = "P_WS_SHOP_KEY", Value=ws_shop_key},

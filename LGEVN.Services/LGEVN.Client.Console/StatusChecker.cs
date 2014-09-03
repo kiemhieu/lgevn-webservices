@@ -12,6 +12,7 @@ namespace LGEVN.Client.Console
     public class StatusChecker
     {
         private string table_pre = string.Empty;// "0_";
+        private LGService.LgeService service = new LGService.LgeService();
         /// <summary>
         /// Do this when timer check & fire
         /// </summary>
@@ -101,14 +102,14 @@ namespace LGEVN.Client.Console
 
 
                 //---------------------------------------------------------------------------------------------------------------
+                service.Url = ConfigurationManager.AppSettings["ServiceURL"];
                 //17. TB_SN_SO_WT_HIST
-                var list20 = OracleDataHelper.GetNoTransfer<TB_SN_SO_WT_HIST>(table_pre + "TB_SN_SO_WT_HIST", "SO_TRANSFER_FLAG");
-                Synchronize2<TB_SN_SO_WT_HIST, LGService.TB_SN_SO_WT_HIST>(list20, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SERIAL_NO", "MODEL", "END_USER_CELL", "SHOP_CODE", "SHOP_CELL", "RECEIVE_DATE", "MOSEQ", "CMDCODE", "RESP_TYPE", "RESP_MSG", "MO_MSGBODY", "SMS_YN", "CREATE_DATE", "SUCCESS_FLAG", "EDI_FILE", "EDI_HEAD" });
+                var list20 = service.GET_TB_SN_SO_WT_HIST("LGEVNA", "123456@Lg!hieunk");
+                Synchronize2<LGService.TB_SN_SO_WT_HIST, TB_SN_SO_WT_HIST>(list20, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SERIAL_NO", "MODEL", "END_USER_CELL", "SHOP_CODE", "SHOP_CELL", "RECEIVE_DATE", "MOSEQ", "CMDCODE", "RESP_TYPE", "RESP_MSG", "MO_MSGBODY", "SMS_YN", "CREATE_DATE", "SUCCESS_FLAG", "EDI_FILE", "EDI_HEAD" });
 
                 //18. TB_SN_SO_WT_MST
-                var list21 = OracleDataHelper.GetNoTransfer<TB_SN_SO_WT_MST>(table_pre + "TB_SN_SO_WT_MST", "SO_TRANSFER_FLAG");
-                Synchronize2<TB_SN_SO_WT_MST, LGService.TB_SN_SO_WT_MST>(list21, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SERIAL_NO", "SELLIN_DATE", "SELLOUT_DATE", "WT_START_DATE", "WT_END_DATE", "SHOP_CODE", "SHOP_CELL", "SELLOUT_RESP_MSG", "POINT", "AMT", "SELLOUT_RESP_TYPE", "SELLOUT_TIME", "INCENTIVE_CFM_FLAG", "INCENTIVE_CFM_DATE", "MODEL", "SUFFIX", "CLOSE_FLAG", "CLOSE_PERIOD", "SMS_YN", "CREATE_DATE", "INCENTIVE_CFM_USER", "CLOSE_USER", "INCENTIVE_CFM_PERIOD", "LAST_UPDATE_DATE", "END_USER_CELL", "TRANSFER_FLAG", "TRANSFER_DATE" });
-
+                var list21 = service.GET_TB_SN_SO_WT_MST("LGEVNA", "123456@Lg!hieunk");
+                Synchronize2<LGService.TB_SN_SO_WT_MST, TB_SN_SO_WT_MST>(list21, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SERIAL_NO", "SELLIN_DATE", "SELLOUT_DATE", "WT_START_DATE", "WT_END_DATE", "SHOP_CODE", "SHOP_CELL", "SELLOUT_RESP_MSG", "POINT", "AMT", "SELLOUT_RESP_TYPE", "SELLOUT_TIME", "INCENTIVE_CFM_FLAG", "INCENTIVE_CFM_DATE", "MODEL", "SUFFIX", "CLOSE_FLAG", "CLOSE_PERIOD", "SMS_YN", "CREATE_DATE", "INCENTIVE_CFM_USER", "CLOSE_USER", "INCENTIVE_CFM_PERIOD", "LAST_UPDATE_DATE", "END_USER_CELL", "TRANSFER_FLAG", "TRANSFER_DATE" });
             }
             catch (Exception ex)
             {
@@ -199,7 +200,6 @@ namespace LGEVN.Client.Console
         {
             Type myTypeS = typeof(TEntity);
             string name = myTypeS.Name.ToUpper();
-            LGService.LgeService service = new LGService.LgeService();
             service.Url = ConfigurationManager.AppSettings["ServiceURL"];
             bool result = false;
             switch (name)
