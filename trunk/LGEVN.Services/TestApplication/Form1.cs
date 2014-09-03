@@ -18,12 +18,10 @@ namespace TestApplication
         private void btnPR_RESPONSE_WS_EDI_Click(object sender, EventArgs e)
         {
             LGService.MorderChanel chanel = new LGService.MorderChanel();
-            LGService.WS_RESP_PARS result = chanel.GET_WS_EDI("EASV0088", "0921200102", "212VNRG10590", null, "20140724", "0902216369", null, null, DateTime.Now.ToString("yyyyMMddHHmmss"));
-            LGService.WS_RESP_PARS result1 = chanel.GET_WS_EDI("EASV0088", "0921200102", "212VNRG10590", null, "20140724", "0902216369", null, null, DateTime.Now.ToString("yyyyMMddHHmmss"));
-            LGService.WS_RESP_PARS result2 = chanel.GET_WS_EDI("EASV0088", "0921200102", "212VNRG10590", null, "20140724", "0913090880", null, null, DateTime.Now.ToString("yyyyMMddHHmmss"));
-            LGService.WS_RESP_PARS result3 = chanel.GET_WS_EDI("EASV0088", "0921200102", "212VNRG10590", null, "20140724", "0983306145", null, null, DateTime.Now.ToString("yyyyMMddHHmmss"));
+            //LGService.WS_RESP_PARS result = chanel.GET_WS_EDI("EASV0088", "0921200102", "212VNRG10590", null, "20140724", "0902216369", null, null, DateTime.Now.ToString("yyyyMMddHHmmss"));
+            LGService.WS_RESP_PARS result1 = chanel.GET_WS_EDI("EASV0859", "3906643", "403VNGT0U879", "32LB582D", "20140830", "0984366755", "Công Ty TNHH Thiết Bị Điện ECO Minh Quân", "26 Lý Thường Kiệt, Phường Đức Nghĩa, TP Phan Thiết, Tỉnh Bình Thuận", DateTime.Now.ToString("yyyyMMddHHmmss"));
 
-            if (result != null) MessageBox.Show(result.RESP_MSG);
+            if (result1 != null) MessageBox.Show(result1.RESP_MSG);
         }
     }
 }
