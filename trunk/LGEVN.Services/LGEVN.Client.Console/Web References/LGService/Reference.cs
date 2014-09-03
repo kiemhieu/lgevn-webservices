@@ -37,8 +37,6 @@ namespace LGEVN.Client.Console.LGService {
         
         private System.Threading.SendOrPostCallback INSERT_TB_CM_REGIONOperationCompleted;
         
-        private System.Threading.SendOrPostCallback SendSelloutDataOperationCompleted;
-        
         private System.Threading.SendOrPostCallback INSERT_SAPP_ERROROperationCompleted;
         
         private System.Threading.SendOrPostCallback INSERT_SCM_BILLTO_INFOperationCompleted;
@@ -74,6 +72,10 @@ namespace LGEVN.Client.Console.LGService {
         private System.Threading.SendOrPostCallback INSERT_SSN_SO_WT_MSTOperationCompleted;
         
         private System.Threading.SendOrPostCallback INSERT_SSN_SO_WT_MST0OperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GET_TB_SN_SO_WT_HISTOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GET_TB_SN_SO_WT_MSTOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -124,9 +126,6 @@ namespace LGEVN.Client.Console.LGService {
         
         /// <remarks/>
         public event INSERT_TB_CM_REGIONCompletedEventHandler INSERT_TB_CM_REGIONCompleted;
-        
-        /// <remarks/>
-        public event SendSelloutDataCompletedEventHandler SendSelloutDataCompleted;
         
         /// <remarks/>
         public event INSERT_SAPP_ERRORCompletedEventHandler INSERT_SAPP_ERRORCompleted;
@@ -181,6 +180,12 @@ namespace LGEVN.Client.Console.LGService {
         
         /// <remarks/>
         public event INSERT_SSN_SO_WT_MST0CompletedEventHandler INSERT_SSN_SO_WT_MST0Completed;
+        
+        /// <remarks/>
+        public event GET_TB_SN_SO_WT_HISTCompletedEventHandler GET_TB_SN_SO_WT_HISTCompleted;
+        
+        /// <remarks/>
+        public event GET_TB_SN_SO_WT_MSTCompletedEventHandler GET_TB_SN_SO_WT_MSTCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/INSERT_TB_CM_MRP", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -295,35 +300,6 @@ namespace LGEVN.Client.Console.LGService {
             if ((this.INSERT_TB_CM_REGIONCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.INSERT_TB_CM_REGIONCompleted(this, new INSERT_TB_CM_REGIONCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SendSelloutData", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public bool SendSelloutData(TB_SN_SO_WT_MST entity) {
-            object[] results = this.Invoke("SendSelloutData", new object[] {
-                        entity});
-            return ((bool)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void SendSelloutDataAsync(TB_SN_SO_WT_MST entity) {
-            this.SendSelloutDataAsync(entity, null);
-        }
-        
-        /// <remarks/>
-        public void SendSelloutDataAsync(TB_SN_SO_WT_MST entity, object userState) {
-            if ((this.SendSelloutDataOperationCompleted == null)) {
-                this.SendSelloutDataOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSendSelloutDataOperationCompleted);
-            }
-            this.InvokeAsync("SendSelloutData", new object[] {
-                        entity}, this.SendSelloutDataOperationCompleted, userState);
-        }
-        
-        private void OnSendSelloutDataOperationCompleted(object arg) {
-            if ((this.SendSelloutDataCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.SendSelloutDataCompleted(this, new SendSelloutDataCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -850,6 +826,68 @@ namespace LGEVN.Client.Console.LGService {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GET_TB_SN_SO_WT_HIST", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public TB_SN_SO_WT_HIST[] GET_TB_SN_SO_WT_HIST(string username, string pass) {
+            object[] results = this.Invoke("GET_TB_SN_SO_WT_HIST", new object[] {
+                        username,
+                        pass});
+            return ((TB_SN_SO_WT_HIST[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GET_TB_SN_SO_WT_HISTAsync(string username, string pass) {
+            this.GET_TB_SN_SO_WT_HISTAsync(username, pass, null);
+        }
+        
+        /// <remarks/>
+        public void GET_TB_SN_SO_WT_HISTAsync(string username, string pass, object userState) {
+            if ((this.GET_TB_SN_SO_WT_HISTOperationCompleted == null)) {
+                this.GET_TB_SN_SO_WT_HISTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGET_TB_SN_SO_WT_HISTOperationCompleted);
+            }
+            this.InvokeAsync("GET_TB_SN_SO_WT_HIST", new object[] {
+                        username,
+                        pass}, this.GET_TB_SN_SO_WT_HISTOperationCompleted, userState);
+        }
+        
+        private void OnGET_TB_SN_SO_WT_HISTOperationCompleted(object arg) {
+            if ((this.GET_TB_SN_SO_WT_HISTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GET_TB_SN_SO_WT_HISTCompleted(this, new GET_TB_SN_SO_WT_HISTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GET_TB_SN_SO_WT_MST", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public TB_SN_SO_WT_MST[] GET_TB_SN_SO_WT_MST(string username, string pass) {
+            object[] results = this.Invoke("GET_TB_SN_SO_WT_MST", new object[] {
+                        username,
+                        pass});
+            return ((TB_SN_SO_WT_MST[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GET_TB_SN_SO_WT_MSTAsync(string username, string pass) {
+            this.GET_TB_SN_SO_WT_MSTAsync(username, pass, null);
+        }
+        
+        /// <remarks/>
+        public void GET_TB_SN_SO_WT_MSTAsync(string username, string pass, object userState) {
+            if ((this.GET_TB_SN_SO_WT_MSTOperationCompleted == null)) {
+                this.GET_TB_SN_SO_WT_MSTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGET_TB_SN_SO_WT_MSTOperationCompleted);
+            }
+            this.InvokeAsync("GET_TB_SN_SO_WT_MST", new object[] {
+                        username,
+                        pass}, this.GET_TB_SN_SO_WT_MSTOperationCompleted, userState);
+        }
+        
+        private void OnGET_TB_SN_SO_WT_MSTOperationCompleted(object arg) {
+            if ((this.GET_TB_SN_SO_WT_MSTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GET_TB_SN_SO_WT_MSTCompleted(this, new GET_TB_SN_SO_WT_MSTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -1133,6 +1171,346 @@ namespace LGEVN.Client.Console.LGService {
             }
             set {
                 this.sELLOUT_TIMEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string TRANSFER_FLAG {
+            get {
+                return this.tRANSFER_FLAGField;
+            }
+            set {
+                this.tRANSFER_FLAGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> TRANSFER_DATE {
+            get {
+                return this.tRANSFER_DATEField;
+            }
+            set {
+                this.tRANSFER_DATEField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class TB_SN_SO_WT_MST {
+        
+        private string sERIAL_NOField;
+        
+        private System.Nullable<System.DateTime> sELLIN_DATEField;
+        
+        private System.Nullable<System.DateTime> sELLOUT_DATEField;
+        
+        private System.Nullable<System.DateTime> wT_START_DATEField;
+        
+        private System.Nullable<System.DateTime> wT_END_DATEField;
+        
+        private string sHOP_CODEField;
+        
+        private string sHOP_CELLField;
+        
+        private string sELLOUT_RESP_MSGField;
+        
+        private string pOINTField;
+        
+        private string aMTField;
+        
+        private string sELLOUT_RESP_TYPEField;
+        
+        private string sELLOUT_TIMEField;
+        
+        private string iNCENTIVE_CFM_FLAGField;
+        
+        private System.Nullable<System.DateTime> iNCENTIVE_CFM_DATEField;
+        
+        private string mODELField;
+        
+        private string sUFFIXField;
+        
+        private string cLOSE_FLAGField;
+        
+        private string cLOSE_PERIODField;
+        
+        private string sMS_YNField;
+        
+        private System.DateTime cREATE_DATEField;
+        
+        private string iNCENTIVE_CFM_USERField;
+        
+        private string cLOSE_USERField;
+        
+        private string iNCENTIVE_CFM_PERIODField;
+        
+        private System.Nullable<System.DateTime> lAST_UPDATE_DATEField;
+        
+        private string eND_USER_CELLField;
+        
+        private string tRANSFER_FLAGField;
+        
+        private System.Nullable<System.DateTime> tRANSFER_DATEField;
+        
+        /// <remarks/>
+        public string SERIAL_NO {
+            get {
+                return this.sERIAL_NOField;
+            }
+            set {
+                this.sERIAL_NOField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> SELLIN_DATE {
+            get {
+                return this.sELLIN_DATEField;
+            }
+            set {
+                this.sELLIN_DATEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> SELLOUT_DATE {
+            get {
+                return this.sELLOUT_DATEField;
+            }
+            set {
+                this.sELLOUT_DATEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> WT_START_DATE {
+            get {
+                return this.wT_START_DATEField;
+            }
+            set {
+                this.wT_START_DATEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> WT_END_DATE {
+            get {
+                return this.wT_END_DATEField;
+            }
+            set {
+                this.wT_END_DATEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SHOP_CODE {
+            get {
+                return this.sHOP_CODEField;
+            }
+            set {
+                this.sHOP_CODEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SHOP_CELL {
+            get {
+                return this.sHOP_CELLField;
+            }
+            set {
+                this.sHOP_CELLField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SELLOUT_RESP_MSG {
+            get {
+                return this.sELLOUT_RESP_MSGField;
+            }
+            set {
+                this.sELLOUT_RESP_MSGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string POINT {
+            get {
+                return this.pOINTField;
+            }
+            set {
+                this.pOINTField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string AMT {
+            get {
+                return this.aMTField;
+            }
+            set {
+                this.aMTField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SELLOUT_RESP_TYPE {
+            get {
+                return this.sELLOUT_RESP_TYPEField;
+            }
+            set {
+                this.sELLOUT_RESP_TYPEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SELLOUT_TIME {
+            get {
+                return this.sELLOUT_TIMEField;
+            }
+            set {
+                this.sELLOUT_TIMEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string INCENTIVE_CFM_FLAG {
+            get {
+                return this.iNCENTIVE_CFM_FLAGField;
+            }
+            set {
+                this.iNCENTIVE_CFM_FLAGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> INCENTIVE_CFM_DATE {
+            get {
+                return this.iNCENTIVE_CFM_DATEField;
+            }
+            set {
+                this.iNCENTIVE_CFM_DATEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string MODEL {
+            get {
+                return this.mODELField;
+            }
+            set {
+                this.mODELField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SUFFIX {
+            get {
+                return this.sUFFIXField;
+            }
+            set {
+                this.sUFFIXField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string CLOSE_FLAG {
+            get {
+                return this.cLOSE_FLAGField;
+            }
+            set {
+                this.cLOSE_FLAGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string CLOSE_PERIOD {
+            get {
+                return this.cLOSE_PERIODField;
+            }
+            set {
+                this.cLOSE_PERIODField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SMS_YN {
+            get {
+                return this.sMS_YNField;
+            }
+            set {
+                this.sMS_YNField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime CREATE_DATE {
+            get {
+                return this.cREATE_DATEField;
+            }
+            set {
+                this.cREATE_DATEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string INCENTIVE_CFM_USER {
+            get {
+                return this.iNCENTIVE_CFM_USERField;
+            }
+            set {
+                this.iNCENTIVE_CFM_USERField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string CLOSE_USER {
+            get {
+                return this.cLOSE_USERField;
+            }
+            set {
+                this.cLOSE_USERField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string INCENTIVE_CFM_PERIOD {
+            get {
+                return this.iNCENTIVE_CFM_PERIODField;
+            }
+            set {
+                this.iNCENTIVE_CFM_PERIODField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> LAST_UPDATE_DATE {
+            get {
+                return this.lAST_UPDATE_DATEField;
+            }
+            set {
+                this.lAST_UPDATE_DATEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string END_USER_CELL {
+            get {
+                return this.eND_USER_CELLField;
+            }
+            set {
+                this.eND_USER_CELLField = value;
             }
         }
         
@@ -5128,346 +5506,6 @@ namespace LGEVN.Client.Console.LGService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class TB_SN_SO_WT_MST {
-        
-        private string sERIAL_NOField;
-        
-        private System.Nullable<System.DateTime> sELLIN_DATEField;
-        
-        private System.Nullable<System.DateTime> sELLOUT_DATEField;
-        
-        private System.Nullable<System.DateTime> wT_START_DATEField;
-        
-        private System.Nullable<System.DateTime> wT_END_DATEField;
-        
-        private string sHOP_CODEField;
-        
-        private string sHOP_CELLField;
-        
-        private string sELLOUT_RESP_MSGField;
-        
-        private string pOINTField;
-        
-        private string aMTField;
-        
-        private string sELLOUT_RESP_TYPEField;
-        
-        private string sELLOUT_TIMEField;
-        
-        private string iNCENTIVE_CFM_FLAGField;
-        
-        private System.Nullable<System.DateTime> iNCENTIVE_CFM_DATEField;
-        
-        private string mODELField;
-        
-        private string sUFFIXField;
-        
-        private string cLOSE_FLAGField;
-        
-        private string cLOSE_PERIODField;
-        
-        private string sMS_YNField;
-        
-        private System.DateTime cREATE_DATEField;
-        
-        private string iNCENTIVE_CFM_USERField;
-        
-        private string cLOSE_USERField;
-        
-        private string iNCENTIVE_CFM_PERIODField;
-        
-        private System.Nullable<System.DateTime> lAST_UPDATE_DATEField;
-        
-        private string eND_USER_CELLField;
-        
-        private string tRANSFER_FLAGField;
-        
-        private System.Nullable<System.DateTime> tRANSFER_DATEField;
-        
-        /// <remarks/>
-        public string SERIAL_NO {
-            get {
-                return this.sERIAL_NOField;
-            }
-            set {
-                this.sERIAL_NOField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<System.DateTime> SELLIN_DATE {
-            get {
-                return this.sELLIN_DATEField;
-            }
-            set {
-                this.sELLIN_DATEField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<System.DateTime> SELLOUT_DATE {
-            get {
-                return this.sELLOUT_DATEField;
-            }
-            set {
-                this.sELLOUT_DATEField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<System.DateTime> WT_START_DATE {
-            get {
-                return this.wT_START_DATEField;
-            }
-            set {
-                this.wT_START_DATEField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<System.DateTime> WT_END_DATE {
-            get {
-                return this.wT_END_DATEField;
-            }
-            set {
-                this.wT_END_DATEField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string SHOP_CODE {
-            get {
-                return this.sHOP_CODEField;
-            }
-            set {
-                this.sHOP_CODEField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string SHOP_CELL {
-            get {
-                return this.sHOP_CELLField;
-            }
-            set {
-                this.sHOP_CELLField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string SELLOUT_RESP_MSG {
-            get {
-                return this.sELLOUT_RESP_MSGField;
-            }
-            set {
-                this.sELLOUT_RESP_MSGField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string POINT {
-            get {
-                return this.pOINTField;
-            }
-            set {
-                this.pOINTField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string AMT {
-            get {
-                return this.aMTField;
-            }
-            set {
-                this.aMTField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string SELLOUT_RESP_TYPE {
-            get {
-                return this.sELLOUT_RESP_TYPEField;
-            }
-            set {
-                this.sELLOUT_RESP_TYPEField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string SELLOUT_TIME {
-            get {
-                return this.sELLOUT_TIMEField;
-            }
-            set {
-                this.sELLOUT_TIMEField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string INCENTIVE_CFM_FLAG {
-            get {
-                return this.iNCENTIVE_CFM_FLAGField;
-            }
-            set {
-                this.iNCENTIVE_CFM_FLAGField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<System.DateTime> INCENTIVE_CFM_DATE {
-            get {
-                return this.iNCENTIVE_CFM_DATEField;
-            }
-            set {
-                this.iNCENTIVE_CFM_DATEField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string MODEL {
-            get {
-                return this.mODELField;
-            }
-            set {
-                this.mODELField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string SUFFIX {
-            get {
-                return this.sUFFIXField;
-            }
-            set {
-                this.sUFFIXField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string CLOSE_FLAG {
-            get {
-                return this.cLOSE_FLAGField;
-            }
-            set {
-                this.cLOSE_FLAGField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string CLOSE_PERIOD {
-            get {
-                return this.cLOSE_PERIODField;
-            }
-            set {
-                this.cLOSE_PERIODField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string SMS_YN {
-            get {
-                return this.sMS_YNField;
-            }
-            set {
-                this.sMS_YNField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime CREATE_DATE {
-            get {
-                return this.cREATE_DATEField;
-            }
-            set {
-                this.cREATE_DATEField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string INCENTIVE_CFM_USER {
-            get {
-                return this.iNCENTIVE_CFM_USERField;
-            }
-            set {
-                this.iNCENTIVE_CFM_USERField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string CLOSE_USER {
-            get {
-                return this.cLOSE_USERField;
-            }
-            set {
-                this.cLOSE_USERField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string INCENTIVE_CFM_PERIOD {
-            get {
-                return this.iNCENTIVE_CFM_PERIODField;
-            }
-            set {
-                this.iNCENTIVE_CFM_PERIODField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<System.DateTime> LAST_UPDATE_DATE {
-            get {
-                return this.lAST_UPDATE_DATEField;
-            }
-            set {
-                this.lAST_UPDATE_DATEField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string END_USER_CELL {
-            get {
-                return this.eND_USER_CELLField;
-            }
-            set {
-                this.eND_USER_CELLField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string TRANSFER_FLAG {
-            get {
-                return this.tRANSFER_FLAGField;
-            }
-            set {
-                this.tRANSFER_FLAGField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<System.DateTime> TRANSFER_DATE {
-            get {
-                return this.tRANSFER_DATEField;
-            }
-            set {
-                this.tRANSFER_DATEField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class TB_CM_REGION {
         
         private string idField;
@@ -5903,32 +5941,6 @@ namespace LGEVN.Client.Console.LGService {
         private object[] results;
         
         internal INSERT_TB_CM_REGIONCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public bool Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
-    public delegate void SendSelloutDataCompletedEventHandler(object sender, SendSelloutDataCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class SendSelloutDataCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal SendSelloutDataCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -6406,6 +6418,58 @@ namespace LGEVN.Client.Console.LGService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
+    public delegate void GET_TB_SN_SO_WT_HISTCompletedEventHandler(object sender, GET_TB_SN_SO_WT_HISTCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GET_TB_SN_SO_WT_HISTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GET_TB_SN_SO_WT_HISTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public TB_SN_SO_WT_HIST[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((TB_SN_SO_WT_HIST[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
+    public delegate void GET_TB_SN_SO_WT_MSTCompletedEventHandler(object sender, GET_TB_SN_SO_WT_MSTCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GET_TB_SN_SO_WT_MSTCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GET_TB_SN_SO_WT_MSTCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public TB_SN_SO_WT_MST[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((TB_SN_SO_WT_MST[])(this.results[0]));
             }
         }
     }

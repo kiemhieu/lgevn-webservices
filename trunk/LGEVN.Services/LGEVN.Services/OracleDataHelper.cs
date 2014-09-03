@@ -136,6 +136,70 @@ namespace LGEVN.Services
             return result;
         }
 
+        /// <summary>
+        /// Exec a storeprocedure with returl db table map value
+        /// </summary>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <param name="sqltext"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        public static IEnumerable<TEntity> ExecuteQuery<TEntity>(string sqltext, params OracleParameter[] parameters) //where TEntity : class
+        {
+
+            Type myType = typeof(TEntity);
+            var prop = myType.GetProperties();
+
+            IEnumerable<TEntity> result = null;
+            using (var conn = new OracleConnection())
+            {
+                conn.ConnectionString = ConnectionString;
+                conn.Open();
+                using (var command = conn.CreateCommand())
+                {
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = sqltext;
+                    if (parameters != null)
+                    {
+                        foreach (OracleParameter param in parameters)
+                        {
+                            if (param.Value == null) param.Value = System.DBNull.Value;
+                            command.Parameters.Add(param);
+                        }
+                    }
+                    var reader = command.ExecuteReader();
+                    if (typeof(TEntity).IsClass)
+                    //result = AutoMapper.Mapper.DynamicMap<IDataReader, IEnumerable<TEntity>>(reader);
+                    {
+                        List<TEntity> lst = new List<TEntity>();
+                        while (reader.Read())
+                        {
+                            var entity = (TEntity)Activator.CreateInstance(myType);
+                            foreach (var inf in prop)
+                            {
+                                object value = reader[inf.Name];
+                                if (value == System.DBNull.Value) continue;
+                                inf.SetValue(entity, value, null);
+                            }
+                            lst.Add(entity);
+                        }
+                        if (lst.Count != 0) result = lst;
+                    }
+                    else
+                    {
+                        List<TEntity> lst = new List<TEntity>();
+                        while (reader.Read())
+                        {
+                            // get the results of each column
+                            TEntity item = (TEntity)reader[0];
+                            lst.Add(item);
+                        }
+                        if (lst.Count != 0) result = lst;
+                    }
+                }
+            }
+            return result;
+        }
+
         public static bool InsertEntity<TEntity>(TEntity entity, string table_name)
         {
             string sInto = "", sValue = "";

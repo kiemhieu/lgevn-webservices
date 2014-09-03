@@ -105,51 +105,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="SendSelloutData">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="entity" type="tns:TB_SN_SO_WT_MST" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="TB_SN_SO_WT_MST">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="SERIAL_NO" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="SELLIN_DATE" nillable="true" type="s:dateTime" />
-          <s:element minOccurs="1" maxOccurs="1" name="SELLOUT_DATE" nillable="true" type="s:dateTime" />
-          <s:element minOccurs="1" maxOccurs="1" name="WT_START_DATE" nillable="true" type="s:dateTime" />
-          <s:element minOccurs="1" maxOccurs="1" name="WT_END_DATE" nillable="true" type="s:dateTime" />
-          <s:element minOccurs="0" maxOccurs="1" name="SHOP_CODE" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="SHOP_CELL" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="SELLOUT_RESP_MSG" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="POINT" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="AMT" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="SELLOUT_RESP_TYPE" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="SELLOUT_TIME" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="INCENTIVE_CFM_FLAG" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="INCENTIVE_CFM_DATE" nillable="true" type="s:dateTime" />
-          <s:element minOccurs="0" maxOccurs="1" name="MODEL" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="SUFFIX" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="CLOSE_FLAG" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="CLOSE_PERIOD" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="SMS_YN" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="CREATE_DATE" type="s:dateTime" />
-          <s:element minOccurs="0" maxOccurs="1" name="INCENTIVE_CFM_USER" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="CLOSE_USER" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="INCENTIVE_CFM_PERIOD" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="LAST_UPDATE_DATE" nillable="true" type="s:dateTime" />
-          <s:element minOccurs="0" maxOccurs="1" name="END_USER_CELL" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="TRANSFER_FLAG" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="TRANSFER_DATE" nillable="true" type="s:dateTime" />
-        </s:sequence>
-      </s:complexType>
-      <s:element name="SendSelloutDataResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="SendSelloutDataResult" type="s:boolean" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="INSERT_SAPP_ERROR">
         <s:complexType>
           <s:sequence>
@@ -759,6 +714,37 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="TB_SN_SO_WT_MST">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SERIAL_NO" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SELLIN_DATE" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SELLOUT_DATE" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="WT_START_DATE" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="WT_END_DATE" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="SHOP_CODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SHOP_CELL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SELLOUT_RESP_MSG" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POINT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AMT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SELLOUT_RESP_TYPE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SELLOUT_TIME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INCENTIVE_CFM_FLAG" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="INCENTIVE_CFM_DATE" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="MODEL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SUFFIX" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CLOSE_FLAG" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CLOSE_PERIOD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SMS_YN" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CREATE_DATE" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="INCENTIVE_CFM_USER" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CLOSE_USER" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INCENTIVE_CFM_PERIOD" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LAST_UPDATE_DATE" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="END_USER_CELL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TRANSFER_FLAG" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TRANSFER_DATE" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="INSERT_SSN_SO_WT_MSTResponse">
         <s:complexType>
           <s:sequence>
@@ -801,6 +787,46 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GET_TB_SN_SO_WT_HIST">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_TB_SN_SO_WT_HISTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GET_TB_SN_SO_WT_HISTResult" type="tns:ArrayOfTB_SN_SO_WT_HIST" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTB_SN_SO_WT_HIST">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TB_SN_SO_WT_HIST" nillable="true" type="tns:TB_SN_SO_WT_HIST" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GET_TB_SN_SO_WT_MST">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_TB_SN_SO_WT_MSTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GET_TB_SN_SO_WT_MSTResult" type="tns:ArrayOfTB_SN_SO_WT_MST" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTB_SN_SO_WT_MST">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TB_SN_SO_WT_MST" nillable="true" type="tns:TB_SN_SO_WT_MST" />
+        </s:sequence>
+      </s:complexType>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="INSERT_TB_CM_MRPSoapIn">
@@ -826,12 +852,6 @@
   </wsdl:message>
   <wsdl:message name="INSERT_TB_CM_REGIONSoapOut">
     <wsdl:part name="parameters" element="tns:INSERT_TB_CM_REGIONResponse" />
-  </wsdl:message>
-  <wsdl:message name="SendSelloutDataSoapIn">
-    <wsdl:part name="parameters" element="tns:SendSelloutData" />
-  </wsdl:message>
-  <wsdl:message name="SendSelloutDataSoapOut">
-    <wsdl:part name="parameters" element="tns:SendSelloutDataResponse" />
   </wsdl:message>
   <wsdl:message name="INSERT_SAPP_ERRORSoapIn">
     <wsdl:part name="parameters" element="tns:INSERT_SAPP_ERROR" />
@@ -941,6 +961,18 @@
   <wsdl:message name="INSERT_SSN_SO_WT_MST0SoapOut">
     <wsdl:part name="parameters" element="tns:INSERT_SSN_SO_WT_MST0Response" />
   </wsdl:message>
+  <wsdl:message name="GET_TB_SN_SO_WT_HISTSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_TB_SN_SO_WT_HIST" />
+  </wsdl:message>
+  <wsdl:message name="GET_TB_SN_SO_WT_HISTSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_TB_SN_SO_WT_HISTResponse" />
+  </wsdl:message>
+  <wsdl:message name="GET_TB_SN_SO_WT_MSTSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_TB_SN_SO_WT_MST" />
+  </wsdl:message>
+  <wsdl:message name="GET_TB_SN_SO_WT_MSTSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_TB_SN_SO_WT_MSTResponse" />
+  </wsdl:message>
   <wsdl:portType name="LgeServiceSoap">
     <wsdl:operation name="INSERT_TB_CM_MRP">
       <wsdl:input message="tns:INSERT_TB_CM_MRPSoapIn" />
@@ -957,10 +989,6 @@
     <wsdl:operation name="INSERT_TB_CM_REGION">
       <wsdl:input message="tns:INSERT_TB_CM_REGIONSoapIn" />
       <wsdl:output message="tns:INSERT_TB_CM_REGIONSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="SendSelloutData">
-      <wsdl:input message="tns:SendSelloutDataSoapIn" />
-      <wsdl:output message="tns:SendSelloutDataSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="INSERT_SAPP_ERROR">
       <wsdl:input message="tns:INSERT_SAPP_ERRORSoapIn" />
@@ -1034,6 +1062,14 @@
       <wsdl:input message="tns:INSERT_SSN_SO_WT_MST0SoapIn" />
       <wsdl:output message="tns:INSERT_SSN_SO_WT_MST0SoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GET_TB_SN_SO_WT_HIST">
+      <wsdl:input message="tns:GET_TB_SN_SO_WT_HISTSoapIn" />
+      <wsdl:output message="tns:GET_TB_SN_SO_WT_HISTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_TB_SN_SO_WT_MST">
+      <wsdl:input message="tns:GET_TB_SN_SO_WT_MSTSoapIn" />
+      <wsdl:output message="tns:GET_TB_SN_SO_WT_MSTSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="LgeServiceSoap" type="tns:LgeServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -1066,15 +1102,6 @@
     </wsdl:operation>
     <wsdl:operation name="INSERT_TB_CM_REGION">
       <soap:operation soapAction="http://tempuri.org/INSERT_TB_CM_REGION" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SendSelloutData">
-      <soap:operation soapAction="http://tempuri.org/SendSelloutData" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1244,6 +1271,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GET_TB_SN_SO_WT_HIST">
+      <soap:operation soapAction="http://tempuri.org/GET_TB_SN_SO_WT_HIST" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_TB_SN_SO_WT_MST">
+      <soap:operation soapAction="http://tempuri.org/GET_TB_SN_SO_WT_MST" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="LgeServiceSoap12" type="tns:LgeServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -1276,15 +1321,6 @@
     </wsdl:operation>
     <wsdl:operation name="INSERT_TB_CM_REGION">
       <soap12:operation soapAction="http://tempuri.org/INSERT_TB_CM_REGION" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SendSelloutData">
-      <soap12:operation soapAction="http://tempuri.org/SendSelloutData" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1447,6 +1483,24 @@
     </wsdl:operation>
     <wsdl:operation name="INSERT_SSN_SO_WT_MST0">
       <soap12:operation soapAction="http://tempuri.org/INSERT_SSN_SO_WT_MST0" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_TB_SN_SO_WT_HIST">
+      <soap12:operation soapAction="http://tempuri.org/GET_TB_SN_SO_WT_HIST" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_TB_SN_SO_WT_MST">
+      <soap12:operation soapAction="http://tempuri.org/GET_TB_SN_SO_WT_MST" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
