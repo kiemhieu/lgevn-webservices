@@ -99,12 +99,27 @@ namespace LGEVN.Client.Console
                 var list19 = OracleDataHelper.GetNoTransfer<TB_SN_SO_WT_MST0>(table_pre + "TB_SN_SO_WT_MST0", "TRANSFER_FLAG");
                 Synchronize<TB_SN_SO_WT_MST0, LGService.TB_SN_SO_WT_MST0>(list19, "TRANSFER_FLAG", "TRANSFER_DATE", new string[] { "MODEL", "SUFFIX", "SERIAL_NO", "WT_START_DATE", "WT_END_DATE", "END_USER_CELL", "WT_RESP_MSG", "WT_RESP_TYPE", "SMS_YN", "CREATE_DATE", "WT_CFM_USER", "LAST_UPDATE_DATE", "SELLIN_DATE", "SELLOUT_DATE", "SELLOUT_TIME" });
 
+
+                //---------------------------------------------------------------------------------------------------------------
+                //17. TB_SN_SO_WT_HIST
+                var list20 = OracleDataHelper.GetNoTransfer<TB_SN_SO_WT_HIST>(table_pre + "TB_SN_SO_WT_HIST", "SO_TRANSFER_FLAG");
+                Synchronize2<TB_SN_SO_WT_HIST, LGService.TB_SN_SO_WT_HIST>(list20, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SERIAL_NO", "MODEL", "END_USER_CELL", "SHOP_CODE", "SHOP_CELL", "RECEIVE_DATE", "MOSEQ", "CMDCODE", "RESP_TYPE", "RESP_MSG", "MO_MSGBODY", "SMS_YN", "CREATE_DATE", "SUCCESS_FLAG", "EDI_FILE", "EDI_HEAD" });
+
+                //18. TB_SN_SO_WT_MST
+                var list21 = OracleDataHelper.GetNoTransfer<TB_SN_SO_WT_MST>(table_pre + "TB_SN_SO_WT_MST", "SO_TRANSFER_FLAG");
+                Synchronize2<TB_SN_SO_WT_MST, LGService.TB_SN_SO_WT_MST>(list21, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SERIAL_NO", "SELLIN_DATE", "SELLOUT_DATE", "WT_START_DATE", "WT_END_DATE", "SHOP_CODE", "SHOP_CELL", "SELLOUT_RESP_MSG", "POINT", "AMT", "SELLOUT_RESP_TYPE", "SELLOUT_TIME", "INCENTIVE_CFM_FLAG", "INCENTIVE_CFM_DATE", "MODEL", "SUFFIX", "CLOSE_FLAG", "CLOSE_PERIOD", "SMS_YN", "CREATE_DATE", "INCENTIVE_CFM_USER", "CLOSE_USER", "INCENTIVE_CFM_PERIOD", "LAST_UPDATE_DATE", "END_USER_CELL", "TRANSFER_FLAG", "TRANSFER_DATE" });
+
             }
             catch (Exception ex)
             {
                 System.Console.WriteLine("\n\n");
                 System.Console.WriteLine(ex.Message);
             }
+        }
+
+        private void Synchronize2<TSource, TDest>(IEnumerable<TSource> cm_mrp_list, string flag, string date, params string[] keys)
+        {
+            throw new NotImplementedException();
         }
 
         private void Synchronize<TSource, TDest>(IEnumerable<TSource> cm_mrp_list, string flag, string date, params string[] keys)

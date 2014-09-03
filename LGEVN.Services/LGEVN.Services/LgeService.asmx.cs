@@ -1,5 +1,7 @@
 ﻿using LGEVN.Services.Implement;
 using System;
+using System.Linq;
+using System.Collections.Generic;
 using System.Data.OracleClient;
 using System.Web.Services;
 
@@ -51,43 +53,43 @@ namespace LGEVN.Services
             return id;
         }
 
-        [WebMethod]
-        public bool SendSelloutData(TB_SN_SO_WT_MST entity)
-        {
-            entity.TRANSFER_DATE = DateTime.Now;
-            entity.TRANSFER_FLAG = "Y";
-            bool id = OracleDataHelper.InsertEntity<TB_SN_SO_WT_MST>(entity, "TB_SN_SO_WT_MST");
-            //OracleParameterCollection colllection = new OracleParameterCollection();
-            //colllection.Add(new OracleParameter("p_serial_no", entity.SERIAL_NO));
-            //colllection.Add(new OracleParameter("p_sellin_date", entity.SELLIN_DATE));
-            //colllection.Add(new OracleParameter("p_sellout_date", entity.SELLOUT_DATE));
-            //colllection.Add(new OracleParameter("p_wt_start_date", entity.WT_START_DATE));
-            //colllection.Add(new OracleParameter("p_wt_end_date", entity.WT_END_DATE));
-            //colllection.Add(new OracleParameter("p_shop_code", entity.SHOP_CODE));
-            //colllection.Add(new OracleParameter("p_shop_cell", entity.SHOP_CELL));
-            //colllection.Add(new OracleParameter("p_sellout_resp_msg", entity.SELLOUT_RESP_MSG));
-            //colllection.Add(new OracleParameter("p_point", entity.POINT));
-            //colllection.Add(new OracleParameter("p_amt", entity.AMT));
-            //colllection.Add(new OracleParameter("p_sellout_resp_type", entity.SELLOUT_RESP_TYPE));
-            //colllection.Add(new OracleParameter("p_sellout_time", entity.SELLOUT_TIME));
-            //colllection.Add(new OracleParameter("p_incentive_cfm_flag", entity.INCENTIVE_CFM_FLAG));
-            //colllection.Add(new OracleParameter("p_incentive_cfm_date", entity.INCENTIVE_CFM_DATE));
-            //colllection.Add(new OracleParameter("p_model", entity.MODEL));
-            //colllection.Add(new OracleParameter("p_suffix", entity.SUFFIX));
-            //colllection.Add(new OracleParameter("p_close_flag", entity.CLOSE_FLAG));
-            //colllection.Add(new OracleParameter("p_close_period", entity.CLOSE_PERIOD));
-            //colllection.Add(new OracleParameter("p_sms_yn", entity.SMS_YN));
-            //colllection.Add(new OracleParameter("p_create_date", entity.CREATE_DATE));
-            //colllection.Add(new OracleParameter("p_incentive_cfm_user", entity.INCENTIVE_CFM_USER));
-            //colllection.Add(new OracleParameter("p_close_user", entity.CLOSE_USER));
-            //colllection.Add(new OracleParameter("p_incentive_cfm_period", entity.INCENTIVE_CFM_PERIOD));
-            //colllection.Add(new OracleParameter("p_last_update_date", entity.LAST_UPDATE_DATE));
-            //colllection.Add(new OracleParameter("p_end_user_cell", entity.END_USER_CELL));
-            //colllection.Add(new OracleParameter("p_transfer_flag", entity.TRANSFER_FLAG));
-            //colllection.Add(new OracleParameter("p_transfer_date", entity.TRANSFER_DATE));
-            //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_SN_SO_WT_MST", colllection);
-            return id;
-        }
+        //[WebMethod]
+        //public bool SendSelloutData(TB_SN_SO_WT_MST entity)
+        //{
+        //    entity.TRANSFER_DATE = DateTime.Now;
+        //    entity.TRANSFER_FLAG = "Y";
+        //    bool id = OracleDataHelper.InsertEntity<TB_SN_SO_WT_MST>(entity, "TB_SN_SO_WT_MST");
+        //    //OracleParameterCollection colllection = new OracleParameterCollection();
+        //    //colllection.Add(new OracleParameter("p_serial_no", entity.SERIAL_NO));
+        //    //colllection.Add(new OracleParameter("p_sellin_date", entity.SELLIN_DATE));
+        //    //colllection.Add(new OracleParameter("p_sellout_date", entity.SELLOUT_DATE));
+        //    //colllection.Add(new OracleParameter("p_wt_start_date", entity.WT_START_DATE));
+        //    //colllection.Add(new OracleParameter("p_wt_end_date", entity.WT_END_DATE));
+        //    //colllection.Add(new OracleParameter("p_shop_code", entity.SHOP_CODE));
+        //    //colllection.Add(new OracleParameter("p_shop_cell", entity.SHOP_CELL));
+        //    //colllection.Add(new OracleParameter("p_sellout_resp_msg", entity.SELLOUT_RESP_MSG));
+        //    //colllection.Add(new OracleParameter("p_point", entity.POINT));
+        //    //colllection.Add(new OracleParameter("p_amt", entity.AMT));
+        //    //colllection.Add(new OracleParameter("p_sellout_resp_type", entity.SELLOUT_RESP_TYPE));
+        //    //colllection.Add(new OracleParameter("p_sellout_time", entity.SELLOUT_TIME));
+        //    //colllection.Add(new OracleParameter("p_incentive_cfm_flag", entity.INCENTIVE_CFM_FLAG));
+        //    //colllection.Add(new OracleParameter("p_incentive_cfm_date", entity.INCENTIVE_CFM_DATE));
+        //    //colllection.Add(new OracleParameter("p_model", entity.MODEL));
+        //    //colllection.Add(new OracleParameter("p_suffix", entity.SUFFIX));
+        //    //colllection.Add(new OracleParameter("p_close_flag", entity.CLOSE_FLAG));
+        //    //colllection.Add(new OracleParameter("p_close_period", entity.CLOSE_PERIOD));
+        //    //colllection.Add(new OracleParameter("p_sms_yn", entity.SMS_YN));
+        //    //colllection.Add(new OracleParameter("p_create_date", entity.CREATE_DATE));
+        //    //colllection.Add(new OracleParameter("p_incentive_cfm_user", entity.INCENTIVE_CFM_USER));
+        //    //colllection.Add(new OracleParameter("p_close_user", entity.CLOSE_USER));
+        //    //colllection.Add(new OracleParameter("p_incentive_cfm_period", entity.INCENTIVE_CFM_PERIOD));
+        //    //colllection.Add(new OracleParameter("p_last_update_date", entity.LAST_UPDATE_DATE));
+        //    //colllection.Add(new OracleParameter("p_end_user_cell", entity.END_USER_CELL));
+        //    //colllection.Add(new OracleParameter("p_transfer_flag", entity.TRANSFER_FLAG));
+        //    //colllection.Add(new OracleParameter("p_transfer_date", entity.TRANSFER_DATE));
+        //    //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_SN_SO_WT_MST", colllection);
+        //    return id;
+        //}
 
         // ===========================================================TB_APP_ERROR=========================================================
         [WebMethod]
@@ -630,6 +632,48 @@ namespace LGEVN.Services
             //colllection.Add(new OracleParameter("p_TRANSFER_DATE", entity.TRANSFER_DATE));
             //int id = OracleDataHelper.ExecuteProcedure("PKG_WEBSERVICE.ADD_SN_SO_WT_MST0", colllection);
             return id;
+        }
+
+        [WebMethod]
+        public List<TB_SN_SO_WT_HIST> GET_TB_SN_SO_WT_HIST(string username, string pass)
+        {
+            if (username != "LGEVNA" || pass != "123456@Lg!hieunk") return null;
+            IEnumerable<TB_SN_SO_WT_HIST> result = OracleDataHelper.ExecuteQuery<TB_SN_SO_WT_HIST>("SELECT * FROM TB_SN_SO_WT_HIST WHERE SO_TRANSFER_FLAG = false",
+                new OracleParameter[]{
+                     //new OracleParameter { ParameterName = "P_WS_SHOP_CODE", Value= ws_shop_code},
+                     //new OracleParameter { ParameterName = "P_WS_SHOP_KEY", Value=ws_shop_key},
+                     //new OracleParameter { ParameterName = "P_SERIAL_NO", Value= serial_no},
+                     //new OracleParameter { ParameterName = "P_MODEL", Value= model},
+                     //new OracleParameter { ParameterName = "P_SELL_DATE", Value= sell_date},
+                     //new OracleParameter { ParameterName = "P_EUCELL", Value= eucell},
+                     //new OracleParameter { ParameterName = "P_EUNAME", Value= euname},
+                     //new OracleParameter { ParameterName = "P_EUADD", Value= euadd},
+                     //new OracleParameter { ParameterName = "P_REQUEST_TIME", Value= request_time},
+                     //new OracleParameter { ParameterName = "items_cursor", Direction = System.Data.ParameterDirection.Output, OracleType=OracleType.Cursor}
+                });
+
+            return result == null ? null : result.ToList();
+        }
+
+        [WebMethod]
+        public List<TB_SN_SO_WT_MST> GET_TB_SN_SO_WT_MST(string username, string pass)
+        {
+            if (username != "LGEVNA" || pass != "123456@Lg!hieunk") return null;
+            IEnumerable<TB_SN_SO_WT_MST> result = OracleDataHelper.ExecuteQuery<TB_SN_SO_WT_MST>("SELECT * FROM TB_SN_SO_WT_MST WHERE SO_TRANSFER_FLAG = false",
+                new OracleParameter[]{
+                     //new OracleParameter { ParameterName = "P_WS_SHOP_CODE", Value= ws_shop_code},
+                     //new OracleParameter { ParameterName = "P_WS_SHOP_KEY", Value=ws_shop_key},
+                     //new OracleParameter { ParameterName = "P_SERIAL_NO", Value= serial_no},
+                     //new OracleParameter { ParameterName = "P_MODEL", Value= model},
+                     //new OracleParameter { ParameterName = "P_SELL_DATE", Value= sell_date},
+                     //new OracleParameter { ParameterName = "P_EUCELL", Value= eucell},
+                     //new OracleParameter { ParameterName = "P_EUNAME", Value= euname},
+                     //new OracleParameter { ParameterName = "P_EUADD", Value= euadd},
+                     //new OracleParameter { ParameterName = "P_REQUEST_TIME", Value= request_time},
+                     //new OracleParameter { ParameterName = "items_cursor", Direction = System.Data.ParameterDirection.Output, OracleType=OracleType.Cursor}
+                });
+
+            return result == null ? null : result.ToList();
         }
     }
 }
