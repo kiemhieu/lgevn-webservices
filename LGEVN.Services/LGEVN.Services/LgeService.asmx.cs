@@ -640,40 +640,40 @@ namespace LGEVN.Services
             if (username != "LGEVNA" || pass != "123456@Lg!hieunk") return null;
             IEnumerable<TB_SN_SO_WT_HIST> result = OracleDataHelper.ExecuteQuery<TB_SN_SO_WT_HIST>("SELECT * FROM TB_SN_SO_WT_HIST WHERE SO_TRANSFER_FLAG = false AND rownum <= 100",
                 new OracleParameter[]{
-                     //new OracleParameter { ParameterName = "P_WS_SHOP_CODE", Value= ws_shop_code},
-                     //new OracleParameter { ParameterName = "P_WS_SHOP_KEY", Value=ws_shop_key},
-                     //new OracleParameter { ParameterName = "P_SERIAL_NO", Value= serial_no},
-                     //new OracleParameter { ParameterName = "P_MODEL", Value= model},
-                     //new OracleParameter { ParameterName = "P_SELL_DATE", Value= sell_date},
-                     //new OracleParameter { ParameterName = "P_EUCELL", Value= eucell},
-                     //new OracleParameter { ParameterName = "P_EUNAME", Value= euname},
-                     //new OracleParameter { ParameterName = "P_EUADD", Value= euadd},
-                     //new OracleParameter { ParameterName = "P_REQUEST_TIME", Value= request_time},
-                     //new OracleParameter { ParameterName = "items_cursor", Direction = System.Data.ParameterDirection.Output, OracleType=OracleType.Cursor}
                 });
 
             return result == null ? null : result.ToList();
         }
 
         [WebMethod]
+        public void UPDATE_FLAG_TB_SN_SO_WT_MST(List<TB_SN_SO_WT_HIST> list_input)
+        {
+            if (list_input == null) return;
+            foreach (TB_SN_SO_WT_HIST item in list_input)
+            {
+                OracleDataHelper.ExecuteFlag<TB_SN_SO_WT_HIST>(item, "TB_SN_SO_WT_HIST", "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SERIAL_NO", "MODEL", "END_USER_CELL", "SHOP_CODE", "SHOP_CELL", "RECEIVE_DATE", "MOSEQ", "CMDCODE", "RESP_TYPE", "RESP_MSG", "MO_MSGBODY", "SMS_YN", "CREATE_DATE", "SUCCESS_FLAG", "EDI_FILE", "EDI_HEAD" });
+            }
+        }
+
+        [WebMethod]
         public List<TB_SN_SO_WT_MST> GET_TB_SN_SO_WT_MST(string username, string pass)
         {
             if (username != "LGEVNA" || pass != "123456@Lg!hieunk") return null;
-            IEnumerable<TB_SN_SO_WT_MST> result = OracleDataHelper.ExecuteQuery<TB_SN_SO_WT_MST>("SELECT * FROM TB_SN_SO_WT_MST WHERE SO_TRANSFER_FLAG = false AND rownum <= 100",
+            IEnumerable<TB_SN_SO_WT_MST> result = OracleDataHelper.ExecuteQuery<TB_SN_SO_WT_MST>("SELECT * FROM TB_SN_SO_WT_MST WHERE SO_TRANSFER_FLAG = 'N' AND rownum <= 100",
                 new OracleParameter[]{
-                     //new OracleParameter { ParameterName = "P_WS_SHOP_CODE", Value= ws_shop_code},
-                     //new OracleParameter { ParameterName = "P_WS_SHOP_KEY", Value=ws_shop_key},
-                     //new OracleParameter { ParameterName = "P_SERIAL_NO", Value= serial_no},
-                     //new OracleParameter { ParameterName = "P_MODEL", Value= model},
-                     //new OracleParameter { ParameterName = "P_SELL_DATE", Value= sell_date},
-                     //new OracleParameter { ParameterName = "P_EUCELL", Value= eucell},
-                     //new OracleParameter { ParameterName = "P_EUNAME", Value= euname},
-                     //new OracleParameter { ParameterName = "P_EUADD", Value= euadd},
-                     //new OracleParameter { ParameterName = "P_REQUEST_TIME", Value= request_time},
-                     //new OracleParameter { ParameterName = "items_cursor", Direction = System.Data.ParameterDirection.Output, OracleType=OracleType.Cursor}
                 });
 
             return result == null ? null : result.ToList();
+        }
+
+        [WebMethod]
+        public void UPDATE_FLAG_TB_SN_SO_WT_MST(List<TB_SN_SO_WT_MST> list_input)
+        {
+            if (list_input == null) return;
+            foreach (TB_SN_SO_WT_MST item in list_input)
+            {
+                OracleDataHelper.ExecuteFlag<TB_SN_SO_WT_MST>(item, "TB_SN_SO_WT_MST", "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SERIAL_NO", "SELLIN_DATE", "SELLOUT_DATE", "WT_START_DATE", "WT_END_DATE", "SHOP_CODE", "SHOP_CELL", "SELLOUT_RESP_MSG", "POINT", "AMT", "SELLOUT_RESP_TYPE", "SELLOUT_TIME", "INCENTIVE_CFM_FLAG", "INCENTIVE_CFM_DATE", "MODEL", "SUFFIX", "CLOSE_FLAG", "CLOSE_PERIOD", "SMS_YN", "CREATE_DATE", "INCENTIVE_CFM_USER", "CLOSE_USER", "INCENTIVE_CFM_PERIOD", "LAST_UPDATE_DATE", "END_USER_CELL", "TRANSFER_FLAG", "TRANSFER_DATE" });
+            }
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OracleClient;
 using System.Drawing;
 using System.IO;
 using System.Text;
@@ -27,22 +28,51 @@ namespace TestApplication
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            string filePath = @"D:\DESKTOP&DOWNLOAD\TB_SN_RDC_HIST.sql"; 
+            string connectionString = "Data Source=42.112.29.8:1521/VNPCSOM;User Id=vnwtsom;Password=vnwtsom;";
+            string filePath = @"D:\DESKTOP&DOWNLOAD\TB_SN_SO_WT_MST.sql";
+            string filePath2 = @"D:\DESKTOP&DOWNLOAD\TB_SN_SO_WT_MST";
             if (!string.IsNullOrEmpty(filePath))
             {
-                int count = 0;
+                List<string> list_text = new List<string>();
+                int count = 0, index = 0;
                 using (StreamReader sr = new StreamReader(filePath))
                 {
                     String line;
+                    string oldLine = string.Empty;
                     while ((line = sr.ReadLine()) != null)
                     {
-                        if (line.ToUpper().StartsWith("INSERT INTO"))
+                        index++;
+                        line = line.Replace("VNWTSOM.", "");
+                        if (line[line.Length - 1] != ';')
+                        {
+                            oldLine = line;
+                            continue;
+                        }
+
+                        string sql_text = oldLine + line;
+                        oldLine = string.Empty;
+                        list_text.Add(sql_text);
+                        if (index % 100000 == 0)
                         {
                             count++;
+                            File.WriteAllLines(filePath2 + "_" + count + ".sql", list_text);
+                            list_text.Clear();
+                            lblMsg.Text = count.ToString();
+                            Application.DoEvents();
                         }
-                        //FormatData(line);
+                    }
+
+
+                    //Last list
+                    if (list_text.Count > 0)
+                    {
+                        count++;
+                        File.WriteAllLines(filePath2 + "_" + count + ".sql", list_text);
+                        list_text.Clear();
+                        Application.DoEvents();
                     }
                 }
+
                 MessageBox.Show(count.ToString());
             }
         }
