@@ -288,8 +288,8 @@ namespace LGEVN.Services
         [WebMethod]
         public bool INSERT_SMO_HIST(TB_MO_HIST entity)
         {
-            entity.TRANSFER_DATE = DateTime.Now;
-            entity.TRANSFER_FLAG = "Y";
+            entity.SO_TRANSFER_DATE = DateTime.Now;
+            entity.SO_TRANSFER_FLAG = "Y";
             bool id = OracleDataHelper.InsertEntity<TB_MO_HIST>(entity, "TB_MO_HIST");
             //OracleParameterCollection colllection = new OracleParameterCollection();
             //colllection.Add(new OracleParameter("p_CELL_NO", entity.CELL_NO));
@@ -570,8 +570,8 @@ namespace LGEVN.Services
         [WebMethod]
         public bool INSERT_SSN_SO_WT_MST(TB_SN_SO_WT_MST entity)
         {
-            entity.TRANSFER_DATE = DateTime.Now;
-            entity.TRANSFER_FLAG = "Y";
+            entity.SO_TRANSFER_DATE = DateTime.Now;
+            entity.SO_TRANSFER_FLAG = "Y";
             bool id = OracleDataHelper.InsertEntity<TB_SN_SO_WT_MST>(entity, "TB_SN_SO_WT_MST");
             //OracleParameterCollection colllection = new OracleParameterCollection();
             //colllection.Add(new OracleParameter("p_serial_no", entity.SERIAL_NO));
@@ -609,8 +609,8 @@ namespace LGEVN.Services
         [WebMethod]
         public bool INSERT_SSN_SO_WT_MST0(TB_SN_SO_WT_MST0 entity)
         {
-            entity.TRANSFER_DATE = DateTime.Now;
-            entity.TRANSFER_FLAG = "Y";
+            entity.SO_TRANSFER_DATE = DateTime.Now;
+            entity.SO_TRANSFER_FLAG = "Y";
             bool id = OracleDataHelper.InsertEntity<TB_SN_SO_WT_MST0>(entity, "TB_SN_SO_WT_MST0");
             //OracleParameterCollection colllection = new OracleParameterCollection();
             //colllection.Add(new OracleParameter("p_MODEL", entity.MODEL));

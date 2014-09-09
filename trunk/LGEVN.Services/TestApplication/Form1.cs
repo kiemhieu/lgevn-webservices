@@ -29,8 +29,10 @@ namespace TestApplication
         private void btnTest_Click(object sender, EventArgs e)
         {
             string connectionString = "Data Source=42.112.29.8:1521/VNPCSOM;User Id=vnwtsom;Password=vnwtsom;";
-            string filePath = @"D:\DESKTOP&DOWNLOAD\TB_SN_SO_WT_MST.sql";
-            string filePath2 = @"D:\DESKTOP&DOWNLOAD\TB_SN_SO_WT_MST";
+
+
+            string filePath = @"D:\DESKTOP&DOWNLOAD\TB_SN_SO_WT_MST\TB_SN_SO_WT_MST_DATA_TABLE.sql";
+            string filePath2 = @"D:\DESKTOP&DOWNLOAD\TB_SN_SO_WT_MST\TB_SN_SO_WT_MST_DATA_TABLE";
             if (!string.IsNullOrEmpty(filePath))
             {
                 List<string> list_text = new List<string>();
