@@ -371,6 +371,8 @@
           <s:element minOccurs="0" maxOccurs="1" name="FILEDATE" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="TRANSFER_FLAG" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="TRANSFER_DATE" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="SO_TRANSFER_FLAG" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SO_TRANSFER_DATE" nillable="true" type="s:dateTime" />
         </s:sequence>
       </s:complexType>
       <s:element name="INSERT_SMO_HISTResponse">
@@ -743,6 +745,8 @@
           <s:element minOccurs="0" maxOccurs="1" name="END_USER_CELL" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="TRANSFER_FLAG" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="TRANSFER_DATE" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SO_TRANSFER_DATE" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="SO_TRANSFER_FLAG" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="INSERT_SSN_SO_WT_MSTResponse">
@@ -778,6 +782,8 @@
           <s:element minOccurs="0" maxOccurs="1" name="SELLOUT_TIME" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="TRANSFER_FLAG" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="TRANSFER_DATE" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="SO_TRANSFER_FLAG" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SO_TRANSFER_DATE" nillable="true" type="s:dateTime" />
         </s:sequence>
       </s:complexType>
       <s:element name="INSERT_SSN_SO_WT_MST0Response">
@@ -827,6 +833,30 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="TB_SN_SO_WT_MST" nillable="true" type="tns:TB_SN_SO_WT_MST" />
         </s:sequence>
       </s:complexType>
+      <s:element name="UPDATE_TB_SN_SO_WT_HIST">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UPDATE_TB_SN_SO_WT_HISTResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UPDATE_TB_SN_SO_WT_MST">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UPDATE_TB_SN_SO_WT_MSTResponse">
+        <s:complexType />
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="INSERT_TB_CM_MRPSoapIn">
@@ -973,6 +1003,18 @@
   <wsdl:message name="GET_TB_SN_SO_WT_MSTSoapOut">
     <wsdl:part name="parameters" element="tns:GET_TB_SN_SO_WT_MSTResponse" />
   </wsdl:message>
+  <wsdl:message name="UPDATE_TB_SN_SO_WT_HISTSoapIn">
+    <wsdl:part name="parameters" element="tns:UPDATE_TB_SN_SO_WT_HIST" />
+  </wsdl:message>
+  <wsdl:message name="UPDATE_TB_SN_SO_WT_HISTSoapOut">
+    <wsdl:part name="parameters" element="tns:UPDATE_TB_SN_SO_WT_HISTResponse" />
+  </wsdl:message>
+  <wsdl:message name="UPDATE_TB_SN_SO_WT_MSTSoapIn">
+    <wsdl:part name="parameters" element="tns:UPDATE_TB_SN_SO_WT_MST" />
+  </wsdl:message>
+  <wsdl:message name="UPDATE_TB_SN_SO_WT_MSTSoapOut">
+    <wsdl:part name="parameters" element="tns:UPDATE_TB_SN_SO_WT_MSTResponse" />
+  </wsdl:message>
   <wsdl:portType name="LgeServiceSoap">
     <wsdl:operation name="INSERT_TB_CM_MRP">
       <wsdl:input message="tns:INSERT_TB_CM_MRPSoapIn" />
@@ -1069,6 +1111,14 @@
     <wsdl:operation name="GET_TB_SN_SO_WT_MST">
       <wsdl:input message="tns:GET_TB_SN_SO_WT_MSTSoapIn" />
       <wsdl:output message="tns:GET_TB_SN_SO_WT_MSTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UPDATE_TB_SN_SO_WT_HIST">
+      <wsdl:input message="tns:UPDATE_TB_SN_SO_WT_HISTSoapIn" />
+      <wsdl:output message="tns:UPDATE_TB_SN_SO_WT_HISTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UPDATE_TB_SN_SO_WT_MST">
+      <wsdl:input message="tns:UPDATE_TB_SN_SO_WT_MSTSoapIn" />
+      <wsdl:output message="tns:UPDATE_TB_SN_SO_WT_MSTSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="LgeServiceSoap" type="tns:LgeServiceSoap">
@@ -1289,6 +1339,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UPDATE_TB_SN_SO_WT_HIST">
+      <soap:operation soapAction="http://tempuri.org/UPDATE_TB_SN_SO_WT_HIST" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UPDATE_TB_SN_SO_WT_MST">
+      <soap:operation soapAction="http://tempuri.org/UPDATE_TB_SN_SO_WT_MST" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="LgeServiceSoap12" type="tns:LgeServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -1501,6 +1569,24 @@
     </wsdl:operation>
     <wsdl:operation name="GET_TB_SN_SO_WT_MST">
       <soap12:operation soapAction="http://tempuri.org/GET_TB_SN_SO_WT_MST" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UPDATE_TB_SN_SO_WT_HIST">
+      <soap12:operation soapAction="http://tempuri.org/UPDATE_TB_SN_SO_WT_HIST" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UPDATE_TB_SN_SO_WT_MST">
+      <soap12:operation soapAction="http://tempuri.org/UPDATE_TB_SN_SO_WT_MST" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

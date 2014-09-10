@@ -120,8 +120,6 @@ namespace LGEVN.Client.Console
 
         private void Synchronize2<TSource, TDest>(IEnumerable<TSource> cm_mrp_list, string flag, string date, params string[] keys)
         {
-            if (cm_mrp_list == null || cm_mrp_list.Count() == 0) return;
-
             //Get property infor of key field
             Type myTypeS = typeof(TSource);
             Type myTypeD = typeof(TDest);
@@ -131,8 +129,14 @@ namespace LGEVN.Client.Console
             System.Console.WriteLine("---------------------------------------------------------------------------");
             Dictionary<string, string> dictkey = new Dictionary<string, string>();
             //Get dict of params
-
-
+            if (cm_mrp_list == null || cm_mrp_list.Count() == 0)
+            {
+                System.Console.WriteLine("\r{0}",
+                                         "---------------------------------------------------------------------------");
+                System.Console.WriteLine("                            END " + myTypeS.Name);
+                System.Console.WriteLine("---------------------------------------------------------------------------");
+                return;
+            }
             var dictS = new Dictionary<string, PropertyInfo>();
             var dictD = new Dictionary<string, PropertyInfo>();
 
@@ -153,17 +157,22 @@ namespace LGEVN.Client.Console
                 {
                     //2. Insert to server (with checked existing)
                     List<string> linesPrint = new List<string>();
-                    var entity = Activator.CreateInstance(myTypeD);
+                    //var entity = Activator.CreateInstance(myTypeD);
                     foreach (var infD in propD)
                     {
                         object valueS = null;
                         if (dictS.ContainsKey(infD.Name)) valueS = dictS[infD.Name].GetValue(item, null);
-                        infD.SetValue(entity, valueS, null);
+                        //infD.SetValue(entity, valueS, null);
                         linesPrint.Add(infD.Name.PadRight(20) + " = " + (valueS == null ? "''" : valueS.ToString()));
                     }
 
                     //3. Update flag to Client
                     OracleDataHelper.ExecuteFlag<TSource>(item, table_pre + myTypeS.Name, flag, date, keys);
+                    if (myTypeS.Name.ToUpper() == "TB_SN_SO_WT_MST")
+                    {
+                        service.UPDATE_TB_SN_SO_WT_MST(item, "LGEVNA", "123456@Lg!hieunk");
+                    }
+
                     System.Console.WriteLine("Synchronized (" + index.ToString() + ")");
                     foreach (var line in linesPrint)
                         System.Console.WriteLine(line);

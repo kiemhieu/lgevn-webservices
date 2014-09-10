@@ -35,6 +35,7 @@ namespace LGEVN.Services
                         foreach (OracleParameter param in parameters) command.Parameters.Add(param);
                     result = command.ExecuteNonQuery();
                 }
+                conn.Close();
             }
             return result;
         }
@@ -67,6 +68,7 @@ namespace LGEVN.Services
                     }
                     result = command.ExecuteNonQuery();
                 }
+                conn.Close();
             }
             return result;
         }
@@ -132,6 +134,7 @@ namespace LGEVN.Services
                         if (lst.Count != 0) result = lst;
                     }
                 }
+                conn.Close();
             }
             return result;
         }
@@ -189,6 +192,7 @@ namespace LGEVN.Services
                         if (lst.Count != 0) result = lst;
                     }
                 }
+                conn.Close();
             }
             return result;
         }
@@ -253,6 +257,7 @@ namespace LGEVN.Services
                         if (lst.Count != 0) result = lst;
                     }
                 }
+                conn.Close();
             }
             return result;
         }
@@ -307,6 +312,7 @@ namespace LGEVN.Services
                         return false;
                     }
                 }
+                conn.Close();
             }
             return true;
         }
@@ -365,6 +371,7 @@ namespace LGEVN.Services
                     command.CommandText = query;
                     result = command.ExecuteNonQuery();
                 }
+                conn.Close();
             }
             return result;
         }
