@@ -214,7 +214,7 @@ namespace LGEVN.Client.Console
             string datestruct = string.Empty;
             if (!string.IsNullOrEmpty(date)) datestruct = "," + date + "=" + ":p_" + date;
 
-            string query = "UPDATE \"" + table_name + "\" SET " + flag + "='Y' " + datestruct + " WHERE ";
+            string query = "UPDATE \"" + table_name + "\" SET " + flag + "='Y' " + datestruct;
 
             Dictionary<string, string> dictkey = new Dictionary<string, string>();
             //Get dict of params
@@ -223,24 +223,31 @@ namespace LGEVN.Client.Console
                 dictkey.Add(key.ToUpper(), key.ToUpper());
             }
             string swhere = "";
+            string sSet = "";
             //Get property infor of key field
             Type myType = typeof(TEntity);
             var props = myType.GetProperties();
             List<OracleParameter> param_where = new List<OracleParameter>();
-
+            List<OracleParameter> param_set = new List<OracleParameter>();
             foreach (var inf in props)
             {
                 string proname = inf.Name;
+                var val = inf.GetValue(entity, null);
+                if (val == null) continue;
+
                 if (dictkey.ContainsKey(proname.ToUpper()))
                 {
-                    var val = inf.GetValue(entity, null);
-                    if (val == null) continue;
                     if (swhere != string.Empty) swhere += " AND ";
-                    swhere += proname + "=:p_" + proname; //"='" + val.ToString() + "'";
+                    swhere += proname + "=:p_" + proname;
                     param_where.Add(new OracleParameter("p_" + proname, val));
                 }
+                else
+                {
+                    sSet += "," + proname + "=:p_" + proname;
+                    param_set.Add(new OracleParameter("p_" + proname, val));
+                }
             }
-            query += swhere;
+            query += sSet + " WHERE " + swhere;
 
             using (var conn = new OracleConnection())
             {
@@ -248,6 +255,7 @@ namespace LGEVN.Client.Console
                 conn.Open();
                 using (var command = conn.CreateCommand())
                 {
+                    foreach (var param in param_set) command.Parameters.Add(param);
                     if (!string.IsNullOrEmpty(date)) command.Parameters.Add("p_" + date, DateTime.Now);
                     foreach (var param in param_where) command.Parameters.Add(param);
                     command.CommandType = CommandType.Text;
