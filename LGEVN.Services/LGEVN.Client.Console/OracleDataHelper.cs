@@ -277,5 +277,63 @@ namespace LGEVN.Client.Console
             }
             return result;
         }
+
+        public static bool InsertEntity<TEntity>(object entity, string table_name)
+        {
+            string sInto = "", sValue = "";
+            //Get property infor of key field
+            Type myType = typeof(TEntity);
+            var props = myType.GetProperties();
+            using (var conn = new OracleConnection())
+            {
+                conn.ConnectionString = ConnectionString;
+                conn.Open();
+
+                using (var command = conn.CreateCommand())
+                {
+                    try
+                    {
+                        foreach (var inf in props)
+                        {
+                            string proname = inf.Name;
+                            object value = inf.GetValue(entity, null);
+                            if (value == null && proname.ToUpper() != "SO_TRANSFER_FLAG" && proname.ToUpper() != "SO_TRANSFER_DATE") continue;
+
+                            string table_column = inf.Name;
+                            if (table_column == "CELL_NO_1") table_column = "CELL_NO#1";
+                            else if (table_column == "CELL_NO_2") table_column = "CELL_NO#2";
+
+                            if (table_column == "RESP_MSG_1") table_column = "RESP_MSG#1";
+                            else if (table_column == "RESP_MSG_2") table_column = "RESP_MSG#2";
+
+                            if (proname == "SO_TRANSFER_DATE") value = DateTime.Now;
+                            if (proname == "SO_TRANSFER_FLAG") value = "Y";
+
+                            if (sInto != string.Empty)
+                            {
+                                sInto += ", ";
+                                sValue += ", ";
+                            }
+
+                            sValue += ":p_" + proname;
+                            sInto += table_column;
+                            var param = new OracleParameter("p_" + proname, value);
+                            command.Parameters.Add(param);
+                        }
+                        string query = "INSERT INTO " + table_name + "(" + sInto + ") VALUES (" + sValue + ")";
+                        command.CommandType = CommandType.Text;
+                        command.CommandText = query;
+                        command.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        if (ex.Message.Contains("ORA-00001")) return true;
+                        return false;
+                    }
+                }
+                conn.Close();
+            }
+            return true;
+        }
     }
 }

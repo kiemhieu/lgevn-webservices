@@ -157,20 +157,25 @@ namespace LGEVN.Client.Console
                 {
                     //2. Insert to server (with checked existing)
                     List<string> linesPrint = new List<string>();
-                    //var entity = Activator.CreateInstance(myTypeD);
+                    var entity = Activator.CreateInstance(myTypeD);
                     foreach (var infD in propD)
                     {
                         object valueS = null;
                         if (dictS.ContainsKey(infD.Name)) valueS = dictS[infD.Name].GetValue(item, null);
-                        //infD.SetValue(entity, valueS, null);
+                        infD.SetValue(entity, valueS, null);
                         linesPrint.Add(infD.Name.PadRight(20) + " = " + (valueS == null ? "''" : valueS.ToString()));
                     }
 
-                    //3. Update flag to Client
-                    OracleDataHelper.ExecuteFlag<TSource>(item, table_pre + myTypeS.Name, flag, date, keys);
+                    //3. Update flag to Client 
                     if (myTypeS.Name.ToUpper() == "TB_SN_SO_WT_MST")
                     {
-                        service.UPDATE_TB_SN_SO_WT_MST(item, "LGEVNA", "123456@Lg!hieunk");
+                        bool id = OracleDataHelper.InsertEntity<TB_SN_SO_WT_MST>(entity, "TB_SN_SO_WT_MST");
+                        if (id) service.UPDATE_TB_SN_SO_WT_MST(item, "LGEVNA", "123456@Lg!hieunk");
+                    }
+                    else if (myTypeS.Name.ToUpper() == "TB_SN_SO_WT_HIST")
+                    {
+                        bool id = OracleDataHelper.InsertEntity<TB_SN_SO_WT_HIST>(entity, "TB_SN_SO_WT_HIST");
+                        if (id) service.UPDATE_TB_SN_SO_WT_HIST(item, "LGEVNA", "123456@Lg!hieunk");
                     }
 
                     System.Console.WriteLine("Synchronized (" + index.ToString() + ")");
