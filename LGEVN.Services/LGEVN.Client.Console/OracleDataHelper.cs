@@ -38,6 +38,7 @@ namespace LGEVN.Client.Console
                         foreach (OracleParameter param in parameters) command.Parameters.Add(param);
                     result = command.ExecuteNonQuery();
                 }
+                conn.Close();
             }
             return result;
         }
@@ -70,6 +71,7 @@ namespace LGEVN.Client.Console
                     }
                     result = command.ExecuteNonQuery();
                 }
+                conn.Close();
             }
             return result;
         }
@@ -136,6 +138,7 @@ namespace LGEVN.Client.Console
                         if (lst.Count != 0) result = lst;
                     }
                 }
+                conn.Close();
             }
             return result;
         }
@@ -198,6 +201,7 @@ namespace LGEVN.Client.Console
                         if (lst.Count != 0) result = lst;
                     }
                 }
+                conn.Close();
             }
             return result;
         }
@@ -241,7 +245,7 @@ namespace LGEVN.Client.Console
                     swhere += proname + "=:p_" + proname;
                     param_where.Add(new OracleParameter("p_" + proname, val));
                 }
-                else
+                else if (proname.ToUpper() != flag.ToUpper() && proname.ToUpper() != date.ToUpper())
                 {
                     sSet += "," + proname + "=:p_" + proname;
                     param_set.Add(new OracleParameter("p_" + proname, val));
@@ -262,6 +266,7 @@ namespace LGEVN.Client.Console
                     command.CommandText = query;
                     result = command.ExecuteNonQuery();
                 }
+                conn.Close();
             }
             return result;
         }

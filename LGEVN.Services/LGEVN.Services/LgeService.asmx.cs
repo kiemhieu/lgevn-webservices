@@ -638,14 +638,10 @@ namespace LGEVN.Services
         public List<TB_SN_SO_WT_HIST> GET_TB_SN_SO_WT_HIST(string username, string pass)
         {
             if (username != "LGEVNA" || pass != "123456@Lg!hieunk") return null;
-            IEnumerable<TB_SN_SO_WT_HIST> result = OracleDataHelper.ExecuteQuery<TB_SN_SO_WT_HIST>("SELECT * FROM TB_SN_SO_WT_HIST WHERE SO_TRANSFER_FLAG = false AND rownum <= 100",
+            IEnumerable<TB_SN_SO_WT_HIST> result = OracleDataHelper.ExecuteQuery<TB_SN_SO_WT_HIST>("SELECT * FROM TB_SN_SO_WT_HIST WHERE SO_TRANSFER_FLAG = 'N' AND rownum <= 100",
                 new OracleParameter[]{
                 });
             if (result == null) return null;
-            foreach (TB_SN_SO_WT_HIST item in result)
-            {
-                OracleDataHelper.ExecuteFlag<TB_SN_SO_WT_HIST>(item, "TB_SN_SO_WT_HIST", "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SERIAL_NO", "MODEL", "END_USER_CELL", "SHOP_CODE", "SHOP_CELL", "RECEIVE_DATE", "MOSEQ", "CMDCODE", "RESP_TYPE", "RESP_MSG", "MO_MSGBODY", "SMS_YN", "CREATE_DATE", "SUCCESS_FLAG", "EDI_FILE", "EDI_HEAD" });
-            }
             return result.ToList();
         }
 
@@ -657,11 +653,21 @@ namespace LGEVN.Services
                 new OracleParameter[]{
                 });
             if (result == null) return null;
-            foreach (TB_SN_SO_WT_MST item in result)
-            {
-                OracleDataHelper.ExecuteFlag<TB_SN_SO_WT_MST>(item, "TB_SN_SO_WT_MST", "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SERIAL_NO", "SELLIN_DATE", "SELLOUT_DATE", "WT_START_DATE", "WT_END_DATE", "SHOP_CODE", "SHOP_CELL", "SELLOUT_RESP_MSG", "POINT", "AMT", "SELLOUT_RESP_TYPE", "SELLOUT_TIME", "INCENTIVE_CFM_FLAG", "INCENTIVE_CFM_DATE", "MODEL", "SUFFIX", "CLOSE_FLAG", "CLOSE_PERIOD", "SMS_YN", "CREATE_DATE", "INCENTIVE_CFM_USER", "CLOSE_USER", "INCENTIVE_CFM_PERIOD", "LAST_UPDATE_DATE", "END_USER_CELL", "TRANSFER_FLAG", "TRANSFER_DATE" });
-            }
             return result.ToList();
+        }
+
+        [WebMethod]
+        public void UPDATE_TB_SN_SO_WT_HIST(object item, string username, string pass)
+        {
+            if (username != "LGEVNA" || pass != "123456@Lg!hieunk") return;
+            OracleDataHelper.ExecuteFlag<TB_SN_SO_WT_HIST>((TB_SN_SO_WT_HIST)item, "TB_SN_SO_WT_HIST", "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SERIAL_NO", "MODEL", "END_USER_CELL", "SHOP_CODE", "SHOP_CELL", "RECEIVE_DATE", "MOSEQ", "CMDCODE", "RESP_TYPE", "RESP_MSG", "MO_MSGBODY", "SMS_YN", "CREATE_DATE", "SUCCESS_FLAG", "EDI_FILE", "EDI_HEAD" });
+        }
+
+        [WebMethod]
+        public void UPDATE_TB_SN_SO_WT_MST(object item, string username, string pass)
+        {
+            if (username != "LGEVNA" || pass != "123456@Lg!hieunk") return;
+            OracleDataHelper.ExecuteFlag<TB_SN_SO_WT_MST>((TB_SN_SO_WT_MST)item, "TB_SN_SO_WT_MST", "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SERIAL_NO", "SELLIN_DATE", "SELLOUT_DATE", "WT_START_DATE", "WT_END_DATE", "SHOP_CODE", "SHOP_CELL", "SELLOUT_RESP_MSG", "POINT", "AMT", "SELLOUT_RESP_TYPE", "SELLOUT_TIME", "INCENTIVE_CFM_FLAG", "INCENTIVE_CFM_DATE", "MODEL", "SUFFIX", "CLOSE_FLAG", "CLOSE_PERIOD", "SMS_YN", "CREATE_DATE", "INCENTIVE_CFM_USER", "CLOSE_USER", "INCENTIVE_CFM_PERIOD", "LAST_UPDATE_DATE", "END_USER_CELL", "TRANSFER_FLAG", "TRANSFER_DATE" });
         }
     }
 }

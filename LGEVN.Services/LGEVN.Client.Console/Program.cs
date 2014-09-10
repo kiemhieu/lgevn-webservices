@@ -23,7 +23,7 @@ namespace LGEVN.Client.Console
 
             System.Threading.Timer stateTimer = new System.Threading.Timer(tcb, autoEvent, 1000, 0);
             autoEvent.WaitOne((int)(5 * 60000), true);
-            //stateTimer.Change(0, (int)(5 * 60000)); // (X) *  1 Minute  
+            stateTimer.Change(0, (int)(5 * 60000)); // (X) *  1 Minute  
             System.Console.ReadKey();
         }
     }

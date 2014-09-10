@@ -77,6 +77,10 @@ namespace LGEVN.Client.Console.LGService {
         
         private System.Threading.SendOrPostCallback GET_TB_SN_SO_WT_MSTOperationCompleted;
         
+        private System.Threading.SendOrPostCallback UPDATE_TB_SN_SO_WT_HISTOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback UPDATE_TB_SN_SO_WT_MSTOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -186,6 +190,12 @@ namespace LGEVN.Client.Console.LGService {
         
         /// <remarks/>
         public event GET_TB_SN_SO_WT_MSTCompletedEventHandler GET_TB_SN_SO_WT_MSTCompleted;
+        
+        /// <remarks/>
+        public event UPDATE_TB_SN_SO_WT_HISTCompletedEventHandler UPDATE_TB_SN_SO_WT_HISTCompleted;
+        
+        /// <remarks/>
+        public event UPDATE_TB_SN_SO_WT_MSTCompletedEventHandler UPDATE_TB_SN_SO_WT_MSTCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/INSERT_TB_CM_MRP", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -888,6 +898,70 @@ namespace LGEVN.Client.Console.LGService {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UPDATE_TB_SN_SO_WT_HIST", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void UPDATE_TB_SN_SO_WT_HIST(object item, string username, string pass) {
+            this.Invoke("UPDATE_TB_SN_SO_WT_HIST", new object[] {
+                        item,
+                        username,
+                        pass});
+        }
+        
+        /// <remarks/>
+        public void UPDATE_TB_SN_SO_WT_HISTAsync(object item, string username, string pass) {
+            this.UPDATE_TB_SN_SO_WT_HISTAsync(item, username, pass, null);
+        }
+        
+        /// <remarks/>
+        public void UPDATE_TB_SN_SO_WT_HISTAsync(object item, string username, string pass, object userState) {
+            if ((this.UPDATE_TB_SN_SO_WT_HISTOperationCompleted == null)) {
+                this.UPDATE_TB_SN_SO_WT_HISTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUPDATE_TB_SN_SO_WT_HISTOperationCompleted);
+            }
+            this.InvokeAsync("UPDATE_TB_SN_SO_WT_HIST", new object[] {
+                        item,
+                        username,
+                        pass}, this.UPDATE_TB_SN_SO_WT_HISTOperationCompleted, userState);
+        }
+        
+        private void OnUPDATE_TB_SN_SO_WT_HISTOperationCompleted(object arg) {
+            if ((this.UPDATE_TB_SN_SO_WT_HISTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UPDATE_TB_SN_SO_WT_HISTCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UPDATE_TB_SN_SO_WT_MST", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void UPDATE_TB_SN_SO_WT_MST(object item, string username, string pass) {
+            this.Invoke("UPDATE_TB_SN_SO_WT_MST", new object[] {
+                        item,
+                        username,
+                        pass});
+        }
+        
+        /// <remarks/>
+        public void UPDATE_TB_SN_SO_WT_MSTAsync(object item, string username, string pass) {
+            this.UPDATE_TB_SN_SO_WT_MSTAsync(item, username, pass, null);
+        }
+        
+        /// <remarks/>
+        public void UPDATE_TB_SN_SO_WT_MSTAsync(object item, string username, string pass, object userState) {
+            if ((this.UPDATE_TB_SN_SO_WT_MSTOperationCompleted == null)) {
+                this.UPDATE_TB_SN_SO_WT_MSTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUPDATE_TB_SN_SO_WT_MSTOperationCompleted);
+            }
+            this.InvokeAsync("UPDATE_TB_SN_SO_WT_MST", new object[] {
+                        item,
+                        username,
+                        pass}, this.UPDATE_TB_SN_SO_WT_MSTOperationCompleted, userState);
+        }
+        
+        private void OnUPDATE_TB_SN_SO_WT_MSTOperationCompleted(object arg) {
+            if ((this.UPDATE_TB_SN_SO_WT_MSTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UPDATE_TB_SN_SO_WT_MSTCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -1018,6 +1092,10 @@ namespace LGEVN.Client.Console.LGService {
         private string tRANSFER_FLAGField;
         
         private System.Nullable<System.DateTime> tRANSFER_DATEField;
+        
+        private string sO_TRANSFER_FLAGField;
+        
+        private System.Nullable<System.DateTime> sO_TRANSFER_DATEField;
         
         /// <remarks/>
         public string MODEL {
@@ -1194,6 +1272,27 @@ namespace LGEVN.Client.Console.LGService {
                 this.tRANSFER_DATEField = value;
             }
         }
+        
+        /// <remarks/>
+        public string SO_TRANSFER_FLAG {
+            get {
+                return this.sO_TRANSFER_FLAGField;
+            }
+            set {
+                this.sO_TRANSFER_FLAGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> SO_TRANSFER_DATE {
+            get {
+                return this.sO_TRANSFER_DATEField;
+            }
+            set {
+                this.sO_TRANSFER_DATEField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -1257,6 +1356,10 @@ namespace LGEVN.Client.Console.LGService {
         private string tRANSFER_FLAGField;
         
         private System.Nullable<System.DateTime> tRANSFER_DATEField;
+        
+        private System.Nullable<System.DateTime> sO_TRANSFER_DATEField;
+        
+        private string sO_TRANSFER_FLAGField;
         
         /// <remarks/>
         public string SERIAL_NO {
@@ -1532,6 +1635,27 @@ namespace LGEVN.Client.Console.LGService {
             }
             set {
                 this.tRANSFER_DATEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> SO_TRANSFER_DATE {
+            get {
+                return this.sO_TRANSFER_DATEField;
+            }
+            set {
+                this.sO_TRANSFER_DATEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SO_TRANSFER_FLAG {
+            get {
+                return this.sO_TRANSFER_FLAGField;
+            }
+            set {
+                this.sO_TRANSFER_FLAGField = value;
             }
         }
     }
@@ -3864,6 +3988,10 @@ namespace LGEVN.Client.Console.LGService {
         
         private System.Nullable<System.DateTime> tRANSFER_DATEField;
         
+        private string sO_TRANSFER_FLAGField;
+        
+        private System.Nullable<System.DateTime> sO_TRANSFER_DATEField;
+        
         /// <remarks/>
         public string CELL_NO {
             get {
@@ -3962,6 +4090,27 @@ namespace LGEVN.Client.Console.LGService {
             }
             set {
                 this.tRANSFER_DATEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SO_TRANSFER_FLAG {
+            get {
+                return this.sO_TRANSFER_FLAGField;
+            }
+            set {
+                this.sO_TRANSFER_FLAGField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> SO_TRANSFER_DATE {
+            get {
+                return this.sO_TRANSFER_DATEField;
+            }
+            set {
+                this.sO_TRANSFER_DATEField = value;
             }
         }
     }
@@ -6473,6 +6622,14 @@ namespace LGEVN.Client.Console.LGService {
             }
         }
     }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
+    public delegate void UPDATE_TB_SN_SO_WT_HISTCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
+    public delegate void UPDATE_TB_SN_SO_WT_MSTCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591
