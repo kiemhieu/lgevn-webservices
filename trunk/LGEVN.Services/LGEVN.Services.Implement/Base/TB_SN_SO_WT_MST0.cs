@@ -30,8 +30,6 @@ namespace LGEVN.Services.Implement
         public DateTime? SELLOUT_DATE { get; set; }
         public string SELLOUT_TIME { get; set; }
         public string TRANSFER_FLAG { get; set; }
-        public DateTime? TRANSFER_DATE { get; set; }
-        public string SO_TRANSFER_FLAG { get; set; }
-        public DateTime? SO_TRANSFER_DATE { get; set; }
+        public DateTime? TRANSFER_DATE { get; set; } 
     }
 }

@@ -247,7 +247,14 @@ namespace LGEVN.Client.Console
                 }
                 else if (proname.ToUpper() != flag.ToUpper() && proname.ToUpper() != date.ToUpper())
                 {
-                    sSet += "," + proname + "=:p_" + proname;
+                    string table_column = proname;
+                    if (table_column == "CELL_NO_1") table_column = "CELL_NO#1";
+                    else if (table_column == "CELL_NO_2") table_column = "CELL_NO#2";
+
+                    if (table_column == "RESP_MSG_1") table_column = "RESP_MSG#1";
+                    else if (table_column == "RESP_MSG_2") table_column = "RESP_MSG#2";
+
+                    sSet += ",\"" + table_column + "\"=:p_" + proname;
                     param_set.Add(new OracleParameter("p_" + proname, val));
                 }
             }
