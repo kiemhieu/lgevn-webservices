@@ -21,84 +21,84 @@ namespace LGEVN.Client.Console
         {
             try
             {
-                //1. TB_APP_ERROR
-                var err_list = OracleDataHelper.GetNoTransfer<TB_APP_ERROR>(table_pre + "TB_APP_ERROR", "SO_TRANSFER_FLAG");
-                Synchronize<TB_APP_ERROR, LGService.TB_APP_ERROR>(err_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "NAME", "MSG", "LINE", "CDATE", "CTIME" });
+                ////1. TB_APP_ERROR
+                //var err_list = OracleDataHelper.GetNoTransfer<TB_APP_ERROR>(table_pre + "TB_APP_ERROR", "SO_TRANSFER_FLAG");
+                //Synchronize<TB_APP_ERROR, LGService.TB_APP_ERROR>(err_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "NAME", "MSG", "LINE", "CDATE", "CTIME" });
 
-                //2. TB_CM_BILLTO_INF
-                var blii_inf_list = OracleDataHelper.GetNoTransfer<TB_CM_BILLTO_INF>(table_pre + "TB_CM_BILLTO_INF", "SO_TRANSFER_FLAG");
-                Synchronize<TB_CM_BILLTO_INF, LGService.TB_CM_BILLTO_INF>(blii_inf_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "BILLTO_CODE", "SHOP_CODE", "SHOP_NAME", "ADDRESS", "DIST_CODE", "PROVINCE_CODE", "CREATE_DATE", "UPDATE_DATE", "ISDN_NO", "CUSTOMER_CODE", "AREA_CODE", "OWNER_NAME", "OWNER_EMAIL", "USE_FLAG", "CHANNEL", "REG_ID", "CREATE_USER", "UPDATE_USER", "SHOP_TYPE" });
+                ////2. TB_CM_BILLTO_INF
+                //var blii_inf_list = OracleDataHelper.GetNoTransfer<TB_CM_BILLTO_INF>(table_pre + "TB_CM_BILLTO_INF", "SO_TRANSFER_FLAG");
+                //Synchronize<TB_CM_BILLTO_INF, LGService.TB_CM_BILLTO_INF>(blii_inf_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "BILLTO_CODE", "SHOP_CODE", "SHOP_NAME", "ADDRESS", "DIST_CODE", "PROVINCE_CODE", "CREATE_DATE", "UPDATE_DATE", "ISDN_NO", "CUSTOMER_CODE", "AREA_CODE", "OWNER_NAME", "OWNER_EMAIL", "USE_FLAG", "CHANNEL", "REG_ID", "CREATE_USER", "UPDATE_USER", "SHOP_TYPE" });
 
-                //3. TB_CM_MODEL_CAT
-                var model_cat_list = OracleDataHelper.GetNoTransfer<TB_CM_MODEL_CAT>(table_pre + "TB_CM_MODEL_CAT", "SO_TRANSFER_FLAG");
-                Synchronize<TB_CM_MODEL_CAT, LGService.TB_CM_MODEL_CAT>(model_cat_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "PROD_L1", "MODEL", "CREATE_DATE", "SUFFIX", "MP_MODEL", "MP_SUFFIX", "ACTIVE_CODE", "SALE_FLAG", "PROD_L2", "PROD_L3", "PROD_L4", "TENTATIVE_FLAG", "MODEL_SPEC", "PUR_TYPE", "ENABLE_FLAG", "LAST_UPDATE_DATE", "UNIT", "AU_CODE", "AF_CODE", "EOM", "PROD_TYPE", "MKT", "IF_DATE" });
+                ////3. TB_CM_MODEL_CAT
+                //var model_cat_list = OracleDataHelper.GetNoTransfer<TB_CM_MODEL_CAT>(table_pre + "TB_CM_MODEL_CAT", "SO_TRANSFER_FLAG");
+                //Synchronize<TB_CM_MODEL_CAT, LGService.TB_CM_MODEL_CAT>(model_cat_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "PROD_L1", "MODEL", "CREATE_DATE", "SUFFIX", "MP_MODEL", "MP_SUFFIX", "ACTIVE_CODE", "SALE_FLAG", "PROD_L2", "PROD_L3", "PROD_L4", "TENTATIVE_FLAG", "MODEL_SPEC", "PUR_TYPE", "ENABLE_FLAG", "LAST_UPDATE_DATE", "UNIT", "AU_CODE", "AF_CODE", "EOM", "PROD_TYPE", "MKT", "IF_DATE" });
 
-                //4. Get All uncheck Client
-                var cm_mrp_list = OracleDataHelper.GetNoTransfer<TB_CM_MRP>(table_pre + "TB_CM_MRP", "SO_TRANSFER_FLAG");
-                Synchronize<TB_CM_MRP, LGService.TB_CM_MRP>(cm_mrp_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "MODEL", "MRP", "CREATE_DATE" });
+                ////4. Get All uncheck Client
+                //var cm_mrp_list = OracleDataHelper.GetNoTransfer<TB_CM_MRP>(table_pre + "TB_CM_MRP", "SO_TRANSFER_FLAG");
+                //Synchronize<TB_CM_MRP, LGService.TB_CM_MRP>(cm_mrp_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "MODEL", "MRP", "CREATE_DATE" });
 
-                //5. TB_CM_PROVINCE
-                var cm_province_list = OracleDataHelper.GetNoTransfer<TB_CM_PROVINCE>(table_pre + "TB_CM_PROVINCE", "SO_TRANSFER_FLAG");
-                Synchronize<TB_CM_PROVINCE, LGService.TB_CM_PROVINCE>(cm_province_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", "ID");
+                ////5. TB_CM_PROVINCE
+                //var cm_province_list = OracleDataHelper.GetNoTransfer<TB_CM_PROVINCE>(table_pre + "TB_CM_PROVINCE", "SO_TRANSFER_FLAG");
+                //Synchronize<TB_CM_PROVINCE, LGService.TB_CM_PROVINCE>(cm_province_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", "ID");
 
-                //6. TB_CM_REGION
-                var cm_region_list = OracleDataHelper.GetNoTransfer<TB_CM_REGION>(table_pre + "TB_CM_REGION", "SO_TRANSFER_FLAG");
-                Synchronize<TB_CM_REGION, LGService.TB_CM_REGION>(cm_region_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", "ID");
+                ////6. TB_CM_REGION
+                //var cm_region_list = OracleDataHelper.GetNoTransfer<TB_CM_REGION>(table_pre + "TB_CM_REGION", "SO_TRANSFER_FLAG");
+                //Synchronize<TB_CM_REGION, LGService.TB_CM_REGION>(cm_region_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", "ID");
 
-                //7. TB_CM_SHOP_BILLTO
-                var cm_shop_list = OracleDataHelper.GetNoTransfer<TB_CM_SHOP_BILLTO>(table_pre + "TB_CM_SHOP_BILLTO", "SO_TRANSFER_FLAG");
-                Synchronize<TB_CM_SHOP_BILLTO, LGService.TB_CM_SHOP_BILLTO>(cm_shop_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "BILLTO_CODE", "SHOP_CODE", "CREATE_DATE", "MODIFY_DATE", "CREATE_USER", "MODIFY_USER", "USE_FLAG" });
+                ////7. TB_CM_SHOP_BILLTO
+                //var cm_shop_list = OracleDataHelper.GetNoTransfer<TB_CM_SHOP_BILLTO>(table_pre + "TB_CM_SHOP_BILLTO", "SO_TRANSFER_FLAG");
+                //Synchronize<TB_CM_SHOP_BILLTO, LGService.TB_CM_SHOP_BILLTO>(cm_shop_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "BILLTO_CODE", "SHOP_CODE", "CREATE_DATE", "MODIFY_DATE", "CREATE_USER", "MODIFY_USER", "USE_FLAG" });
 
-                //8. TB_CM_SHOP_CELL
-                var cm_cell_list = OracleDataHelper.GetNoTransfer<TB_CM_SHOP_CELL>(table_pre + "TB_CM_SHOP_CELL", "SO_TRANSFER_FLAG");
-                Synchronize<TB_CM_SHOP_CELL, LGService.TB_CM_SHOP_CELL>(cm_cell_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", "SHOP_CELL");
+                ////8. TB_CM_SHOP_CELL
+                //var cm_cell_list = OracleDataHelper.GetNoTransfer<TB_CM_SHOP_CELL>(table_pre + "TB_CM_SHOP_CELL", "SO_TRANSFER_FLAG");
+                //Synchronize<TB_CM_SHOP_CELL, LGService.TB_CM_SHOP_CELL>(cm_cell_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", "SHOP_CELL");
 
-                //9. TB_CM_SHOP_INF
-                var cm_inf_list = OracleDataHelper.GetNoTransfer<TB_CM_SHOP_INF>(table_pre + "TB_CM_SHOP_INF", "SO_TRANSFER_FLAG");
-                Synchronize<TB_CM_SHOP_INF, LGService.TB_CM_SHOP_INF>(cm_inf_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", "SHOP_CODE");
+                ////9. TB_CM_SHOP_INF
+                //var cm_inf_list = OracleDataHelper.GetNoTransfer<TB_CM_SHOP_INF>(table_pre + "TB_CM_SHOP_INF", "SO_TRANSFER_FLAG");
+                //Synchronize<TB_CM_SHOP_INF, LGService.TB_CM_SHOP_INF>(cm_inf_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", "SHOP_CODE");
 
-                #region 2014.07.16 - HopDT need comment this lines
-                ////10. TB_MO_HIST
-                //var cm_mo_list = OracleDataHelper.GetNoTransfer<TB_MO_HIST>(table_pre + "TB_MO_HIST", "SO_TRANSFER_FLAG");
-                //Synchronize<TB_MO_HIST, LGService.TB_MO_HIST>(cm_mo_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SHORTCODE", "MOSEQ", "CMDCODE", "MSGBODY", "RECEIVE_TIME", "FILENAME", "FILEDATE", "TRANSFER_FLAG", "TRANSFER_DATE" });
+                //#region 2014.07.16 - HopDT need comment this lines
+                //////10. TB_MO_HIST
+                ////var cm_mo_list = OracleDataHelper.GetNoTransfer<TB_MO_HIST>(table_pre + "TB_MO_HIST", "SO_TRANSFER_FLAG");
+                ////Synchronize<TB_MO_HIST, LGService.TB_MO_HIST>(cm_mo_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SHORTCODE", "MOSEQ", "CMDCODE", "MSGBODY", "RECEIVE_TIME", "FILENAME", "FILEDATE", "TRANSFER_FLAG", "TRANSFER_DATE" });
 
-                ////11. TB_MT_HIST
-                //var cm_mt_list = OracleDataHelper.GetNoTransfer<TB_MT_HIST>(table_pre + "TB_MT_HIST", "SO_TRANSFER_FLAG");
-                //Synchronize<TB_MT_HIST, LGService.TB_MT_HIST>(cm_mt_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "MOSEQ", "SHORTCODE", "CELL_NO", "MSGBODY", "MSGTYPE", "SEND_FLAG", "CMDCODE" });
-                #endregion
+                //////11. TB_MT_HIST
+                ////var cm_mt_list = OracleDataHelper.GetNoTransfer<TB_MT_HIST>(table_pre + "TB_MT_HIST", "SO_TRANSFER_FLAG");
+                ////Synchronize<TB_MT_HIST, LGService.TB_MT_HIST>(cm_mt_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "MOSEQ", "SHORTCODE", "CELL_NO", "MSGBODY", "MSGTYPE", "SEND_FLAG", "CMDCODE" });
+                //#endregion
 
-                //12. TB_MT_SMS_RESP_MSG
-                var cm_sms_list = OracleDataHelper.GetNoTransfer<TB_MT_SMS_RESP_MSG>(table_pre + "TB_MT_SMS_RESP_MSG", "SO_TRANSFER_FLAG");
-                Synchronize<TB_MT_SMS_RESP_MSG, LGService.TB_MT_SMS_RESP_MSG>(cm_sms_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", "RESP_TYPE");
+                ////12. TB_MT_SMS_RESP_MSG
+                //var cm_sms_list = OracleDataHelper.GetNoTransfer<TB_MT_SMS_RESP_MSG>(table_pre + "TB_MT_SMS_RESP_MSG", "SO_TRANSFER_FLAG");
+                //Synchronize<TB_MT_SMS_RESP_MSG, LGService.TB_MT_SMS_RESP_MSG>(cm_sms_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", "RESP_TYPE");
 
-                //13. TB_ORDER_SHIP_HIST
-                var cm_ship_list = OracleDataHelper.GetNoTransfer<TB_ORDER_SHIP_HIST>(table_pre + "TB_ORDER_SHIP_HIST", "SO_TRANSFER_FLAG");
-                Synchronize<TB_ORDER_SHIP_HIST, LGService.TB_ORDER_SHIP_HIST>(cm_ship_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "INV_ORG", "SHIPTO_CODE", "ORDER_NO", "LINE_NO", "ORDER_QTY", "RELEASE_QTY", "REQUEST_ARRIVAL_DATE", "MODEL", "SUFFIX" });
+                ////13. TB_ORDER_SHIP_HIST
+                //var cm_ship_list = OracleDataHelper.GetNoTransfer<TB_ORDER_SHIP_HIST>(table_pre + "TB_ORDER_SHIP_HIST", "SO_TRANSFER_FLAG");
+                //Synchronize<TB_ORDER_SHIP_HIST, LGService.TB_ORDER_SHIP_HIST>(cm_ship_list, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "INV_ORG", "SHIPTO_CODE", "ORDER_NO", "LINE_NO", "ORDER_QTY", "RELEASE_QTY", "REQUEST_ARRIVAL_DATE", "MODEL", "SUFFIX" });
 
-                //14. TB_SN_CDC_HIST
-                var list14 = OracleDataHelper.GetNoTransfer<TB_SN_CDC_HIST>(table_pre + "TB_SN_CDC_HIST", "SO_TRANSFER_FLAG");
-                Synchronize<TB_SN_CDC_HIST, LGService.TB_SN_CDC_HIST>(list14, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "INV_ORG", "ORDER_NO", "SHIPTO_CODE", "MODEL", "SERIAL_NO", "SUFFIX" });
+                ////14. TB_SN_CDC_HIST
+                //var list14 = OracleDataHelper.GetNoTransfer<TB_SN_CDC_HIST>(table_pre + "TB_SN_CDC_HIST", "SO_TRANSFER_FLAG");
+                //Synchronize<TB_SN_CDC_HIST, LGService.TB_SN_CDC_HIST>(list14, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "INV_ORG", "ORDER_NO", "SHIPTO_CODE", "MODEL", "SERIAL_NO", "SUFFIX" });
 
-                //15. TB_SN_PND_HIST
-                var list15 = OracleDataHelper.GetNoTransfer<TB_SN_PND_HIST>(table_pre + "TB_SN_PND_HIST", "SO_TRANSFER_FLAG");
-                Synchronize<TB_SN_PND_HIST, LGService.TB_SN_PND_HIST>(list15, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SERIAL_NO", "PND_TYPE" });
+                ////15. TB_SN_PND_HIST
+                //var list15 = OracleDataHelper.GetNoTransfer<TB_SN_PND_HIST>(table_pre + "TB_SN_PND_HIST", "SO_TRANSFER_FLAG");
+                //Synchronize<TB_SN_PND_HIST, LGService.TB_SN_PND_HIST>(list15, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SERIAL_NO", "PND_TYPE" });
 
-                //16. TB_SN_RDC_HIST
-                var list16 = OracleDataHelper.GetNoTransfer<TB_SN_RDC_HIST>(table_pre + "TB_SN_RDC_HIST", "SO_TRANSFER_FLAG");
-                Synchronize<TB_SN_RDC_HIST, LGService.TB_SN_RDC_HIST>(list16, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "INV_ORG", "EDI_NO", "SERIAL_NO", "MODEL", "SUFFIX", "OUT_DATE" });
+                ////16. TB_SN_RDC_HIST
+                //var list16 = OracleDataHelper.GetNoTransfer<TB_SN_RDC_HIST>(table_pre + "TB_SN_RDC_HIST", "SO_TRANSFER_FLAG");
+                //Synchronize<TB_SN_RDC_HIST, LGService.TB_SN_RDC_HIST>(list16, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "INV_ORG", "EDI_NO", "SERIAL_NO", "MODEL", "SUFFIX", "OUT_DATE" });
 
-                //17. TB_SN_SO_WT_HIST
-                var list17 = OracleDataHelper.GetNoTransfer<TB_SN_SO_WT_HIST>(table_pre + "TB_SN_SO_WT_HIST", "SO_TRANSFER_FLAG");
-                Synchronize<TB_SN_SO_WT_HIST, LGService.TB_SN_SO_WT_HIST>(list17, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SERIAL_NO", "MODEL", "END_USER_CELL", "SHOP_CODE", "SHOP_CELL", "RECEIVE_DATE", "MOSEQ", "CMDCODE", "RESP_TYPE", "RESP_MSG", "MO_MSGBODY", "SMS_YN", "CREATE_DATE", "SUCCESS_FLAG", "EDI_FILE", "EDI_HEAD" });
+                ////17. TB_SN_SO_WT_HIST
+                //var list17 = OracleDataHelper.GetNoTransfer<TB_SN_SO_WT_HIST>(table_pre + "TB_SN_SO_WT_HIST", "SO_TRANSFER_FLAG");
+                //Synchronize<TB_SN_SO_WT_HIST, LGService.TB_SN_SO_WT_HIST>(list17, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SERIAL_NO", "MODEL", "END_USER_CELL", "SHOP_CODE", "SHOP_CELL", "RECEIVE_DATE", "MOSEQ", "CMDCODE", "RESP_TYPE", "RESP_MSG", "MO_MSGBODY", "SMS_YN", "CREATE_DATE", "SUCCESS_FLAG", "EDI_FILE", "EDI_HEAD" });
 
-                //18. TB_SN_SO_WT_MST
-                var list18 = OracleDataHelper.GetNoTransfer<TB_SN_SO_WT_MST>(table_pre + "TB_SN_SO_WT_MST", "SO_TRANSFER_FLAG");
-                Synchronize<TB_SN_SO_WT_MST, LGService.TB_SN_SO_WT_MST>(list18, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SERIAL_NO", "SELLIN_DATE", "SELLOUT_DATE", "WT_START_DATE", "WT_END_DATE", "SHOP_CODE", "SHOP_CELL", "SELLOUT_RESP_MSG", "POINT", "AMT", "SELLOUT_RESP_TYPE", "SELLOUT_TIME", "INCENTIVE_CFM_FLAG", "INCENTIVE_CFM_DATE", "MODEL", "SUFFIX", "CLOSE_FLAG", "CLOSE_PERIOD", "SMS_YN", "CREATE_DATE", "INCENTIVE_CFM_USER", "CLOSE_USER", "INCENTIVE_CFM_PERIOD", "LAST_UPDATE_DATE", "END_USER_CELL", "TRANSFER_FLAG", "TRANSFER_DATE" });
+                ////18. TB_SN_SO_WT_MST
+                //var list18 = OracleDataHelper.GetNoTransfer<TB_SN_SO_WT_MST>(table_pre + "TB_SN_SO_WT_MST", "SO_TRANSFER_FLAG");
+                //Synchronize<TB_SN_SO_WT_MST, LGService.TB_SN_SO_WT_MST>(list18, "SO_TRANSFER_FLAG", "SO_TRANSFER_DATE", new string[] { "SERIAL_NO", "SELLIN_DATE", "SELLOUT_DATE", "WT_START_DATE", "WT_END_DATE", "SHOP_CODE", "SHOP_CELL", "SELLOUT_RESP_MSG", "POINT", "AMT", "SELLOUT_RESP_TYPE", "SELLOUT_TIME", "INCENTIVE_CFM_FLAG", "INCENTIVE_CFM_DATE", "MODEL", "SUFFIX", "CLOSE_FLAG", "CLOSE_PERIOD", "SMS_YN", "CREATE_DATE", "INCENTIVE_CFM_USER", "CLOSE_USER", "INCENTIVE_CFM_PERIOD", "LAST_UPDATE_DATE", "END_USER_CELL", "TRANSFER_FLAG", "TRANSFER_DATE" });
 
 
-                //19. TB_SN_SO_WT_MST0
-                var list19 = OracleDataHelper.GetNoTransfer<TB_SN_SO_WT_MST0>(table_pre + "TB_SN_SO_WT_MST0", "TRANSFER_FLAG");
-                Synchronize<TB_SN_SO_WT_MST0, LGService.TB_SN_SO_WT_MST0>(list19, "TRANSFER_FLAG", "TRANSFER_DATE", new string[] { "MODEL", "SUFFIX", "SERIAL_NO", "WT_START_DATE", "WT_END_DATE", "END_USER_CELL", "WT_RESP_MSG", "WT_RESP_TYPE", "SMS_YN", "CREATE_DATE", "WT_CFM_USER", "LAST_UPDATE_DATE", "SELLIN_DATE", "SELLOUT_DATE", "SELLOUT_TIME" });
+                ////19. TB_SN_SO_WT_MST0
+                //var list19 = OracleDataHelper.GetNoTransfer<TB_SN_SO_WT_MST0>(table_pre + "TB_SN_SO_WT_MST0", "TRANSFER_FLAG");
+                //Synchronize<TB_SN_SO_WT_MST0, LGService.TB_SN_SO_WT_MST0>(list19, "TRANSFER_FLAG", "TRANSFER_DATE", new string[] { "MODEL", "SUFFIX", "SERIAL_NO", "WT_START_DATE", "WT_END_DATE", "END_USER_CELL", "WT_RESP_MSG", "WT_RESP_TYPE", "SMS_YN", "CREATE_DATE", "WT_CFM_USER", "LAST_UPDATE_DATE", "SELLIN_DATE", "SELLOUT_DATE", "SELLOUT_TIME" });
 
 
                 //---------------------------------------------------------------------------------------------------------------
@@ -176,13 +176,20 @@ namespace LGEVN.Client.Console
                     {
                         bool id = OracleDataHelper.InsertEntity<TB_SN_SO_WT_MST>(entity, "TB_SN_SO_WT_MST");
                         if (id)
-                        {
-                            service.UPDATE_TB_SN_SO_WT_MST(item, "LGEVNA", "123456@Lg!hieunk");
+                        { 
                             OracleDataHelper.ExecuteQuery("update tb_sn_rdc_hist set sellout_status='Y' where \"MODEL\"=:p_MODEL and serial_no=:p_SERIAL_NO", new OracleParameter[]
                                 {
                                     new OracleParameter("p_MODEL", model),
                                     new OracleParameter("p_SERIAL_NO", serial_no)
                                 });
+
+                            OracleDataHelper.ExecuteQuery("update tb_sn_cdc_hist set SELLOUT_FLAG='Y' where \"MODEL\"=:p_MODEL and serial_no=:p_SERIAL_NO", new OracleParameter[]
+                                {
+                                    new OracleParameter("p_MODEL", model),
+                                    new OracleParameter("p_SERIAL_NO", serial_no)
+                                });
+
+                            service.UPDATE_TB_SN_SO_WT_MST(item, "LGEVNA", "123456@Lg!hieunk");
                         }
                     }
                     else if (myTypeS.Name.ToUpper() == "TB_SN_SO_WT_HIST")
