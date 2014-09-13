@@ -335,5 +335,31 @@ namespace LGEVN.Client.Console
             }
             return true;
         }
+
+        public static int ExecuteQuery(string query_text, params OracleParameter[] parameters) //where TEntity : class
+        {
+            int result = -1;
+            using (var conn = new OracleConnection())
+            {
+                conn.ConnectionString = ConnectionString;
+                conn.Open();
+                using (var command = conn.CreateCommand())
+                {
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = query_text;
+                    if (parameters != null)
+                    {
+                        foreach (OracleParameter param in parameters)
+                        {
+                            if (param.Value == null) param.Value = System.DBNull.Value;
+                            command.Parameters.AddWithValue(param.ParameterName, param.Value);
+                        }
+                    }
+                    result = command.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+            return result;
+        }
     }
 }

@@ -158,19 +158,32 @@ namespace LGEVN.Client.Console
                     //2. Insert to server (with checked existing)
                     List<string> linesPrint = new List<string>();
                     var entity = Activator.CreateInstance(myTypeD);
+                    string serial_no = string.Empty, model = string.Empty;
+
                     foreach (var infD in propD)
                     {
                         object valueS = null;
                         if (dictS.ContainsKey(infD.Name)) valueS = dictS[infD.Name].GetValue(item, null);
                         infD.SetValue(entity, valueS, null);
                         linesPrint.Add(infD.Name.PadRight(20) + " = " + (valueS == null ? "''" : valueS.ToString()));
+
+                        if (infD.Name.ToUpper() == "MODEL" && valueS != null) model = valueS.ToString();
+                        else if (infD.Name.ToUpper() == "SERIAL_NO" && valueS != null) serial_no = valueS.ToString();
                     }
 
                     //3. Update flag to Client 
                     if (myTypeS.Name.ToUpper() == "TB_SN_SO_WT_MST")
                     {
                         bool id = OracleDataHelper.InsertEntity<TB_SN_SO_WT_MST>(entity, "TB_SN_SO_WT_MST");
-                        if (id) service.UPDATE_TB_SN_SO_WT_MST(item, "LGEVNA", "123456@Lg!hieunk");
+                        if (id)
+                        {
+                            service.UPDATE_TB_SN_SO_WT_MST(item, "LGEVNA", "123456@Lg!hieunk");
+                            OracleDataHelper.ExecuteQuery("update tb_sn_rdc_hist set sellout_status='Y' where \"MODEL\"=:p_MODEL and serial_no=:p_SERIAL_NO", new OracleParameter[]
+                                {
+                                    new OracleParameter("p_MODEL", model),
+                                    new OracleParameter("p_SERIAL_NO", serial_no)
+                                });
+                        }
                     }
                     else if (myTypeS.Name.ToUpper() == "TB_SN_SO_WT_HIST")
                     {
