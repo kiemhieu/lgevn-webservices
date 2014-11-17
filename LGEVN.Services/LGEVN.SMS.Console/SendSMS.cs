@@ -33,7 +33,7 @@ namespace LGEVN.SMS.Console
                                     ",mtseqref " +
                                     ",cpid" +
                                     " FROM  tb_mt_hist " +
-                                    " WHERE send_flag  ='N'";
+                                    " WHERE send_flag  ='N' AND ROWNUM <=100";
                 var oradbConnection = new OracleConnection(connstring);
                 var sqlcmd = new OracleCommand(sql, oradbConnection);
                 var _dataAdapter = new OracleDataAdapter();
@@ -44,8 +44,8 @@ namespace LGEVN.SMS.Console
                 sql = string.Empty;
 
                 int count = (_dataTable.Rows == null ? 0 : _dataTable.Rows.Count);
-                Task[] tasks = new Task[] { };
-                if (count > 0) Array.Resize(ref tasks, count);
+                //Task[] tasks = new Task[] { };
+                //if (count > 0) Array.Resize(ref tasks, count);
                 int index = 0;
                 for (index = 0; index < count; index++ )
                 {
